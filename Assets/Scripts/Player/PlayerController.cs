@@ -31,9 +31,23 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Rotate();
+        Animation();
         Jump();
     }
+    private void Animation()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
+        if (!(horizontal == 0 && vertical == 0))
+        {
+            anim.SetBool("isRun", true);
+        }
+        else 
+        {
+            anim.SetBool("isRun", false);
+        }
+    }
 
     private void Move()
     {
