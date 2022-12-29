@@ -51,10 +51,15 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        Vector3 moveInput = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
-        
+        Vector3 fowardVec = new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized;
+        Vector3 rightVec = new Vector3(Camera.main.transform.right.x, 0f, Camera.main.transform.right.z).normalized;
 
-        controller.Move(moveInput * moveSpeed * Time.deltaTime);
+        Vector3 moveInput = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
+        if (moveInput.sqrMagnitude > 1f) moveInput.Normalize();
+
+        Vector3 moveVec = fowardVec * moveInput.z + rightVec * moveInput.x;
+
+        controller.Move(moveVec * moveSpeed * Time.deltaTime);
     }
 
     private void Jump()
