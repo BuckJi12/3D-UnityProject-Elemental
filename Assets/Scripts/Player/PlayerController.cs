@@ -6,16 +6,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
+    private Animator anim;
 
     [SerializeField]
     private float moveSpeed;
     [SerializeField]
     private float jumpPower;
+    [SerializeField]
+    private float rotateSpeed;
     private float moveY;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -26,13 +30,15 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Move();
+        Rotate();
         Jump();
     }
+
 
     private void Move()
     {
         Vector3 moveInput = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
-
+        
 
         controller.Move(moveInput * moveSpeed * Time.deltaTime);
     }
@@ -51,5 +57,18 @@ public class PlayerController : MonoBehaviour
         }
 
         controller.Move(Vector3.up * moveY * Time.deltaTime);
+    }
+
+    private void Rotate()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 dir = new Vector3(horizontal, 0, vertical);
+
+        if (!(horizontal == 0 && vertical == 0))
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime * rotateSpeed);
+        }
     }
 }
