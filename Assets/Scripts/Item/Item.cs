@@ -7,5 +7,8 @@ public class Item : MonoBehaviour
     [SerializeField]
     private ScriptableObject data;
 
-
+    public void Pick(PlayerColliders collider)
+    {
+        Destroy(gameObject);
+    }
 }
