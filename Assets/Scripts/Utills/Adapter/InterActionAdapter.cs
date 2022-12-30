@@ -9,7 +9,7 @@ public class InterActionAdapter : MonoBehaviour, IInterActionable
 
     public void InterAction(PlayerColliders collider)
     {
-            OnInterAction?.Invoke(collider);
+        OnInterAction?.Invoke(collider);
     }
 }
 

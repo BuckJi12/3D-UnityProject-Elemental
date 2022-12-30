@@ -8,6 +8,8 @@ public class PlayerColliders : MonoBehaviour
     private float interActionRange;
     [SerializeField]
     private bool interActionGizmos;
+    [SerializeField]
+    private LayerMask layer;
 
     private void Update()
     {
@@ -16,9 +18,12 @@ public class PlayerColliders : MonoBehaviour
 
     private void InterAction()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, interActionRange);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, interActionRange, layer);
         
         if (colliders == null)
+            return;
+
+        if (colliders.Length < 1)
             return;
 
         IInterActionable target = colliders[0].GetComponent<IInterActionable>();

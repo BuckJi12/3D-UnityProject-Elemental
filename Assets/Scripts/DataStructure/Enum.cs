@@ -8,3 +8,10 @@ public enum ItemKind
     UsableItem,
     Materialitem
 }
+
+public enum EquipmentKind
+{
+    Weapon,
+    Armor,
+    Accessory
+}
