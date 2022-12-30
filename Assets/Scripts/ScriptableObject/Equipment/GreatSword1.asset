@@ -15,6 +15,7 @@ MonoBehaviour:
   name: "\uB300\uAC80"
   description: "\uAE30\uBCF8\uC801\uC778 \uB300\uAC80\uC774\uB2E4."
   kind: 0
+  equipKind: 0
   cost: 500
   damage: 10
-  prefab: {fileID: 7026054431686968095, guid: e0a749ef8e088ae4badbe825e846a65c, type: 3}
+  prefab: {fileID: 63881371986470003, guid: 3f454fbd6af7ef04387f207096d69cc3, type: 3}
