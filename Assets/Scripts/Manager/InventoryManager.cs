@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-enum UIState
+public enum UIState
 {
     Equipment,
     Usable,

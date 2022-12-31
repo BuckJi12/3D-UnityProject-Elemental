@@ -12,4 +12,5 @@ public class ItemData : ScriptableObject
     public int cost;
 
     public GameObject prefab;
+    public Sprite itemIcon;
 }
