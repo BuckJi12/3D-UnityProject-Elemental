@@ -4,52 +4,56 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
-    private InventorySlot[] inventoryUnits;
+    private InventorySlot[] inventorySlots;
 
+    private void Awake()
+    {
+        inventorySlots = GetComponentsInChildren<InventorySlot>();
+    }
     public void UpdateUI(UIState state)
     {
-        inventoryUnits = GetComponentsInChildren<InventorySlot>();
+        inventorySlots = GetComponentsInChildren<InventorySlot>();
         if (state == UIState.Equipment)
         {
-            for (int i = 0; i < inventoryUnits.Length; i++)
+            for (int i = 0; i < inventorySlots.Length; i++)
             {
                 if (i < InventoryManager.Instance.equiments.Count)
                 {
-                    inventoryUnits[i].OnItem(InventoryManager.Instance.equiments[i]);
+                    inventorySlots[i].OnItem(InventoryManager.Instance.equiments[i]);
                 }
                 else
                 {
-                    inventoryUnits[i].NoItem();
+                    inventorySlots[i].NoItem();
                 }
             }
         }
 
         else if (state == UIState.Usable)
         {
-            for (int i = 0; i < inventoryUnits.Length; i++)
+            for (int i = 0; i < inventorySlots.Length; i++)
             {
                 if (i < InventoryManager.Instance.usables.Count)
                 {
-                    inventoryUnits[i].OnItem(InventoryManager.Instance.usables[i]);
+                    inventorySlots[i].OnItem(InventoryManager.Instance.usables[i]);
                 }
                 else
                 {
-                    inventoryUnits[i].NoItem();
+                    inventorySlots[i].NoItem();
                 }
             }
         }
 
         else 
         {
-            for (int i = 0; i < inventoryUnits.Length; i++)
+            for (int i = 0; i < inventorySlots.Length; i++)
             {
                 if (i < InventoryManager.Instance.materials.Count)
                 {
-                    inventoryUnits[i].OnItem(InventoryManager.Instance.materials[i]);
+                    inventorySlots[i].OnItem(InventoryManager.Instance.materials[i]);
                 }
                 else
                 {
-                    inventoryUnits[i].NoItem();
+                    inventorySlots[i].NoItem();
                 }
             }
         }

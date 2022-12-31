@@ -11,6 +11,7 @@ public class InventorySlot : MonoBehaviour
 
     public void OnItem(InventoryItem inventoryItem)
     {
+        itemIcon.gameObject.SetActive(true);
         itemIcon.sprite = inventoryItem.data.itemIcon;
     }
 
