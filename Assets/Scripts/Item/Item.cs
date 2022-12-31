@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField]
-    private ScriptableObject data;
+    public ItemData data;
 
     public void Pick(PlayerColliders collider)
     {
+        InventoryManager.Instance.AddItem(this);
+
         Destroy(gameObject);
     }
 }

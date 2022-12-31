@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryItem : MonoBehaviour
 {
-    public ScriptableObject data;
+    public ItemData data;
 
     public void Use()
     {
