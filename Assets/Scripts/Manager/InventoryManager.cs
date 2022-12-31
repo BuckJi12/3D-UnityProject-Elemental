@@ -81,14 +81,17 @@ public class InventoryManager : SingleTon<InventoryManager>
         if (inventoryItem.data.kind == ItemKind.Equipment)
         {
             equiments.Add(inventoryItem);
+            equipmentUI.UpdateUI(UIState.Equipment);
         }
         else if (inventoryItem.data.kind == ItemKind.UsableItem)
         {
             usables.Add(inventoryItem);
+            usableUI.UpdateUI(UIState.Usable);
         }
         else 
         {
             materials.Add(inventoryItem);
+            materialUI.UpdateUI(UIState.Material);
         }
     }
 

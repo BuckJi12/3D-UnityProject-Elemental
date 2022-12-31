@@ -15,11 +15,11 @@ public class InventoryUI : MonoBehaviour
             {
                 if (i < InventoryManager.Instance.equiments.Count)
                 {
-                    //inventoryUnits[i].AddItem(InventoryManager.Instance.equiments[i]);
+                    inventoryUnits[i].OnItem(InventoryManager.Instance.equiments[i]);
                 }
                 else
                 {
-                    //inventoryUnits[i].RemoveItem();
+                    inventoryUnits[i].NoItem();
                 }
             }
         }
@@ -30,11 +30,11 @@ public class InventoryUI : MonoBehaviour
             {
                 if (i < InventoryManager.Instance.usables.Count)
                 {
-                    //inventoryUnits[i].AddItem(InventoryManager.Instance.usables[i]);
+                    inventoryUnits[i].OnItem(InventoryManager.Instance.usables[i]);
                 }
                 else
                 {
-                    //inventoryUnits[i].RemoveItem();
+                    inventoryUnits[i].NoItem();
                 }
             }
         }
@@ -45,11 +45,11 @@ public class InventoryUI : MonoBehaviour
             {
                 if (i < InventoryManager.Instance.materials.Count)
                 {
-                    //inventoryUnits[i].AddItem(InventoryManager.Instance.materials[i]);
+                    inventoryUnits[i].OnItem(InventoryManager.Instance.materials[i]);
                 }
                 else
                 {
-                    //inventoryUnits[i].RemoveItem();
+                    inventoryUnits[i].NoItem();
                 }
             }
         }
