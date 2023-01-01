@@ -11,12 +11,12 @@ public enum ItemKind
 
 public enum EquipmentKind
 {
+    Accessory,
     Weapon,
     Head,
     Chest,
     Legs,
     Feet,
-    Accessory,
     None
 }
 
