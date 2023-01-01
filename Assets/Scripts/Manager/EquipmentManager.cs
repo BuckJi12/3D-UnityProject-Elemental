@@ -47,7 +47,10 @@ public class EquipmentManager : SingleTon<EquipmentManager>
         equips.Add(item.data.equipKind, item);
 
         if (item.data.equipKind == EquipmentKind.Weapon)
+        {
+            ResourceManager.Instance.TakeResource(item);
             isWeaponEquip = true;
+        }
 
         updateUI?.Invoke();
     }
@@ -55,7 +58,10 @@ public class EquipmentManager : SingleTon<EquipmentManager>
     public void UnEquip(InventoryItem item)
     {
         if (item.data.equipKind == EquipmentKind.Weapon)
+        {
             isWeaponEquip = false;
+            ResourceManager.Instance.RemoveResource(item);
+        }
 
         InventoryManager.Instance.AddItem(item);
         equips.Remove(item.data.equipKind);

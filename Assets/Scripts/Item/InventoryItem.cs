@@ -13,7 +13,6 @@ public class InventoryItem : MonoBehaviour
         
         if (data.kind == ItemKind.Equipment)
         {
-            Debug.Log("전 발동함ㅋㅋ");
             EquipmentManager.Instance.Equip(this);
             InventoryManager.Instance.RemoveItem(this);
         }

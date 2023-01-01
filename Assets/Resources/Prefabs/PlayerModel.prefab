@@ -1726,7 +1726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6340780473809992312}
   m_Layer: 0
-  m_Name: Prop_R
+  m_Name: WeaponPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
