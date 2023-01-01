@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour
+public class InventorySlot : MonoBehaviour, IDropHandler
 {
     [SerializeField]
     private Image itemIcon;
@@ -17,6 +18,17 @@ public class InventorySlot : MonoBehaviour
 
     public void NoItem()
     {
-        itemIcon.gameObject.SetActive(false);
+        itemIcon.sprite = null;
+        itemIcon.enabled = false;
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (transform.childCount <= 1)
+        {
+        GameObject dropItem = eventData.pointerDrag;
+        DraggableItem draggableItem = dropItem.GetComponent<DraggableItem>();
+        draggableItem.afterDraw = transform;
+        }
     }
 }

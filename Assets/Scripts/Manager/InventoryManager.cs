@@ -73,11 +73,8 @@ public class InventoryManager : SingleTon<InventoryManager>
         }
     }
 
-    public void AddItem(Item item)
+    public void AddItem(InventoryItem inventoryItem)
     {
-        InventoryItem inventoryItem = new InventoryItem();
-        inventoryItem.data = item.data;
-
         if (inventoryItem.data.kind == ItemKind.Equipment)
         {
             equiments.Add(inventoryItem);

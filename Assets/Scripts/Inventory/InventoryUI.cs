@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
-    private InventorySlot[] inventorySlots;
+    [HideInInspector]
+    public InventorySlot[] inventorySlots;
 
     private void Awake()
     {
@@ -43,7 +44,7 @@ public class InventoryUI : MonoBehaviour
             }
         }
 
-        else 
+        else
         {
             for (int i = 0; i < inventorySlots.Length; i++)
             {

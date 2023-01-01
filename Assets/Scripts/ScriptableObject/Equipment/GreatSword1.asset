@@ -15,6 +15,7 @@ MonoBehaviour:
   name: "\uB300\uAC80"
   description: "\uAE30\uBCF8\uC801\uC778 \uB300\uAC80\uC774\uB2E4."
   kind: 0
+  equipKind: 1
   count: 0
   cost: 500
   prefab: {fileID: 63881371986470003, guid: 3f454fbd6af7ef04387f207096d69cc3, type: 3}
