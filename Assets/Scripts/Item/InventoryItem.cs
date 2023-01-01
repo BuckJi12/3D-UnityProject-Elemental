@@ -13,7 +13,7 @@ public class InventoryItem : MonoBehaviour
         
         if (data.kind == ItemKind.Equipment)
         {
-            // Àåºñ ÀåÂø
+            EquipmentManager.Instance.Equip(this);
         }
 
         else if (data.kind == ItemKind.UsableItem)
