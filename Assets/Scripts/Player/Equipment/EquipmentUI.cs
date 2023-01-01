@@ -15,6 +15,7 @@ public class EquipmentUI : MonoBehaviour
 
     public void UpdateUI()
     {
+        equipmentSlots = GetComponentsInChildren<EquipmentSlot>();
         for (int i = 0; i < equipmentSlots.Length; i++)
         {
             if (EquipmentManager.Instance.equips.TryGetValue((EquipmentKind)i , out InventoryItem item))

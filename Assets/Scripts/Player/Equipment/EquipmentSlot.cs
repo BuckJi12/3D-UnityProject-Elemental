@@ -4,15 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class EquipmentSlot : MonoBehaviour, IDropHandler
+public class EquipmentSlot : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
     [SerializeField]
     private Image itemIcon;
 
+    private InventoryItem inventoryItem;
+
     public void OnItem(InventoryItem inventoryItem)
     {
         itemIcon.gameObject.SetActive(true);
+        this.inventoryItem = inventoryItem;
         itemIcon.sprite = inventoryItem.data.itemIcon;
+        itemIcon.enabled = true;
     }
 
     public void NoItem()
@@ -28,6 +32,14 @@ public class EquipmentSlot : MonoBehaviour, IDropHandler
             GameObject dropItem = eventData.pointerDrag;
             DraggableItem draggableItem = dropItem.GetComponent<DraggableItem>();
             draggableItem.afterDraw = transform;
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            EquipmentManager.Instance.UnEquip(inventoryItem);
         }
     }
 }

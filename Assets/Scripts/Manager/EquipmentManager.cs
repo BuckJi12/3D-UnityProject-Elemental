@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EquipmentManager : SingleTon<EquipmentManager>
 {
@@ -8,6 +9,8 @@ public class EquipmentManager : SingleTon<EquipmentManager>
 
     [SerializeField]
     private EquipmentUI ui;
+
+    public UnityEvent updateUI;
 
     public bool isWeaponEquip { get; private set; }
 
@@ -45,6 +48,8 @@ public class EquipmentManager : SingleTon<EquipmentManager>
 
         if (item.data.equipKind == EquipmentKind.Weapon)
             isWeaponEquip = true;
+
+        updateUI?.Invoke();
     }
 
     public void UnEquip(InventoryItem item)
@@ -54,5 +59,7 @@ public class EquipmentManager : SingleTon<EquipmentManager>
 
         InventoryManager.Instance.AddItem(item);
         equips.Remove(item.data.equipKind);
+
+        updateUI?.Invoke();
     }
 }
