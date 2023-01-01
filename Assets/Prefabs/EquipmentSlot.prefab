@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2007162489279124205}
   - component: {fileID: 1822602368397740567}
   - component: {fileID: 8645812413896970740}
-  - component: {fileID: 1958894435585488376}
   m_Layer: 5
   m_Name: EquipmentSlot
   m_TagString: Untagged
@@ -103,19 +102,6 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &1958894435585488376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5786783494714842124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b453ef59de8a6204f99c18b3cbe3bedb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentSlots: []
 --- !u!1 &6818578395148876989
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7849746273400389365
 RectTransform:
   m_ObjectHideFlags: 0
@@ -150,10 +136,10 @@ RectTransform:
   m_Father: {fileID: 111039085467230533}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 25, y: -25}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &550536821625952143
 CanvasRenderer:
@@ -205,3 +191,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f849f1f8979bab4682beff012791863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemIcon: {fileID: 1945716654593530174}

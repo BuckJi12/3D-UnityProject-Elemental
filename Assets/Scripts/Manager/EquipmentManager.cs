@@ -6,12 +6,32 @@ public class EquipmentManager : SingleTon<EquipmentManager>
 {
     public Dictionary<EquipmentKind, InventoryItem> equips;
 
+    [SerializeField]
+    private EquipmentUI ui;
+
     public bool isWeaponEquip { get; private set; }
 
     private void Awake()
     {
         equips = new Dictionary<EquipmentKind, InventoryItem>();
         isWeaponEquip = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            if (ui.gameObject.activeSelf)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                ui.gameObject.SetActive(false);
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                ui.gameObject.SetActive(true);
+            }
+        }
     }
 
     public void Equip(InventoryItem item)
