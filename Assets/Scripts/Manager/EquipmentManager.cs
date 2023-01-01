@@ -11,6 +11,7 @@ public class EquipmentManager : SingleTon<EquipmentManager>
     private EquipmentUI ui;
 
     public UnityEvent updateUI;
+    public UnityEvent changeForm;
 
     public bool isWeaponEquip { get; private set; }
 
@@ -50,6 +51,7 @@ public class EquipmentManager : SingleTon<EquipmentManager>
         {
             ResourceManager.Instance.TakeResource(item);
             isWeaponEquip = true;
+            changeForm?.Invoke();
         }
 
         updateUI?.Invoke();
@@ -61,6 +63,7 @@ public class EquipmentManager : SingleTon<EquipmentManager>
         {
             isWeaponEquip = false;
             ResourceManager.Instance.RemoveResource(item);
+            changeForm?.Invoke();
         }
 
         InventoryManager.Instance.AddItem(item);

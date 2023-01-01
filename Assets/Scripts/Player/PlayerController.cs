@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum PlayerState { Normal, Combat}
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private float rotateSpeed;
     private float moveY;
 
+    private PlayerState state;
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -25,14 +27,36 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        state = PlayerState.Normal;
     }
 
     private void Update()
     {
-        Move();
-        Rotate();
-        Animation();
-        Jump();
+        switch (state)
+        {
+            case PlayerState.Normal:
+                Move();
+                Rotate();
+                Animation();
+                Jump();
+                break;
+            case PlayerState.Combat:
+                Move();
+                Rotate();
+                Jump();
+                Attack();
+                Animation();
+                break;
+        }
+
+    }
+
+    private void Attack()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            anim.SetTrigger("Attack");
+        }
     }
     private void Animation()
     {
@@ -94,6 +118,21 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rotateVec), Time.deltaTime * rotateSpeed);
         
+        }
+    }
+
+    public void SwitchForm()
+    {
+        if (state == PlayerState.Normal)
+        {
+            state = PlayerState.Combat;
+            anim.SetBool("Combat", true);
+        }
+
+        else if (state == PlayerState.Combat)
+        {
+            state = PlayerState.Normal;
+            anim.SetBool("Combat", false);
         }
     }
 }
