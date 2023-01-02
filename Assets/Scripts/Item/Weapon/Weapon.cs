@@ -66,7 +66,7 @@ public class Weapon : MonoBehaviour
     {
         if (other.tag.Equals("Monster"))
         {
-            // ¶§¸°´Ù!.
+            Debug.Log("Hit");
         }
     }
 }

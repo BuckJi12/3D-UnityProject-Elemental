@@ -26,4 +26,9 @@ public enum ItemState
     Wearing
 }
 
+public enum EnemyState
+{
+    Normal,
+    Combat
+}
 
