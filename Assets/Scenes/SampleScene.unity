@@ -1304,6 +1304,7 @@ GameObject:
   - component: {fileID: 180527418}
   - component: {fileID: 180527417}
   - component: {fileID: 180527419}
+  - component: {fileID: 180527420}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1361,7 +1362,7 @@ MonoBehaviour:
   updateUI:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1484134117}
         m_TargetAssemblyTypeName: EquipmentUI, Assembly-CSharp
         m_MethodName: UpdateUI
         m_Mode: 1
@@ -1373,6 +1374,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  changeForm:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 554932287}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SwitchForm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &180527420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180527416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a213c98195e02149ac617de472e8724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPos: {fileID: 2005552006}
 --- !u!1001 &193894931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11559,6 +11588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 959ef4158a0780f4498e0afc546f8b90, type: 3}
+--- !u!4 &2005552006 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6340780473809992312, guid: ac74ec706a2da3d46aca567cc7db08bd, type: 3}
+  m_PrefabInstance: {fileID: 2061912350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2016985307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11832,7 +11866,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060002178}
-  m_LocalRotation: {x: 0.26693356, y: -0.000000028720944, z: 0.00000000795524, w: 0.96371496}
+  m_LocalRotation: {x: 0.26693356, y: 0.000000028720944, z: -0.00000000795524, w: 0.96371496}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

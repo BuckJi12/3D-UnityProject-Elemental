@@ -20,4 +20,10 @@ public enum EquipmentKind
     None
 }
 
+public enum ItemState
+{
+    DropItem,
+    Wearing
+}
+
 

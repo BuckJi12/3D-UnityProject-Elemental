@@ -1643,7 +1643,7 @@ Animator:
   m_GameObject: {fileID: 3755279511946079794}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: dd4802cc7972ecb4699ed0b29916793f, type: 3}
-  m_Controller: {fileID: 9100000, guid: e8cea038023f8844c83d4b9eecbb3f41, type: 2}
+  m_Controller: {fileID: 9100000, guid: e9275b67b2e748648beeff24333c1f2f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1726,7 +1726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6340780473809992312}
   m_Layer: 0
-  m_Name: WeaponPos
+  m_Name: Prop_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1739,7 +1739,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3903982825163493265}
-  m_LocalRotation: {x: -0.00000009965152, y: -0.000000036321563, z: -0.00000010430811, w: 1}
+  m_LocalRotation: {x: -0.0000001220477, y: -0.00000004448465, z: -0.00000012775082, w: 1}
   m_LocalPosition: {x: 0.000000019073486, y: -0.000000038146972, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
