@@ -52,12 +52,12 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void AttackStart()
+    public void OnCollider()
     {
         capsuleCollider.enabled = true;
     }
 
-    public void AttackEnd()
+    public void OffCollider()
     {
         capsuleCollider.enabled = false;
     }
