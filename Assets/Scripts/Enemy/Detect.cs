@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Detect : MonoBehaviour
 {
     private SphereCollider detectRange;
 
-    public bool isDetect = false;
+    //public bool isDetect = false;
+    public UnityEvent modeSwitch;
 
     private void Awake()
     {
@@ -19,7 +21,7 @@ public class Detect : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Player"))
         {
-            isDetect = true;
+            modeSwitch?.Invoke();
         }
     }
 
@@ -34,6 +36,6 @@ public class Detect : MonoBehaviour
     private IEnumerator DetectCancel()
     {
         yield return new WaitForSeconds(3);
-        isDetect = false;
+        modeSwitch?.Invoke();
     }
 }
