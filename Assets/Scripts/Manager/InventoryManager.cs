@@ -92,6 +92,28 @@ public class InventoryManager : SingleTon<InventoryManager>
         }
     }
 
+    public void AddItem(Item item)
+    {
+        InventoryItem inventoryItem = new InventoryItem();
+        inventoryItem.data = item.data;
+
+        if (inventoryItem.data.kind == ItemKind.Equipment)
+        {
+            equiments.Add(inventoryItem);
+            equipmentUI.UpdateUI(UIState.Equipment);
+        }
+        else if (inventoryItem.data.kind == ItemKind.UsableItem)
+        {
+            usables.Add(inventoryItem);
+            usableUI.UpdateUI(UIState.Usable);
+        }
+        else
+        {
+            materials.Add(inventoryItem);
+            materialUI.UpdateUI(UIState.Material);
+        }
+    }
+
     public void RemoveItem(InventoryItem inventoryItem)
     {
         if (inventoryItem.data.kind == ItemKind.Equipment)

@@ -9,9 +9,7 @@ public class Item : MonoBehaviour
 
     public void Pick(PlayerColliders collider)
     {
-        InventoryItem inventoryItem = new InventoryItem();
-        inventoryItem.data = data;
-        InventoryManager.Instance.AddItem(inventoryItem);
+        InventoryManager.Instance.AddItem(this);
         Destroy(gameObject);
     }
 }
