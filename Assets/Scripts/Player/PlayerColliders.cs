@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerColliders : MonoBehaviour
+public class PlayerColliders : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private float interActionRange;
@@ -10,6 +10,13 @@ public class PlayerColliders : MonoBehaviour
     private bool interActionGizmos;
     [SerializeField]
     private LayerMask layer;
+
+    private Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
 
     private void Update()
     {
@@ -40,5 +47,11 @@ public class PlayerColliders : MonoBehaviour
             Gizmos.color = Color.white;
             Gizmos.DrawWireSphere(transform.position, interActionRange);
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        anim.SetTrigger("Hit");
+        PlayerStatManager.Instance.CalculateDamage(damage);
     }
 }

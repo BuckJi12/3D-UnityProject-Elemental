@@ -102,6 +102,7 @@ public class EnemyAI : MonoBehaviour
         if (colliders.Length < 1)
             return;
 
-        PlayerStatManager.Instance.CalculateDamage(stat.statData.damage);
+        IDamageable damageable = target.GetComponent<IDamageable>();
+        damageable?.TakeDamage(stat.statData.damage);
     }
 }

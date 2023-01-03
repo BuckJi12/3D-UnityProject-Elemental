@@ -16,11 +16,18 @@ public class AttackRange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        canAttack = true;
+        if (other.tag.Equals("Player"))
+        {
+            canAttack = true;
+
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        canAttack = false;
+        if (other.tag.Equals("Player"))
+        {
+            canAttack = false;
+        }    
     }
 }

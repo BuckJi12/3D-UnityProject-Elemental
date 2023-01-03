@@ -66,17 +66,8 @@ public class Weapon : MonoBehaviour
     {
         if (other.tag.Equals("Monster"))
         {
-            EnemyStat enemyStat = other.GetComponent<EnemyStat>();
-            if (enemyStat == null)
-                return;
-            enemyStat.anim.SetTrigger("Hit");
-            enemyStat.gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
-            enemyStat.curHP -= PlayerStatManager.Instance.damage;
-
-            if (enemyStat.curHP <= 0)
-            {
-                enemyStat.Die();
-            }
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            damageable?.TakeDamage();
         }
     }
 }
