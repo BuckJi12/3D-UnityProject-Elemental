@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyAI : MonoBehaviour
@@ -10,6 +11,7 @@ public class EnemyAI : MonoBehaviour
     private Detect detect;
     private AttackRange attackRange;
     private Animator anim;
+    private EnemyStat stat;
 
     private GameObject target;
 
@@ -29,6 +31,7 @@ public class EnemyAI : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         detect = GetComponentInChildren<Detect>();
         attackRange = GetComponentInChildren<AttackRange>();
+        stat = GetComponent<EnemyStat>();
         target = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -61,9 +64,11 @@ public class EnemyAI : MonoBehaviour
         if (enemyState == EnemyState.Normal)
         {
             enemyState = EnemyState.Combat;
+            transform.LookAt(target.transform);
         }
         else if (enemyState == EnemyState.Combat)
         {
+            //transform.LookAt(Vector3.zero);
             anim.SetBool("IsMove", false);
             enemyState = EnemyState.Normal;
             agent.SetDestination(transform.parent.position);
@@ -97,6 +102,6 @@ public class EnemyAI : MonoBehaviour
         if (colliders.Length < 1)
             return;
 
-        Debug.Log("플레이어가 맞았다");
+        PlayerStatManager.Instance.CalculateDamage(stat.statData.damage);
     }
 }
