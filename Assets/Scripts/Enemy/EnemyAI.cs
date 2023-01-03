@@ -13,7 +13,15 @@ public class EnemyAI : MonoBehaviour
 
     private GameObject target;
 
+    [SerializeField]
+    private LayerMask targetMask;
+
     private EnemyState enemyState;
+
+    [SerializeField]
+    private float attackSpeed;
+
+    private float attackDelay;
 
     private void Awake()
     {
@@ -36,8 +44,14 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.Normal:
                 break;
             case EnemyState.Combat:
-                Chase();
-                Attack();
+                if (attackRange.canAttack)
+                {
+                    Attack();
+                }
+                else
+                {
+                    Chase();
+                }
                 break;
         }
     }
@@ -47,24 +61,42 @@ public class EnemyAI : MonoBehaviour
         if (enemyState == EnemyState.Normal)
         {
             enemyState = EnemyState.Combat;
-            anim.SetTrigger("Move");
         }
         else if (enemyState == EnemyState.Combat)
         {
-            enemyState = EnemyState.Normal;
             anim.SetTrigger("Idle");
+            enemyState = EnemyState.Normal;
+            agent.SetDestination(transform.parent.position);
         }
     }
 
     public void Attack()
     {
-        if (attackRange.canAttack)
+        agent.isStopped = true;
+        anim.SetTrigger("Idle");
+        if (Time.time > attackDelay)
         {
+            attackDelay = Time.time + attackSpeed;
             anim.SetTrigger("Attack");
         }
     }
     public void Chase()
     {
+        anim.SetTrigger("Move");
+        agent.isStopped = false;
         agent.SetDestination(target.transform.position);
+    }
+
+    public void OnAttackCollider()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, attackRange.attackRange.radius, targetMask);
+        
+        if (colliders == null)
+            return;
+
+        if (colliders.Length < 1)
+            return;
+
+        Debug.Log("플레이어가 맞았다");
     }
 }

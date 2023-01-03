@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AttackRange : MonoBehaviour
 {
-    private CapsuleCollider attackRange;
+    [HideInInspector]
+    public CapsuleCollider attackRange;
 
     public bool canAttack = false;
 
