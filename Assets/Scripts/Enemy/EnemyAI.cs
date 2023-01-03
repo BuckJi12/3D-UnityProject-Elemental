@@ -64,7 +64,7 @@ public class EnemyAI : MonoBehaviour
         }
         else if (enemyState == EnemyState.Combat)
         {
-            anim.SetTrigger("Idle");
+            anim.SetBool("IsMove", false);
             enemyState = EnemyState.Normal;
             agent.SetDestination(transform.parent.position);
         }
@@ -73,7 +73,7 @@ public class EnemyAI : MonoBehaviour
     public void Attack()
     {
         agent.isStopped = true;
-        anim.SetTrigger("Idle");
+        anim.SetBool("IsMove", false);
         if (Time.time > attackDelay)
         {
             attackDelay = Time.time + attackSpeed;
@@ -82,7 +82,7 @@ public class EnemyAI : MonoBehaviour
     }
     public void Chase()
     {
-        anim.SetTrigger("Move");
+        anim.SetBool("IsMove", true);
         agent.isStopped = false;
         agent.SetDestination(target.transform.position);
     }
