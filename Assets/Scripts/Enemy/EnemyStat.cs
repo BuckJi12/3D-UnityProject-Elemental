@@ -37,7 +37,7 @@ public class EnemyStat : MonoBehaviour, IDamageable
             hitEffect.Play();
             gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
             //rigid.AddForce(Vector3.back * 2, ForceMode.Impulse);
-            curHP -= PlayerStatManager.Instance.damage;
+            curHP -= PlayerStatManager.Instance.CalculateCritical();
 
             if (curHP <= 0)
             {

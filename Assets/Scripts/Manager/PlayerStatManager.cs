@@ -44,4 +44,19 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
             maxEXP = maxEXP * 1.2f;
         }
     }
+
+    public int CalculateCritical()
+    {
+        int random = Random.Range(1, 100);
+        if (random > criticalPercent)
+        {
+            return damage;
+        }
+        else
+        {
+            Debug.Log("크리티컬!");
+            int damage = (this.damage * (criticalDamage + 100)) / 100;
+            return damage;
+        }
+    }
 }
