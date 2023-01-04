@@ -29,7 +29,7 @@ public class PoolManager : SingleTon<PoolManager>
                 GameObject instance = Instantiate(poolPrefab[i].prefab);
                 instance.SetActive(false);
                 instance.gameObject.name = poolPrefab[i].prefab.name;
-                instance.transform.parent = poolPrefab[i].container;
+                instance.transform.SetParent(poolPrefab[i].container);
                 stack.Push(instance);
             }
             poolDic.Add(poolPrefab[i].prefab.name, stack);
@@ -43,7 +43,7 @@ public class PoolManager : SingleTon<PoolManager>
         {
             GameObject instance = stack.Pop();
             instance.SetActive(true);
-            instance.transform.parent = null;
+            instance.transform.SetParent(null);
             return instance;
         }
 
@@ -67,7 +67,7 @@ public class PoolManager : SingleTon<PoolManager>
         stack.Push(instance);
 
         Poolable poolable = poolPrefab.Find((x) => instance.name == x.container.name);
-        instance.transform.parent = poolable.container;
+        instance.transform.SetParent(poolable.container);
     }
 
     [Serializable]
