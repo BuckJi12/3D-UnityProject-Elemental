@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     private Rigidbody rigid;
     private BoxCollider boxCollider;
     private CapsuleCollider capsuleCollider;
+    private TrailRenderer trail;
 
     private ItemState itemState;
 
@@ -17,12 +18,14 @@ public class Weapon : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+        trail = GetComponentInChildren<TrailRenderer>();
     }
 
     private void Start()
     {
         capsuleCollider.enabled = false;
         itemState = ItemState.DropItem;
+        trail.enabled = false;
     }
 
     public void ItemMode()
@@ -60,6 +63,16 @@ public class Weapon : MonoBehaviour
     public void OffCollider()
     {
         capsuleCollider.enabled = false;
+    }
+
+    public void OnTrail()
+    {
+        trail.enabled = true;
+    }
+
+    public void OffTrail()
+    {
+        trail.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)

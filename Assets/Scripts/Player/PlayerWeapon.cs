@@ -26,4 +26,14 @@ public class PlayerWeapon : MonoBehaviour
     {
         curWeapon.OffCollider();
     }
+
+    public void StartTrail()
+    {
+        curWeapon.OnTrail();
+    }
+
+    public void EndTrail()
+    {
+        curWeapon.OffTrail();
+    }
 }
