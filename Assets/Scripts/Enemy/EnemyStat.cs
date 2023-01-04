@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class EnemyStat : MonoBehaviour, IDamageable
 {
+    [SerializeField]
+    private ParticleSystem hitEffect;
+
     private Rigidbody rigid;
     private Animator anim;
 
@@ -28,16 +31,20 @@ public class EnemyStat : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        anim.SetTrigger("Hit");
-        gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
-        //rigid.AddForce(Vector3.back * 2, ForceMode.Impulse);
-        curHP -= PlayerStatManager.Instance.damage;
-
-        if (curHP <= 0)
+        if (enemyAI.isAlive)
         {
-            enemyAI.Die();
-            anim.SetTrigger("Die");
-            StartCoroutine(DisappearObject());
+            anim.SetTrigger("Hit");
+            hitEffect.Play();
+            gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
+            //rigid.AddForce(Vector3.back * 2, ForceMode.Impulse);
+            curHP -= PlayerStatManager.Instance.damage;
+
+            if (curHP <= 0)
+            {
+                enemyAI.Die();
+                anim.SetTrigger("Die");
+                StartCoroutine(DisappearObject());
+            }
         }
     }
 }

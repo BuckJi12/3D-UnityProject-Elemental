@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     private Animator anim;
     private EnemyStat stat;
 
+    private Collider myCollider;
     private GameObject target;
 
     [SerializeField]
@@ -35,6 +36,7 @@ public class EnemyAI : MonoBehaviour
         attackRange = GetComponentInChildren<AttackRange>();
         stat = GetComponent<EnemyStat>();
         target = GameObject.FindGameObjectWithTag("Player");
+        myCollider = GetComponent<CapsuleCollider>();
     }
 
     private void Start()
@@ -99,16 +101,19 @@ public class EnemyAI : MonoBehaviour
 
     public void OnAttackCollider()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, attackRange.attackRange.radius, targetMask);
-        
-        if (colliders == null)
-            return;
+        if (isAlive)
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, attackRange.attackRange.radius, targetMask);
 
-        if (colliders.Length < 1)
-            return;
+            if (colliders == null)
+                return;
 
-        IDamageable damageable = target.GetComponent<IDamageable>();
-        damageable?.TakeDamage(stat.statData.damage);
+            if (colliders.Length < 1)
+                return;
+
+            IDamageable damageable = target.GetComponent<IDamageable>();
+            damageable?.TakeDamage(stat.statData.damage);
+        }   
     }
 
     public void Die()
@@ -117,5 +122,6 @@ public class EnemyAI : MonoBehaviour
         agent.isStopped = true;
         detect.detectRange.enabled = false;
         attackRange.enabled = false;
+        myCollider.enabled = false;
     }
 }
