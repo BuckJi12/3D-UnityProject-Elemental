@@ -25,6 +25,8 @@ public class EnemyAI : MonoBehaviour
 
     private float attackDelay;
 
+    public bool isAlive = true;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -42,37 +44,40 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        switch (enemyState)
+        if (isAlive)
         {
-            case EnemyState.Normal:
-                break;
-            case EnemyState.Combat:
-                if (attackRange.canAttack)
-                {
-                    Attack();
-                }
-                else
-                {
-                    Chase();
-                }
-                break;
+            switch (enemyState)
+            {
+                case EnemyState.Normal:
+                    break;
+                case EnemyState.Combat:
+                    if (attackRange.canAttack)
+                    {
+                        Attack();
+                    }
+                    else
+                    {
+                        Chase();
+                    }
+                    break;
+            }
         }
     }
 
     public void SwitchMode()
     {
-        if (enemyState == EnemyState.Normal)
-        {
-            enemyState = EnemyState.Combat;
-            transform.LookAt(target.transform);
-        }
-        else if (enemyState == EnemyState.Combat)
-        {
-            //transform.LookAt(Vector3.zero);
-            anim.SetBool("IsMove", false);
-            enemyState = EnemyState.Normal;
-            agent.SetDestination(transform.parent.position);
-        }
+            if (enemyState == EnemyState.Normal)
+            {
+                enemyState = EnemyState.Combat;
+                transform.LookAt(target.transform);
+            }
+            else if (enemyState == EnemyState.Combat)
+            {
+                //transform.LookAt(Vector3.zero);
+                anim.SetBool("IsMove", false);
+                enemyState = EnemyState.Normal;
+                agent.SetDestination(transform.parent.position);
+            }
     }
 
     public void Attack()
@@ -104,5 +109,13 @@ public class EnemyAI : MonoBehaviour
 
         IDamageable damageable = target.GetComponent<IDamageable>();
         damageable?.TakeDamage(stat.statData.damage);
+    }
+
+    public void Die()
+    {
+        isAlive = false;
+        agent.isStopped = true;
+        detect.detectRange.enabled = false;
+        attackRange.enabled = false;
     }
 }

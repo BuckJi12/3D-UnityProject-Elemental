@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Detect : MonoBehaviour
 {
-    private SphereCollider detectRange;
+    public SphereCollider detectRange;
 
     //public bool isDetect = false;
     public UnityEvent modeSwitch;

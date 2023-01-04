@@ -11,6 +11,8 @@ public class PlayerColliders : MonoBehaviour, IDamageable
     [SerializeField]
     private LayerMask layer;
 
+    private bool canKnockBack = true;
+
     private Animator anim;
 
     private void Awake()
@@ -51,7 +53,18 @@ public class PlayerColliders : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        anim.SetTrigger("Hit");
+        if (canKnockBack)
+        {
+            anim.SetTrigger("Hit");
+            canKnockBack = false;
+            StartCoroutine(KnockBackPossible());
+        }
         PlayerStatManager.Instance.CalculateDamage(damage);
+    }
+
+    public IEnumerator KnockBackPossible()
+    {
+        yield return new WaitForSeconds(3);
+        canKnockBack = true;
     }
 }

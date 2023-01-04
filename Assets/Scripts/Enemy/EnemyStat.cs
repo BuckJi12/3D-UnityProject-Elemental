@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyStat : MonoBehaviour, IDamageable
 {
     private Rigidbody rigid;
     private Animator anim;
+
+    private EnemyAI enemyAI;
 
     public MonsterData statData;
     public int curHP;
@@ -15,29 +18,26 @@ public class EnemyStat : MonoBehaviour, IDamageable
     {
         anim = GetComponentInChildren<Animator>();
         rigid = GetComponent<Rigidbody>();
+        enemyAI = GetComponent<EnemyAI>();
     }
-    public void Die()
+    public IEnumerator DisappearObject()
     {
+        yield return new WaitForSeconds(3);
         Destroy(gameObject);
     }
 
     public void TakeDamage(int damage)
     {
         anim.SetTrigger("Hit");
-        //gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
-        rigid.AddForce(Vector3.back * 2, ForceMode.Impulse);
-        //StartCoroutine(StopKnockBack());
+        gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
+        //rigid.AddForce(Vector3.back * 2, ForceMode.Impulse);
         curHP -= PlayerStatManager.Instance.damage;
 
         if (curHP <= 0)
         {
-           Die();
+            enemyAI.Die();
+            anim.SetTrigger("Die");
+            StartCoroutine(DisappearObject());
         }
     }
-    
-    //public IEnumerator StopKnockBack()
-    //{
-    //    yield return new WaitForSeconds(0.2f);
-    //    rigid.velocity = Vector3.zero;
-    //}
 }
