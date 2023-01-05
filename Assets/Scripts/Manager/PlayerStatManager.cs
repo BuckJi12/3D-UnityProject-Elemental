@@ -4,31 +4,27 @@ using UnityEngine;
 
 public class PlayerStatManager : SingleTon<PlayerStatManager>
 {
-    public int curHP;
-    public int maxHP;
-
-    public int damage;
-    public int elementalPower;
-
-    public int defence;
-
-    public float curEXP;
-    public float maxEXP;
-
-    public int criticalPercent;
-    public int criticalDamage;
-
-    public int dodgeRate;
+    public Stat stat;
+    public int level = 1;
 
     public void CalculateTakeDamage(int damage)
     {
-        damage -= defence;
+        int random = Random.Range(1, 100);
+        if (random > stat.dodgeRate)
+        {
+            damage -= stat.defence;
+        }
+        else
+        {
+            return;
+        }
+
         if (damage < 0)
             return;
 
-        curHP -= damage;
+        stat.curHP -= damage;
 
-        if (curHP < 1)
+        if (stat.curHP < 1)
         {
             // ав╬З╢ы
         }       
@@ -36,20 +32,20 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
 
     public void CalculateEXP(int exp)
     {
-        curEXP += exp;
-        if (curEXP >= maxEXP)
+        stat.curEXP += exp;
+        if (stat.curEXP >= stat.maxEXP)
         {
-            float remnant = curEXP - maxEXP;
-            curEXP = 0;
-            curEXP += remnant;
-            maxEXP = maxEXP * 1.2f;
+            float remnant = stat.curEXP - stat.maxEXP;
+            stat.curEXP = 0;
+            stat.curEXP += remnant;
+            stat.maxEXP = stat.maxEXP * 1.2f;
         }
     }
 
     public bool CalculateCritical()
     {
         int random = Random.Range(1, 100);
-        if (random > criticalPercent)
+        if (random > stat.criticalPercent)
         {
             return false;
         }
@@ -64,11 +60,11 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
         int finalDamage;
         if (critical)
         {
-            finalDamage = ((this.damage * (criticalDamage + 100)) / 100) - enemystat.statData.defence;
+            finalDamage = ((this.stat.damage * (stat.criticalDamage + 100)) / 100) - enemystat.statData.defence;
         }
         else
         {
-            finalDamage = this.damage - enemystat.statData.defence;
+            finalDamage = this.stat.damage - enemystat.statData.defence;
         }
 
         if (finalDamage <= 0)

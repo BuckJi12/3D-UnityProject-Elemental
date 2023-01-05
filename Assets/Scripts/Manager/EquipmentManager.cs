@@ -10,6 +10,8 @@ public class EquipmentManager : SingleTon<EquipmentManager>
     [SerializeField]
     private EquipmentUI ui;
 
+    private Stat equipStat;
+
     public UnityEvent updateUI;
     public UnityEvent changeForm;
 
@@ -46,6 +48,7 @@ public class EquipmentManager : SingleTon<EquipmentManager>
         }
 
         equips.Add(item.data.equipKind, item);
+        AddStat(item);
 
         if (item.data.equipKind == EquipmentKind.Weapon)
         {
@@ -68,7 +71,50 @@ public class EquipmentManager : SingleTon<EquipmentManager>
 
         InventoryManager.Instance.AddItem(item);
         equips.Remove(item.data.equipKind);
+        MinusStat(item);
 
         updateUI?.Invoke();
+    }
+
+    public void AddStat(InventoryItem item)
+    {
+        if (item.data.equipKind == EquipmentKind.Weapon)
+        {
+            WeaponData weapondata = item.data as WeaponData;
+            PlayerStatManager.Instance.stat.damage += weapondata.damage;
+            PlayerStatManager.Instance.stat.elementalPower += weapondata.elementalPower;
+            PlayerStatManager.Instance.stat.criticalPercent += weapondata.criticalPercent;
+            PlayerStatManager.Instance.stat.criticalDamage += weapondata.criticalDamage;
+            
+        }
+        else if (item.data.equipKind == EquipmentKind.Accessory)
+        {
+
+        }
+        else
+        {
+            
+        }
+    }
+    
+    public void MinusStat(InventoryItem item)
+    {
+        if (item.data.equipKind == EquipmentKind.Weapon)
+        {
+            WeaponData weapondata = item.data as WeaponData;
+            PlayerStatManager.Instance.stat.damage -= weapondata.damage;
+            PlayerStatManager.Instance.stat.elementalPower -= weapondata.elementalPower;
+            PlayerStatManager.Instance.stat.criticalPercent -= weapondata.criticalPercent;
+            PlayerStatManager.Instance.stat.criticalDamage -= weapondata.criticalDamage;
+
+        }
+        else if (item.data.equipKind == EquipmentKind.Accessory)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 }
