@@ -17,7 +17,7 @@ public class EnemyStat : MonoBehaviour, IDamageable
 
     private Rigidbody rigid;
     private Animator anim;
-
+    private DamageText damageText;
     private EnemyAI enemyAI;
 
     public MonsterData statData;
@@ -33,7 +33,8 @@ public class EnemyStat : MonoBehaviour, IDamageable
     public IEnumerator DisappearObject()
     {
         yield return new WaitForSeconds(3);
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        this.gameObject.SetActive(false);
     }
 
     public void TakeDamage(int damage)
@@ -45,9 +46,12 @@ public class EnemyStat : MonoBehaviour, IDamageable
             gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
             //rigid.AddForce(Vector3.back * 2, ForceMode.Impulse);
 
-            GameObject damageText = PoolManager.Instance.Get(text);
-            damageText.transform.position = damagePos.transform.position;
-            damageText.transform.SetParent(canvas.transform);
+            GameObject instance = PoolManager.Instance.Get(text);
+            damageText = instance.GetComponent<DamageText>();
+            damageText.SetText(PlayerStatManager.Instance.CalculateCritical());
+            instance.transform.position = damagePos.transform.position;
+            instance.transform.SetParent(canvas.transform);
+            
 
             curHP -= PlayerStatManager.Instance.CalculateCritical();
 

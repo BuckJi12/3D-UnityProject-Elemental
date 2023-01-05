@@ -62,12 +62,12 @@ public class PoolManager : SingleTon<PoolManager>
 
     public void Release(GameObject instance)
     {
+        Poolable poolable = poolPrefab.Find((x) => instance.name == x.prefab.name);
+        instance.transform.SetParent(poolable.container);
+
         Stack<GameObject> stack = poolDic[instance.name];
         instance.SetActive(false);
         stack.Push(instance);
-
-        Poolable poolable = poolPrefab.Find((x) => instance.name == x.container.name);
-        instance.transform.SetParent(poolable.container);
     }
 
     [Serializable]

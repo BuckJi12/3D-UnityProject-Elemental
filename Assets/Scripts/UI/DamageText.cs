@@ -7,15 +7,17 @@ using UnityEngine.UI;
 public class DamageText : MonoBehaviour
 {
     private Animator anim;
-    private TextMeshPro text;
+    private TextMeshProUGUI text;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        text = GetComponent<TextMeshProUGUI>();
     }
-    private void OnEnable()
+    private void Update()
     {
-        transform.LookAt(Camera.main.transform);   
+        transform.LookAt(Camera.main.transform);
+        transform.rotation = Camera.main.transform.rotation;
     }
 
     public void SetText(int damage)
