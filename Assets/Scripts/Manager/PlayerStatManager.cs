@@ -8,6 +8,7 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
     public int maxHP;
 
     public int damage;
+    public int elementalPower;
 
     public int defence;
 
@@ -19,7 +20,7 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
 
     public int dodgeRate;
 
-    public void CalculateDamage(int damage)
+    public void CalculateTakeDamage(int damage)
     {
         damage -= defence;
         if (damage < 0)
@@ -45,18 +46,34 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
         }
     }
 
-    public int CalculateCritical()
+    public bool CalculateCritical()
     {
         int random = Random.Range(1, 100);
         if (random > criticalPercent)
         {
-            return damage;
+            return false;
         }
         else
         {
-            Debug.Log("크리티컬!");
-            int damage = (this.damage * (criticalDamage + 100)) / 100;
-            return damage;
+            return true;
         }
+    }
+
+    public int CalculateDamage(EnemyStat enemystat, bool critical)
+    {
+        int finalDamage;
+        if (critical)
+        {
+            finalDamage = ((this.damage * (criticalDamage + 100)) / 100) - enemystat.statData.defence;
+        }
+        else
+        {
+            finalDamage = this.damage - enemystat.statData.defence;
+        }
+
+        if (finalDamage <= 0)
+            return 0;
+
+        return finalDamage;
     }
 }

@@ -45,15 +45,16 @@ public class EnemyStat : MonoBehaviour, IDamageable
             hitEffect.Play();
             gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
             //rigid.AddForce(Vector3.back * 2, ForceMode.Impulse);
-
-            GameObject instance = PoolManager.Instance.Get(text);
-            damageText = instance.GetComponent<DamageText>();
-            damageText.SetText(PlayerStatManager.Instance.CalculateCritical());
-            instance.transform.position = damagePos.transform.position;
-            instance.transform.SetParent(canvas.transform);
-            
-
-            curHP -= PlayerStatManager.Instance.CalculateCritical();
+            if (PlayerStatManager.Instance.CalculateCritical())
+            {
+                curHP -= PlayerStatManager.Instance.CalculateDamage(this, true);
+                DamageText(true);
+            }
+            else
+            {
+                curHP -= PlayerStatManager.Instance.CalculateDamage(this, false);
+                DamageText(false);
+            }
 
             if (curHP <= 0)
             {
@@ -62,5 +63,14 @@ public class EnemyStat : MonoBehaviour, IDamageable
                 StartCoroutine(DisappearObject());
             }
         }
+    }
+
+    public void DamageText(bool critical)
+    {
+        GameObject instance = PoolManager.Instance.Get(text);
+        damageText = instance.GetComponent<DamageText>();
+        damageText.SetText(PlayerStatManager.Instance.CalculateDamage(this, critical), critical);
+        instance.transform.position = damagePos.transform.position;
+        instance.transform.SetParent(canvas.transform);
     }
 }

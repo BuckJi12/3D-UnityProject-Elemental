@@ -20,8 +20,17 @@ public class DamageText : MonoBehaviour
         transform.rotation = Camera.main.transform.rotation;
     }
 
-    public void SetText(int damage)
+    public void SetText(int damage, bool critical)
     {
+        if (critical)
+        {
+            text.fontSize = 0.5f;
+        }
+        else
+        {
+            text.fontSize = 0.3f;
+        }
+
         text.text = damage.ToString();
     }
 }

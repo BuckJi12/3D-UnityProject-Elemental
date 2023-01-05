@@ -59,7 +59,7 @@ public class PlayerColliders : MonoBehaviour, IDamageable
             canKnockBack = false;
             StartCoroutine(KnockBackPossible());
         }
-        PlayerStatManager.Instance.CalculateDamage(damage);
+        PlayerStatManager.Instance.CalculateTakeDamage(damage);
     }
 
     public IEnumerator KnockBackPossible()
