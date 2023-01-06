@@ -30,6 +30,12 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
         }       
     }
 
+    private void Start()
+    {
+        StartCoroutine(RecoveryHP());
+        StartCoroutine(RecoveryStamina());
+    }
+
     public void CalculateEXP(int exp)
     {
         stat.curEXP += exp;
@@ -71,5 +77,35 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
             return 0;
 
         return finalDamage;
+    }
+
+    public IEnumerator RecoveryHP()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+
+            if (stat.curHP == stat.maxHP)
+                yield return null;
+
+            stat.curHP += (stat.maxHP / 100);
+            if (stat.curHP > stat.maxHP)
+                stat.curHP = stat.maxHP;
+        }
+    }
+
+    public IEnumerator RecoveryStamina()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            if (stat.curStamina == stat.maxStamina)
+                yield return null;
+
+
+            stat.curStamina += 10;
+            if (stat.curStamina > stat.maxStamina)
+                stat.curStamina = stat.maxStamina;
+        }
     }
 }

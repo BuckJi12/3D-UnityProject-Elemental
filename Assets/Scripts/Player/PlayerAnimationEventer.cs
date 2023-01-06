@@ -9,6 +9,8 @@ public class PlayerAnimationEventer : MonoBehaviour
     public UnityEvent OnEndAttack;
     public UnityEvent OnStartTrail;
     public UnityEvent OnEndTrail;
+    public UnityEvent OnCanMove;
+    public UnityEvent OnInvincibility;
 
     public void StartAttack()
     {
@@ -28,5 +30,15 @@ public class PlayerAnimationEventer : MonoBehaviour
     public void EndTrail()
     {
         OnEndTrail?.Invoke();
+    }
+
+    public void SwitchCanMove()
+    {
+        OnCanMove?.Invoke();
+    }
+
+    public void SwitchOnInvincibility()
+    {
+        OnInvincibility?.Invoke();
     }
 }

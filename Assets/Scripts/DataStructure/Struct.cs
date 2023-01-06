@@ -8,6 +8,9 @@ public struct Stat
     public int curHP;
     public int maxHP;
 
+    public int curStamina;
+    public int maxStamina;
+
     public int damage;
     public int elementalPower;
 

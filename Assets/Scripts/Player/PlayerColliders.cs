@@ -14,10 +14,12 @@ public class PlayerColliders : MonoBehaviour, IDamageable
     private bool canKnockBack = true;
 
     private Animator anim;
+    private PlayerController playerCon;
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
+        playerCon = GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -53,13 +55,16 @@ public class PlayerColliders : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        if (canKnockBack)
+        if (!playerCon.invincibility)
         {
-            anim.SetTrigger("Hit");
-            canKnockBack = false;
-            StartCoroutine(KnockBackPossible());
+            if (canKnockBack)
+            {
+                anim.SetTrigger("Hit");
+                canKnockBack = false;
+                StartCoroutine(KnockBackPossible());
+            }
+            PlayerStatManager.Instance.CalculateTakeDamage(damage);
         }
-        PlayerStatManager.Instance.CalculateTakeDamage(damage);
     }
 
     public IEnumerator KnockBackPossible()

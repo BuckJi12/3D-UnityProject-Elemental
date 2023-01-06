@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
-enum PlayerState { Normal, Combat}
+enum PlayerState { Normal, Combat }
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
@@ -15,7 +16,11 @@ public class PlayerController : MonoBehaviour
     private float jumpPower;
     [SerializeField]
     private float rotateSpeed;
+
+    public bool invincibility = false;
+    private bool canMove = true;
     private float moveY;
+    private int jumpCount = 1;
 
     private PlayerState state;
     private void Awake()
@@ -45,10 +50,11 @@ public class PlayerController : MonoBehaviour
                 Rotate();
                 Jump();
                 Attack();
+                Roll();
                 Animation();
                 break;
         }
-
+        GroundCheck();
     }
 
     private void Attack()
@@ -56,6 +62,18 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             anim.SetTrigger("Attack");
+        }
+    }
+
+    private void Roll()
+    {
+        if (PlayerStatManager.Instance.stat.curStamina >= 50)
+        {
+            if (Input.GetButtonDown("Fire2") && controller.isGrounded)
+            {
+                anim.SetTrigger("Roll");
+                PlayerStatManager.Instance.stat.curStamina -= 50;
+            }
         }
     }
     private void Animation()
@@ -67,7 +85,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isRun", true);
         }
-        else 
+        else
         {
             anim.SetBool("isRun", false);
         }
@@ -75,31 +93,44 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        Vector3 fowardVec = new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized;
-        Vector3 rightVec = new Vector3(Camera.main.transform.right.x, 0f, Camera.main.transform.right.z).normalized;
+        if (canMove)
+        {
+            Vector3 fowardVec = new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized;
+            Vector3 rightVec = new Vector3(Camera.main.transform.right.x, 0f, Camera.main.transform.right.z).normalized;
 
-        Vector3 moveInput = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
-        if (moveInput.sqrMagnitude > 1f) moveInput.Normalize();
+            Vector3 moveInput = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
+            if (moveInput.sqrMagnitude > 1f) moveInput.Normalize();
 
-        Vector3 moveVec = fowardVec * moveInput.z + rightVec * moveInput.x;
+            Vector3 moveVec = fowardVec * moveInput.z + rightVec * moveInput.x;
 
-        controller.Move(moveVec * moveSpeed * Time.deltaTime);
+            controller.Move(moveVec * moveSpeed * Time.deltaTime);
+        }
     }
 
     private void Jump()
     {
-        moveY += Physics.gravity.y * Time.deltaTime;
-
-        if (Input.GetButtonDown("Jump"))
+        if (!invincibility)
         {
-            moveY = jumpPower;
-        }
-        else if (controller.isGrounded && moveY < 0)
-        {
-            moveY = 0;
-        }
+            moveY += Physics.gravity.y * Time.deltaTime;
 
-        controller.Move(Vector3.up * moveY * Time.deltaTime);
+            if (Input.GetButtonDown("Jump") && jumpCount > 0)
+            {
+                anim.SetTrigger("Jump");
+                moveY = jumpPower;
+                jumpCount--;
+            }
+            else if (controller.isGrounded && moveY < 0)
+            {
+                moveY = 0;
+            }
+
+            controller.Move(Vector3.up * moveY * Time.deltaTime);
+
+        }
+            if (controller.velocity.y < 0)
+            {
+                anim.SetTrigger("Falling");
+            }
     }
 
     private void Rotate()
@@ -117,7 +148,7 @@ public class PlayerController : MonoBehaviour
         if (!(horizontal == 0 && vertical == 0))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rotateVec), Time.deltaTime * rotateSpeed);
-        
+
         }
     }
 
@@ -134,5 +165,34 @@ public class PlayerController : MonoBehaviour
             state = PlayerState.Normal;
             anim.SetBool("Combat", false);
         }
+    }
+
+    public void GroundCheck()
+    {
+        if (controller.isGrounded)
+        {
+            anim.SetBool("isGround", true);
+            jumpCount = 1;
+        }
+        else
+        {
+            anim.SetBool("isGround", false);
+        }
+    }
+
+    public void SwitchCanMove()
+    {
+        if (canMove)
+            canMove = false;
+        else
+            canMove = true;
+    }
+
+    public void SwitchInvincibility()
+    {
+        if (invincibility)
+            invincibility = false;
+        else
+            invincibility = true;
     }
 }
