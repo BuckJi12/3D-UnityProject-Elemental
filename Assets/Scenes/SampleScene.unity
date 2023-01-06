@@ -512,7 +512,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37094241}
-  m_LocalRotation: {x: 0.17121494, y: -0, z: -0, w: 0.9852337}
+  m_LocalRotation: {x: 0.17121495, y: -0, z: -0, w: 0.9852337}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1429,9 +1429,11 @@ MonoBehaviour:
   stat:
     curHP: 300
     maxHP: 300
+    curStamina: 100
+    maxStamina: 100
     damage: 10
     elementalPower: 100
-    defence: 10
+    defence: 0
     curEXP: 0
     maxEXP: 100
     criticalPercent: 10
@@ -3591,7 +3593,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629102779}
-  m_LocalRotation: {x: 0.18633163, y: 0.000000020987372, z: -0.0000000039803187, w: 0.9824869}
+  m_LocalRotation: {x: 0.18633164, y: -0.000000015037775, z: 0.00000000285196, w: 0.9824869}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5298,7 +5300,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.17121495, y: 0, z: 0, w: 0.9852337}
+  m_LocalRotation: {x: 0.17121497, y: 0, z: 0, w: 0.9852337}
   m_LocalPosition: {x: 0, y: 3, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11912,7 +11914,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060002178}
-  m_LocalRotation: {x: 0.2669336, y: 3.4238033e-15, z: -1.836517e-15, w: 0.96371496}
+  m_LocalRotation: {x: 0.26693356, y: 0.000000028720944, z: -0.00000000795524, w: 0.96371496}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12265,6 +12267,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnCanMove.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
       propertyPath: OnEndTrail.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -12273,9 +12279,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnInvincibility.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnCanMove.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
       propertyPath: OnEndTrail.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnCanMove.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 554932287}
     - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
       propertyPath: OnEndTrail.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -12289,12 +12307,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 838318424}
     - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnCanMove.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
       propertyPath: OnStartTrail.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 838318424}
     - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnCanMove.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchCanMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
       propertyPath: OnEndTrail.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnInvincibility.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
       propertyPath: OnStartAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -12309,6 +12339,10 @@ PrefabInstance:
       value: EndAttack
       objectReference: {fileID: 0}
     - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnInvincibility.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 554932287}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
       propertyPath: OnStartTrail.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -12321,6 +12355,18 @@ PrefabInstance:
       value: StartAttack
       objectReference: {fileID: 0}
     - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnInvincibility.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnInvincibility.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchInvincibility
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnCanMove.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
       propertyPath: OnEndTrail.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PlayerWeapon, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -12329,11 +12375,23 @@ PrefabInstance:
       value: PlayerWeapon, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnInvincibility.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnCanMove.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
       propertyPath: OnEndTrail.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
       propertyPath: OnStartTrail.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181146277424434486, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: OnInvincibility.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2319767916014381831, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
@@ -12411,6 +12469,10 @@ PrefabInstance:
     - target: {fileID: 2622491277377125639, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622491277377125753, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
+      propertyPath: m_Center.y
+      value: 0.88
       objectReference: {fileID: 0}
     - target: {fileID: 2625409484746467276, guid: 18feaaa3adde96b43816cf62559bed5b, type: 3}
       propertyPath: m_Layer
