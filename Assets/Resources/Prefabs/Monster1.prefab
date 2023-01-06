@@ -625,6 +625,7 @@ MonoBehaviour:
   text: {fileID: 7220120970497219329, guid: 59faa56d739db744e9b610662e3365e5, type: 3}
   canvas: {fileID: 386259939}
   damagePos: {fileID: 8304670553774203494}
+  coin: {fileID: 5249905586712016947, guid: bb391a89e74fd0440ad6226ca52137d4, type: 3}
   statData: {fileID: 11400000, guid: d0c52be316515014e961278d86a94873, type: 2}
   curHP: 100
   maxHP: 100

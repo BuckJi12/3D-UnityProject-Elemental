@@ -13,6 +13,7 @@ public class MonsterData : ScriptableObject
     public int defence;
 
     public int exp;
+    public int money;
 
     public List<GameObject> dropItems;
 }

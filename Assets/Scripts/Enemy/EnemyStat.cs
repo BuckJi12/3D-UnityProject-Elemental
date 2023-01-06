@@ -14,6 +14,8 @@ public class EnemyStat : MonoBehaviour, IDamageable
     private Canvas canvas;
     [SerializeField]
     private Transform damagePos;
+    [SerializeField]
+    private GameObject coin;
 
     private Rigidbody rigid;
     private Animator anim;
@@ -59,6 +61,7 @@ public class EnemyStat : MonoBehaviour, IDamageable
             if (curHP <= 0)
             {
                 enemyAI.Die();
+                DropMoney();
                 anim.SetTrigger("Die");
                 StartCoroutine(DisappearObject());
             }
@@ -72,5 +75,13 @@ public class EnemyStat : MonoBehaviour, IDamageable
         damageText.SetText(PlayerStatManager.Instance.CalculateDamage(this, critical), critical);
         instance.transform.position = damagePos.transform.position;
         instance.transform.SetParent(canvas.transform);
+    }
+
+    public void DropMoney()
+    {
+        GameObject instance = PoolManager.Instance.Get(coin);
+        Money money = instance.GetComponent<Money>();
+        money.SetMoney(statData.money);
+        instance.transform.position = damagePos.transform.position;
     }
 }
