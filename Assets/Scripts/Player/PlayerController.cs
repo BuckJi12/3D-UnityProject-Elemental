@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool canMove = true;
     private float moveY;
     private int jumpCount = 1;
+    private bool canRoll = true;
 
     private PlayerState state;
     private void Awake()
@@ -67,14 +68,22 @@ public class PlayerController : MonoBehaviour
 
     private void Roll()
     {
-        if (PlayerStatManager.Instance.stat.curStamina >= 50)
+        if (PlayerStatManager.Instance.stat.curStamina >= 50 && canRoll)
         {
             if (Input.GetButtonDown("Fire2") && controller.isGrounded)
             {
                 anim.SetTrigger("Roll");
+                canRoll = false;
                 PlayerStatManager.Instance.stat.curStamina -= 50;
+                StartCoroutine(RollCoolTime());
             }
         }
+    }
+
+    public IEnumerator RollCoolTime()
+    {
+        yield return new WaitForSeconds(1);
+        canRoll = true;
     }
     private void Animation()
     {
