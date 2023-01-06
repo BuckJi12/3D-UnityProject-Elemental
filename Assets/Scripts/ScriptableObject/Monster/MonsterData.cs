@@ -15,5 +15,11 @@ public class MonsterData : ScriptableObject
     public int exp;
     public int money;
 
-    public List<GameObject> dropItems;
+    public List<DropItem> dropItems;
+
+    public struct DropItem
+    {
+        public GameObject itemPrefab;
+        public int dropRate;
+    }
 }
