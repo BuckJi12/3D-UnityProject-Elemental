@@ -33,6 +33,9 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
         {
         GameObject dropItem = eventData.pointerDrag;
         DraggableItem draggableItem = dropItem.GetComponent<DraggableItem>();
+            
+            if (draggableItem == null)
+                return;
         draggableItem.afterDraw = transform;
         }
     }
@@ -41,6 +44,9 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
+            if (inventoryItem == null)
+                return;
+
             inventoryItem.Use();
         }
     }

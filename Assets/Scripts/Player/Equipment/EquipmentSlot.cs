@@ -39,6 +39,8 @@ public class EquipmentSlot : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
+            if (inventoryItem == null)
+                return;
             EquipmentManager.Instance.UnEquip(inventoryItem);
         }
     }
