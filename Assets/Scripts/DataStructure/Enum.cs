@@ -32,3 +32,10 @@ public enum EnemyState
     Combat
 }
 
+public enum Elemental
+{
+    None,
+    Ice,
+    Fire
+}
+
