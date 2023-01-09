@@ -18,5 +18,5 @@ MonoBehaviour:
   animName: IceBreak
   canLevel: 5
   type: 1
-  damage: 10
+  damage: 2
   coolTime: 10

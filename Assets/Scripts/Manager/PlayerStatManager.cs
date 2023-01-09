@@ -101,7 +101,7 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(5);
 
             if (stat.curHP == stat.maxHP)
                 yield return null;
@@ -116,7 +116,7 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(5);
             if (stat.curStamina == stat.maxStamina)
                 yield return null;
 
