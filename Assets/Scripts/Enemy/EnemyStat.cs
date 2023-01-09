@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyStat : MonoBehaviour, IDamageable
+public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
 {
     [SerializeField]
     private ParticleSystem hitEffect;
@@ -46,7 +46,6 @@ public class EnemyStat : MonoBehaviour, IDamageable
             anim.SetTrigger("Hit");
             hitEffect.Play();
             gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
-            //rigid.AddForce(Vector3.back * 2, ForceMode.Impulse);
             if (PlayerStatManager.Instance.CalculateCritical())
             {
                 curHP -= PlayerStatManager.Instance.CalculateDamage(this, true);
@@ -83,5 +82,33 @@ public class EnemyStat : MonoBehaviour, IDamageable
         Money money = instance.GetComponent<Money>();
         money.SetMoney(statData.money);
         instance.transform.position = damagePos.transform.position;
+    }
+
+    public void HitSkill(Skill skill)
+    {
+        if (enemyAI.isAlive)
+        {
+            anim.SetTrigger("Hit");
+            hitEffect.Play();
+            gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
+            if (PlayerStatManager.Instance.CalculateCritical())
+            {
+                curHP -= PlayerStatManager.Instance.CalculateSkillDamage(this, skill, true);
+                DamageText(true);
+            }
+            else
+            {
+                curHP -= PlayerStatManager.Instance.CalculateSkillDamage(this, skill, false);
+                DamageText(false);
+            }
+
+            if (curHP <= 0)
+            {
+                enemyAI.Die();
+                DropMoney();
+                anim.SetTrigger("Die");
+                StartCoroutine(DisappearObject());
+            }
+        }
     }
 }

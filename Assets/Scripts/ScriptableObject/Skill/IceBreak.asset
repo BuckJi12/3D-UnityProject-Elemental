@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8cedf4c54a798f429181e2a8c395097, type: 3}
   m_Name: IceBreak
   m_EditorClassIdentifier: 
-  name: test
-  canLevel: 3
+  name: "\uC544\uC774\uC2A4 \uBE0C\uB808\uC774\uD06C"
+  description: "\uCE7C\uC744 \uD718\uB458\uB7EC \uC804\uBC29\uC5D0 \uC5BC\uC74C \uACF5\uACA9\uC744
+    \uD55C\uB2E4."
+  animName: IceBreak
+  canLevel: 5
   type: 1
-  damage: 8
-  coolTime: 3
+  damage: 10
+  coolTime: 10

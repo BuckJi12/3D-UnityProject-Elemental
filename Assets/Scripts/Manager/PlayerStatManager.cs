@@ -79,6 +79,24 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
         return finalDamage;
     }
 
+    public int CalculateSkillDamage(EnemyStat enemyStat, Skill skill, bool critical)
+    {
+        int finalDamage;
+        if (critical)
+        {
+            finalDamage = (((this.stat.elementalPower * skill.data.damage) * (stat.criticalDamage + 100)) / 100) - enemyStat.statData.defence;
+        }
+        else
+        {
+            finalDamage = (this.stat.elementalPower * skill.data.damage) - enemyStat.statData.defence;
+        }
+
+        if (finalDamage <= 0)
+            return 0;
+
+        return finalDamage;
+    }
+
     public IEnumerator RecoveryHP()
     {
         while (true)

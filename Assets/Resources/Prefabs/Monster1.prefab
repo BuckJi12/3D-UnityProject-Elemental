@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 19075591}
   - component: {fileID: 19075593}
   - component: {fileID: 19075592}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Name,Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 99498466}
   - component: {fileID: 99498468}
   - component: {fileID: 99498467}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 277964350}
   - component: {fileID: 277964352}
   - component: {fileID: 277964351}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 386259939}
   - component: {fileID: 386259938}
   - component: {fileID: 386259937}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: MobCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 447671835}
   - component: {fileID: 447671837}
   - component: {fileID: 447671836}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8304670553774203494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DamagePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 8019938590411950515}
   - component: {fileID: 8019938590411950540}
   - component: {fileID: 219668252537832980}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TurnipaA
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 8019938590567256876}
   - component: {fileID: 8019938590567256850}
   - component: {fileID: 8019938590567256851}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 8019938590856166746}
   - component: {fileID: 8019938590856166744}
   - component: {fileID: 8019938590856166745}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DetectRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4040886166850204478}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: UIPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -898,6 +898,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HitEffectA
       objectReference: {fileID: 0}
+    - target: {fileID: 7917582285988671842, guid: 4171e4ab4c836f84eb7a12ea76b22a83, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917582286048923045, guid: 4171e4ab4c836f84eb7a12ea76b22a83, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042740642538458401, guid: 4171e4ab4c836f84eb7a12ea76b22a83, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4171e4ab4c836f84eb7a12ea76b22a83, type: 3}
 --- !u!198 &845179481647087590 stripped
@@ -912,9 +924,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8019938590411950536}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 100024, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
       propertyPath: m_Name
       value: Turnipa
+      objectReference: {fileID: 0}
+    - target: {fileID: 100024, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100028, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100030, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100032, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100034, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100036, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

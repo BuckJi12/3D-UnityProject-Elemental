@@ -7,7 +7,7 @@ public class IceBreak : Skill
 
     public override void UseSkill(GameObject player)
     {
-        Collider[] colliders = Physics.OverlapSphere(player.transform.position, 10, LayerMask.GetMask("Monster"));
+        Collider[] colliders = Physics.OverlapSphere(player.transform.position, 9, LayerMask.GetMask("Monster"));
 
         if (colliders == null)
             return;
@@ -17,10 +17,10 @@ public class IceBreak : Skill
 
         for (int i = 0; i < colliders.Length; i++)
         {
-            Vector3 dirToTarget = (colliders[i].transform.position - transform.position).normalized;
-            Vector3 rightDir = AngleToDir(player.transform.eulerAngles.y + 120 * 0.5f);
+            Vector3 dirToTarget = (colliders[i].transform.position - player.transform.position).normalized;
+            Vector3 rightDir = AngleToDir(player.transform.eulerAngles.y + 50 * 0.5f);
 
-            if (Vector3.Dot(transform.forward, dirToTarget) > Vector3.Dot(transform.forward, rightDir))
+            if (Vector3.Dot(player.transform.forward, dirToTarget) > Vector3.Dot(player.transform.forward, rightDir))
             {
                 ISkillHitAble skillHitAble = colliders[i].GetComponent<ISkillHitAble>();
                 skillHitAble?.HitSkill(this);

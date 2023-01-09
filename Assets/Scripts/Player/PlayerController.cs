@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
                 Attack();
                 Roll();
                 Animation();
+                if (Input.GetButtonDown("Skill1"))
+                    anim.SetTrigger("IceBreak");
                 break;
         }
         GroundCheck();
