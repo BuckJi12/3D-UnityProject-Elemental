@@ -8,8 +8,8 @@ public class Skill : MonoBehaviour
 
     public void Start()
     {
-        
+        SkillManager.Instance.haveSkill.Add(this);
     }
 
-    public virtual void UseSkill() { }
+    public virtual void UseSkill(GameObject player) { }
 }
