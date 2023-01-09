@@ -5,10 +5,15 @@ using UnityEngine.Events;
 
 public class ParticleEventer : MonoBehaviour
 {
-    public UnityEvent OnParticle;
+    public UnityEvent iceBreak;
+    public UnityEvent fireDischarge;
 
-    public void OnParticleFunc()
+    public void OnIceBreakParticle()
     {
-        OnParticle?.Invoke();     
+        iceBreak?.Invoke();     
+    }
+    public void OnFireDischargeParticle()
+    {
+        fireDischarge?.Invoke();
     }
 }

@@ -6,6 +6,8 @@ public class PlayerParticle : MonoBehaviour
 {
     [SerializeField]
     private ParticleSystem iceBreak;
+    [SerializeField]
+    private ParticleSystem fireDischarge;
 
 
     public void OnParticle(ParticleSystem particle)

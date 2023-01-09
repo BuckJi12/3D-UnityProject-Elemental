@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
                 Animation();
                 if (Input.GetButtonDown("Skill1"))
                     anim.SetTrigger("IceBreak");
+                if (Input.GetButtonDown("Skill2"))
+                    anim.SetTrigger("FireDischarge");
                 break;
         }
         GroundCheck();
