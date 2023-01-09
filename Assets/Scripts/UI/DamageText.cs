@@ -20,7 +20,7 @@ public class DamageText : MonoBehaviour
         transform.rotation = Camera.main.transform.rotation;
     }
 
-    public void SetText(int damage, bool critical)
+    public void SetText(int damage, bool critical, Elemental type)
     {
         if (critical)
         {
@@ -30,6 +30,16 @@ public class DamageText : MonoBehaviour
         {
             text.fontSize = 0.3f;
         }
+
+        if (type == Elemental.Ice)
+        {
+            text.color = new Color32(133, 245, 242, 255);
+        }
+        else if (type == Elemental.Fire)
+        {
+            text.color = new Color32(255, 85, 32, 255);
+        }
+        
 
         text.text = damage.ToString();
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -71,7 +72,16 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     {
         GameObject instance = PoolManager.Instance.Get(text);
         damageText = instance.GetComponent<DamageText>();
-        damageText.SetText(PlayerStatManager.Instance.CalculateDamage(this, critical), critical);
+        damageText.SetText(PlayerStatManager.Instance.CalculateDamage(this, critical), critical, Elemental.None);
+        instance.transform.position = damagePos.transform.position;
+        instance.transform.SetParent(canvas.transform);
+    }
+
+    public void SkillDamageText(bool critical, Skill skill)
+    {
+        GameObject instance = PoolManager.Instance.Get(text);
+        damageText = instance.GetComponent<DamageText>();
+        damageText.SetText(PlayerStatManager.Instance.CalculateSkillDamage(this, skill, critical), critical, skill.data.type);
         instance.transform.position = damagePos.transform.position;
         instance.transform.SetParent(canvas.transform);
     }
@@ -94,12 +104,12 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
             if (PlayerStatManager.Instance.CalculateCritical())
             {
                 curHP -= PlayerStatManager.Instance.CalculateSkillDamage(this, skill, true);
-                DamageText(true);
+                SkillDamageText(true, skill);
             }
             else
             {
                 curHP -= PlayerStatManager.Instance.CalculateSkillDamage(this, skill, false);
-                DamageText(false);
+                SkillDamageText(false, skill);
             }
 
             if (curHP <= 0)
