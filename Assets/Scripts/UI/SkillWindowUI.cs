@@ -32,7 +32,6 @@ public class SkillWindowUI : MonoBehaviour
         for (int i = 0; i < SkillManager.Instance.haveSkill.Count; i++)
         {
             skillSlots[i].OnSkill(SkillManager.Instance.haveSkill[i]);
-            Debug.Log(i);
         }
     }
 }

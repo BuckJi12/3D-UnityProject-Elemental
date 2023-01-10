@@ -8,7 +8,7 @@ public class SkillSlot : MonoBehaviour
     [SerializeField]
     private Image skillIcon;
 
-    private Skill skill;
+    public Skill skill;
 
     private void Start()
     {

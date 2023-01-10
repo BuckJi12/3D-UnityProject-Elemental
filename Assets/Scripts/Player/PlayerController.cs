@@ -51,12 +51,9 @@ public class PlayerController : MonoBehaviour
                 Rotate();
                 Jump();
                 Attack();
+                Skill();
                 Roll();
                 Animation();
-                if (Input.GetButtonDown("Skill1"))
-                    anim.SetTrigger("IceBreak");
-                if (Input.GetButtonDown("Skill2"))
-                    anim.SetTrigger("FireDischarge");
                 break;
         }
         GroundCheck();
@@ -67,6 +64,33 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             anim.SetTrigger("Attack");
+        }
+    }
+
+    public void Skill()
+    {
+        if (Input.GetButtonDown("Skill1"))
+        {
+            if (SkillManager.Instance.equipSkill[0] == null)
+                return;
+
+            anim.SetTrigger(SkillManager.Instance.equipSkill[0].data.animName);
+        }
+
+        if (Input.GetButtonDown("Skill2"))
+        {
+            if (SkillManager.Instance.equipSkill[1] == null)
+                return;
+
+            anim.SetTrigger(SkillManager.Instance.equipSkill[1].data.animName);
+        }
+
+        if (Input.GetButtonDown("Skill3"))
+        {
+            if (SkillManager.Instance.equipSkill[2] == null)
+                return;
+
+            anim.SetTrigger(SkillManager.Instance.equipSkill[2].data.animName);
         }
     }
 

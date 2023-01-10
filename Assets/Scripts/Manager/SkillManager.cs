@@ -8,7 +8,11 @@ public class SkillManager : SingleTon<SkillManager>
     public List<Skill> haveSkill;
 
     [SerializeField]
-    private GameObject player;
+    private EquipSkillUI q;
+    [SerializeField]
+    private EquipSkillUI e;
+    [SerializeField]
+    private EquipSkillUI r;
 
     private void Awake()
     {
@@ -16,15 +20,45 @@ public class SkillManager : SingleTon<SkillManager>
         haveSkill = new List<Skill>();
     }
 
-    public void EquipSkill(Skill skill)
+    private void Start()
     {
-        equipSkill.Add(skill);
-        haveSkill.Remove(skill);
+        equipSkill.Add(null);
+        equipSkill.Add(null);
+        equipSkill.Add(null);
     }
 
-    public void OutSkill(Skill skill)
+    public void EquipSkill(int index, Skill skill)
     {
-        equipSkill.Remove(skill);
-        haveSkill.Add(skill);
+        // 이미 있는 스킬을 넣으면 일단 지운다
+        if (equipSkill.Find(x => x == skill))
+        {
+            int temp = equipSkill.FindIndex(x => x == skill);
+            equipSkill[temp] = null;
+            UIUpdate();
+        }
+
+
+        // index의 스킬을 넣는다
+        if (equipSkill[index] == null)
+        {
+            equipSkill[index] = skill;
+            return;
+        }
+
+        // index의 이미 있었으면 비워두고 넣는다
+        equipSkill[index] = null;
+        equipSkill[index] = skill;
+    }
+
+    public void OutSkill(int index)
+    {
+        equipSkill[index] = null;
+    }
+
+    public void UIUpdate()
+    {
+        q.UpdateUI();
+        e.UpdateUI();
+        r.UpdateUI();
     }
 }
