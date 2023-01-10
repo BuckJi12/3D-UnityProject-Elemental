@@ -13,4 +13,6 @@ public class SkillData : ScriptableObject
     public Elemental type;
     public int damage;
     public float coolTime;
+
+    public Sprite skillIcon;
 }

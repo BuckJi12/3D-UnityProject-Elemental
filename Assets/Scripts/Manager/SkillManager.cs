@@ -16,7 +16,7 @@ public class SkillManager : SingleTon<SkillManager>
         haveSkill = new List<Skill>();
     }
 
-    public void EquipSKill(Skill skill)
+    public void EquipSkill(Skill skill)
     {
         equipSkill.Add(skill);
         haveSkill.Remove(skill);
