@@ -19,3 +19,4 @@ MonoBehaviour:
   type: 2
   damage: 1
   coolTime: 10
+  skillIcon: {fileID: 21300000, guid: cc7e1f4ec86801a478d9914bfed3563a, type: 3}
