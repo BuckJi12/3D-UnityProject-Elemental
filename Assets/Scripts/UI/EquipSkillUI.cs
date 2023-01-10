@@ -11,15 +11,24 @@ public class EquipSkillUI : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     private Skill skill;
 
+    private void Start()
+    {
+        skill = null;
+        skillIcon.sprite = null;
+        skillIcon.enabled = false;
+    }
+
     public void UpdateUI()
     {
         if (SkillManager.Instance.equipSkill[transform.GetSiblingIndex()] == null)
         {
             this.skill = null;
             skillIcon.sprite = null;
+            skillIcon.enabled = false;
         }
         else
         {
+            skillIcon.enabled = true;
             this.skill = SkillManager.Instance.equipSkill[transform.GetSiblingIndex()];
             skillIcon.sprite = SkillManager.Instance.equipSkill[transform.GetSiblingIndex()].data.skillIcon;
         }
