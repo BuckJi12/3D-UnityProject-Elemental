@@ -23,23 +23,6 @@ public class EquipmentManager : SingleTon<EquipmentManager>
         isWeaponEquip = false;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            if (ui.gameObject.activeSelf)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                ui.gameObject.SetActive(false);
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.None;
-                ui.gameObject.SetActive(true);
-            }
-        }
-    }
-
     public void Equip(InventoryItem item)
     {
         if (equips.TryGetValue(item.data.equipKind, out InventoryItem oldItem))

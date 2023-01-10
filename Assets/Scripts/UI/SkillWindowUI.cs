@@ -11,21 +11,10 @@ public class SkillWindowUI : MonoBehaviour
     {
         skillSlots = GetComponentsInChildren<SkillSlot>();
     }
-
     private void Start()
     {
         UpdateUI();
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            UpdateUI();
-            Cursor.lockState = CursorLockMode.None;
-        }
-    }
-
     public void UpdateUI()
     {
         skillSlots = GetComponentsInChildren<SkillSlot>();
