@@ -16,7 +16,7 @@ MonoBehaviour:
   description: "\uBAB8\uC5D0 \uC788\uB294 \uBD88 \uC6D0\uC18C\uB97C \uBC29\uCD9C\uD55C\uB2E4."
   animName: FireDischarge
   canLevel: 0
-  type: 2
+  type: 10
   damage: 1
   coolTime: 10
   skillIcon: {fileID: 21300000, guid: cc7e1f4ec86801a478d9914bfed3563a, type: 3}

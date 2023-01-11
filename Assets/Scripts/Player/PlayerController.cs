@@ -50,9 +50,12 @@ public class PlayerController : MonoBehaviour
                 Move();
                 Rotate();
                 Jump();
-                Attack();
                 Skill();
-                Roll();
+                if (UIManager.Instance.cursorStack < 1)
+                {
+                    Roll();
+                    Attack();
+                }
                 Animation();
                 break;
         }

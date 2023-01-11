@@ -10,7 +10,7 @@ public enum UIState
     Material
 }
 
-public class UIManager : MonoBehaviour
+public class UIManager : SingleTon<UIManager>
 {
     [SerializeField]
     private SkillWindowUI skillUI;
@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
 
     private UIState curUI;
 
-    private int cursorStack = 0;
+    public int cursorStack = 0;
 
     private void Update()
     {
@@ -54,6 +54,7 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
+            skillUI.UpdateUI();
             if (skillUI.gameObject.activeSelf == true)
             {
                 skillUI.gameObject.SetActive(false);
@@ -61,7 +62,6 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                skillUI.UpdateUI();
                 skillUI.gameObject.SetActive(true);
                 cursorStack++;
             }
