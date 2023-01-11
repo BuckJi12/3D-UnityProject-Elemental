@@ -23,6 +23,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     private Animator anim;
     private DamageText damageText;
     private EnemyAI enemyAI;
+    private EnemyInfoUI infoUI;
 
     public Elemental enemyState;
 
@@ -37,6 +38,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         anim = GetComponentInChildren<Animator>();
         rigid = GetComponent<Rigidbody>();
         enemyAI = GetComponent<EnemyAI>();
+        infoUI = GetComponent<EnemyInfoUI>();
     }
     private void Update()
     {
@@ -85,11 +87,20 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         instance.transform.SetParent(canvas.transform);
     }
 
-    public void SkillDamageText(bool critical, Skill skill)
+    public void ReactionText(string text, byte r, byte g, byte b, float size)
+    {
+        GameObject instance = PoolManager.Instance.Get(this.text);
+        damageText = instance.GetComponent<DamageText>();
+        damageText.ReActionText(text, r, g, b, size);
+        instance.transform.position = damagePos.transform.position;
+        instance.transform.SetParent(canvas.transform);
+    }
+
+    public void SkillDamageText(int damage, bool critical, Elemental type)
     {
         GameObject instance = PoolManager.Instance.Get(text);
         damageText = instance.GetComponent<DamageText>();
-        damageText.SetText(PlayerStatManager.Instance.CalculateSkillDamage(this, skill, critical), critical, skill.data.type);
+        damageText.SetText(damage, critical, type);
         instance.transform.position = damagePos.transform.position;
         instance.transform.SetParent(canvas.transform);
     }
@@ -112,13 +123,13 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
             if (PlayerStatManager.Instance.CalculateCritical())
             {
                 curHP -= PlayerStatManager.Instance.CalculateSkillDamage(this, skill, true);
-                SkillDamageText(true, skill);
+                SkillDamageText(PlayerStatManager.Instance.CalculateSkillDamage(this, skill, true), true, skill.data.type);
                 ElementalReaction(skill);
             }
             else
             {
                 curHP -= PlayerStatManager.Instance.CalculateSkillDamage(this, skill, false);
-                SkillDamageText(false, skill);
+                SkillDamageText(PlayerStatManager.Instance.CalculateSkillDamage(this, skill, false), false, skill.data.type);
                 ElementalReaction(skill);
             }
 
@@ -142,11 +153,15 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
                 {
                     StartCoroutine(FrostBite());
                     enemyState = Elemental.Ice;
+                    ReactionText("동상", 133, 245, 242, 0.5f);
+                    infoUI.UpdateIcon();
                 }
                 if (skill.data.type == Elemental.Fire)
                 {
                     StartCoroutine(FireDotDamage());
                     enemyState = Elemental.Fire;
+                    ReactionText("화상", 255, 85, 32, 0.5f);
+                    infoUI.UpdateIcon();
                 }
                 break;
             case Elemental.Ice:     // 얼음 상태
@@ -176,10 +191,13 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         {
             yield return new WaitForSeconds(2);
             curHP -= (PlayerStatManager.Instance.stat.elementalPower / 100);
+            SkillDamageText(PlayerStatManager.Instance.stat.elementalPower / 100, false, Elemental.Fire);
+
             // 텍스트 출력
         }
 
         enemyState = Elemental.None;
+        infoUI.UpdateIcon();
     }
 
     public IEnumerator FrostBite()
@@ -191,6 +209,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
 
         yield return new WaitForSeconds(10);
         enemyState = Elemental.None;
+        infoUI.UpdateIcon();
         defence = originalDefence;
         enemyAI.agent.speed = 2;
     }
@@ -200,8 +219,11 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         if (enemyState == (Elemental.Ice | Elemental.Fire))
         {
             StopAllCoroutines();
-            curHP -= (PlayerStatManager.Instance.stat.elementalPower * 5);
+            curHP -= (PlayerStatManager.Instance.stat.elementalPower * 10);
+            SkillDamageText(PlayerStatManager.Instance.stat.elementalPower * 10, false, Elemental.Fire);
             enemyState = Elemental.None;
+            ReactionText("팽창", 225, 125, 85, 0.7f);
+            infoUI.UpdateIcon();
         }
     }
 }

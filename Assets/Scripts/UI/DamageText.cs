@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,8 +40,19 @@ public class DamageText : MonoBehaviour
         {
             text.color = new Color32(255, 85, 32, 255);
         }
+        else
+        {
+            text.color = new Color32(255, 255, 255, 255);
+        }
         
 
         text.text = damage.ToString();
+    }
+
+    public void ReActionText(string text, byte r, byte g, byte b, float size)
+    {
+        this.text.color = new Color32(r, g, b, 255);
+        this.text.fontSize = size;
+        this.text.text = text;
     }
 }
