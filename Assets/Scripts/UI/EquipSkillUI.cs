@@ -37,6 +37,8 @@ public class EquipSkillUI : MonoBehaviour, IDropHandler, IPointerClickHandler
     public void OnDrop(PointerEventData eventData)
     {
         SkillSlot skillSlot = eventData.pointerDrag.GetComponent<SkillSlot>();
+        if (skillSlot == null)
+            return;
         SkillManager.Instance.EquipSkill(transform.GetSiblingIndex(), skillSlot.skill);
         UpdateUI();
     }
