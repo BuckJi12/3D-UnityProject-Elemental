@@ -172,20 +172,23 @@ public class PlayerController : MonoBehaviour
 
     private void Rotate()
     {
-        Vector3 fowardVec = new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized;
-        Vector3 rightVec = new Vector3(Camera.main.transform.right.x, 0f, Camera.main.transform.right.z).normalized;
-
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector3 dir = new Vector3(horizontal, 0, vertical);
-
-        Vector3 rotateVec = fowardVec * dir.z + rightVec * dir.x;
-
-        if (!(horizontal == 0 && vertical == 0))
+        if (canMove)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rotateVec), Time.deltaTime * rotateSpeed);
+            Vector3 fowardVec = new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized;
+            Vector3 rightVec = new Vector3(Camera.main.transform.right.x, 0f, Camera.main.transform.right.z).normalized;
 
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+
+            Vector3 dir = new Vector3(horizontal, 0, vertical);
+
+            Vector3 rotateVec = fowardVec * dir.z + rightVec * dir.x;
+
+            if (!(horizontal == 0 && vertical == 0))
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rotateVec), Time.deltaTime * rotateSpeed);
+
+            }
         }
     }
 

@@ -7,7 +7,8 @@ using UnityEngine.Animations;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyAI : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    [HideInInspector]
+    public NavMeshAgent agent;
     private Detect detect;
     private AttackRange attackRange;
     private Animator anim;
@@ -112,7 +113,7 @@ public class EnemyAI : MonoBehaviour
                 return;
 
             IDamageable damageable = target.GetComponent<IDamageable>();
-            damageable?.TakeDamage(stat.statData.damage);
+            damageable?.TakeDamage(stat.damage);
         }   
     }
 

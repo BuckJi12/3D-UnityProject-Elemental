@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,10 +33,12 @@ public enum EnemyState
     Combat
 }
 
+[Flags]
 public enum Elemental
 {
-    None,
-    Ice,
-    Fire
+    None        = 0000_0000_0000_0000,  // 1 << 1 == 0000_0000_0000_0000_0000_0000_0000_0001
+    Ice         = 0000_0000_0000_0001,  // 1 << 0
+    Fire        = 0000_0000_0000_0010,  // 1 << 1
+    Lightning   = 0000_0000_0000_0100   // 1 << 2
 }
 

@@ -574,6 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4384cfad64c7c5541b31da51dfa2cae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
   targetMask:
     serializedVersion: 2
     m_Bits: 128
@@ -626,9 +627,12 @@ MonoBehaviour:
   canvas: {fileID: 386259939}
   damagePos: {fileID: 8304670553774203494}
   coin: {fileID: 5249905586712016947, guid: bb391a89e74fd0440ad6226ca52137d4, type: 3}
+  enemyState: 0
   statData: {fileID: 11400000, guid: d0c52be316515014e961278d86a94873, type: 2}
-  curHP: 100
-  maxHP: 100
+  curHP: 10000
+  maxHP: 10000
+  damage: 10
+  defence: 5
 --- !u!114 &219668252537832980
 MonoBehaviour:
   m_ObjectHideFlags: 0
