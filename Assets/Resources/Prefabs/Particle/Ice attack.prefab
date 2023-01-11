@@ -14734,6 +14734,7 @@ GameObject:
   - component: {fileID: 1794987770369802263}
   - component: {fileID: 1884201661079354383}
   - component: {fileID: 1883601979495190457}
+  - component: {fileID: -5083644460611143368}
   m_Layer: 0
   m_Name: Ice attack
   m_TagString: Untagged
@@ -14748,7 +14749,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792643342227740979}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14766,7 +14767,7 @@ Transform:
   - {fileID: 1795212933516322771}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1884201661079354383
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -19631,6 +19632,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-5083644460611143368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792643342227740979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64545f973d499ac4cb25daa1f2074b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  returnTime: 3
 --- !u!1 &1792675589693736225
 GameObject:
   m_ObjectHideFlags: 0
