@@ -1,0 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Compilation;
+using UnityEngine;
+
+public abstract class State<T> where T : class
+{
+    public abstract void Enter(T entity);
+
+    public abstract void Update(T entity);
+
+    public abstract void Exit(T entity);
+}
