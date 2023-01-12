@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Security;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
@@ -19,26 +20,19 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     [SerializeField]
     private GameObject coin;
 
+    private Enemy enemy;
+
     private Rigidbody rigid;
     private Animator anim;
     private DamageText damageText;
-    private EnemyAI enemyAI;
     private EnemyInfoUI infoUI;
-
-    public Elemental enemyState;
-
-    public MonsterData statData;
-    public int curHP;
-    public int maxHP;
-    public int damage;
-    public int defence;
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
         rigid = GetComponent<Rigidbody>();
-        enemyAI = GetComponent<EnemyAI>();
         infoUI = GetComponent<EnemyInfoUI>();
+        enemy = GetComponent<Enemy>();
     }
     private void Update()
     {
@@ -52,25 +46,25 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
 
     public void TakeDamage(int damage)
     {
-        if (enemyAI.isAlive)
+        if (enemy.isAlive)
         {
             anim.SetTrigger("Hit");
             hitEffect.Play();
             gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
             if (PlayerStatManager.Instance.CalculateCritical())
             {
-                curHP -= PlayerStatManager.Instance.CalculateDamage(this, true);
+                enemy.curHP -= PlayerStatManager.Instance.CalculateDamage(enemy, true);
                 DamageText(true);
             }
             else
             {
-                curHP -= PlayerStatManager.Instance.CalculateDamage(this, false);
+                enemy.curHP -= PlayerStatManager.Instance.CalculateDamage(enemy, false);
                 DamageText(false);
             }
 
-            if (curHP <= 0)
+            if (enemy.curHP <= 0)
             {
-                enemyAI.Die();
+                //enemyAI.Die();
                 DropMoney();
                 anim.SetTrigger("Die");
                 StartCoroutine(DisappearObject());
@@ -82,7 +76,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     {
         GameObject instance = PoolManager.Instance.Get(text);
         damageText = instance.GetComponent<DamageText>();
-        damageText.SetText(PlayerStatManager.Instance.CalculateDamage(this, critical), critical, Elemental.None);
+        damageText.SetText(PlayerStatManager.Instance.CalculateDamage(enemy, critical), critical, Elemental.None);
         instance.transform.position = damagePos.transform.position;
         instance.transform.SetParent(canvas.transform);
     }
@@ -109,33 +103,33 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     {
         GameObject instance = PoolManager.Instance.Get(coin);
         Money money = instance.GetComponent<Money>();
-        money.SetMoney(statData.money);
+        money.SetMoney(enemy.data.money);
         instance.transform.position = damagePos.transform.position;
     }
 
     public void HitSkill(Skill skill)
     {
-        if (enemyAI.isAlive)
+        if (enemy.isAlive)
         {
             anim.SetTrigger("Hit");
             hitEffect.Play();
             gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
             if (PlayerStatManager.Instance.CalculateCritical())
             {
-                curHP -= PlayerStatManager.Instance.CalculateSkillDamage(this, skill, true);
-                SkillDamageText(PlayerStatManager.Instance.CalculateSkillDamage(this, skill, true), true, skill.data.type);
+                enemy.curHP -= PlayerStatManager.Instance.CalculateSkillDamage(enemy, skill, true);
+                SkillDamageText(PlayerStatManager.Instance.CalculateSkillDamage(enemy, skill, true), true, skill.data.type);
                 ElementalReaction(skill);
             }
             else
             {
-                curHP -= PlayerStatManager.Instance.CalculateSkillDamage(this, skill, false);
-                SkillDamageText(PlayerStatManager.Instance.CalculateSkillDamage(this, skill, false), false, skill.data.type);
+                enemy.curHP -= PlayerStatManager.Instance.CalculateSkillDamage(enemy, skill, false);
+                SkillDamageText(PlayerStatManager.Instance.CalculateSkillDamage(enemy, skill, false), false, skill.data.type);
                 ElementalReaction(skill);
             }
 
-            if (curHP <= 0)
+            if (enemy.curHP <= 0)
             {
-                enemyAI.Die();
+                //enemyAI.Die();
                 DropMoney();
                 anim.SetTrigger("Die");
                 StartCoroutine(DisappearObject());
@@ -145,21 +139,21 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
 
     public void ElementalReaction(Skill skill)
     {
-        switch (enemyState)
+        switch (enemy.elementalState)
         {
             case Elemental.None:    // 일반 상태
                 // 스킬의 원소를 주고 해당 원소의 디버프를 건다
                 if (skill.data.type == Elemental.Ice)
                 {
                     StartCoroutine(FrostBite());
-                    enemyState = Elemental.Ice;
+                    enemy.elementalState = Elemental.Ice;
                     ReactionText("동상", 133, 245, 242, 0.5f);
                     infoUI.UpdateIcon();
                 }
                 if (skill.data.type == Elemental.Fire)
                 {
                     StartCoroutine(FireDotDamage());
-                    enemyState = Elemental.Fire;
+                    enemy.elementalState = Elemental.Fire;
                     ReactionText("화상", 255, 85, 32, 0.5f);
                     infoUI.UpdateIcon();
                 }
@@ -169,7 +163,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
                 // 화염 공격 시 얼음 & 화염 상태로 적용
                 if (skill.data.type == Elemental.Fire)
                 {
-                    enemyState = (Elemental.Ice | Elemental.Fire);
+                    enemy.elementalState = (Elemental.Ice | Elemental.Fire);
                 }
                 break;
             case Elemental.Fire:    // 화염 상태
@@ -177,7 +171,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
                 // 얼음 공격시 얼음 & 화염 상태로 적용
                 if (skill.data.type == Elemental.Ice)
                 {
-                    enemyState = (Elemental.Ice | Elemental.Fire);
+                    enemy.elementalState = (Elemental.Ice | Elemental.Fire);
                 }
                 break;
             case Elemental.Lightning:   // 번개 상태 보류
@@ -190,38 +184,38 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         for (int i = 0; i < 5; i++)
         {
             yield return new WaitForSeconds(2);
-            curHP -= (PlayerStatManager.Instance.stat.elementalPower / 100);
+            enemy.curHP -= (PlayerStatManager.Instance.stat.elementalPower / 100);
             SkillDamageText(PlayerStatManager.Instance.stat.elementalPower / 100, false, Elemental.Fire);
 
             // 텍스트 출력
         }
 
-        enemyState = Elemental.None;
+        enemy.elementalState = Elemental.None;
         infoUI.UpdateIcon();
     }
 
     public IEnumerator FrostBite()
     {
-        int originalDefence = defence;
-        defence = (int)(defence * 0.7f);
-        enemyAI.agent.speed = 1;
+        int originalDefence = enemy.defence;
+        enemy.defence = (int)(enemy.defence * 0.7f);
+        //enemyAI.agent.speed = 1;
 
 
         yield return new WaitForSeconds(10);
-        enemyState = Elemental.None;
+        enemy.elementalState = Elemental.None;
         infoUI.UpdateIcon();
-        defence = originalDefence;
-        enemyAI.agent.speed = 2;
+        enemy.defence = originalDefence;
+        //enemyAI.agent.speed = 2;
     }
 
     public void Expansion()
     {
-        if (enemyState == (Elemental.Ice | Elemental.Fire))
+        if (enemy.elementalState == (Elemental.Ice | Elemental.Fire))
         {
             StopAllCoroutines();
-            curHP -= (PlayerStatManager.Instance.stat.elementalPower * 10);
+            enemy.curHP -= (PlayerStatManager.Instance.stat.elementalPower * 10);
             SkillDamageText(PlayerStatManager.Instance.stat.elementalPower * 10, false, Elemental.Fire);
-            enemyState = Elemental.None;
+            enemy.elementalState = Elemental.None;
             ReactionText("팽창", 225, 125, 85, 0.7f);
             infoUI.UpdateIcon();
         }

@@ -61,16 +61,16 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
         }
     }
 
-    public int CalculateDamage(EnemyStat enemystat, bool critical)
+    public int CalculateDamage(Enemy enemy, bool critical)
     {
         int finalDamage;
         if (critical)
         {
-            finalDamage = ((this.stat.damage * (stat.criticalDamage + 100)) / 100) - enemystat.defence;
+            finalDamage = ((this.stat.damage * (stat.criticalDamage + 100)) / 100) - enemy.defence;
         }
         else
         {
-            finalDamage = this.stat.damage - enemystat.defence;
+            finalDamage = this.stat.damage - enemy.defence;
         }
 
         if (finalDamage <= 0)
@@ -79,16 +79,16 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
         return finalDamage;
     }
 
-    public int CalculateSkillDamage(EnemyStat enemyStat, Skill skill, bool critical)
+    public int CalculateSkillDamage(Enemy enemy, Skill skill, bool critical)
     {
         int finalDamage;
         if (critical)
         {
-            finalDamage = (((this.stat.elementalPower * skill.data.damage) * (stat.criticalDamage + 100)) / 100) - enemyStat.defence;
+            finalDamage = (((this.stat.elementalPower * skill.data.damage) * (stat.criticalDamage + 100)) / 100) - enemy.defence;
         }
         else
         {
-            finalDamage = (this.stat.elementalPower * skill.data.damage) - enemyStat.defence;
+            finalDamage = (this.stat.elementalPower * skill.data.damage) - enemy.defence;
         }
 
         if (finalDamage <= 0)

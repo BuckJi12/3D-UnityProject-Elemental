@@ -33,6 +33,16 @@ public enum EnemyState
     Combat
 }
 
+public enum EnemyState2
+{
+    Idle,
+    Move,
+    Attack,
+    Hit,
+    Die
+}
+
+
 [Flags]
 public enum Elemental
 {

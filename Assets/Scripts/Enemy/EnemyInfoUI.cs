@@ -17,11 +17,11 @@ public class EnemyInfoUI : MonoBehaviour
     [SerializeField]
     private Image fireIcon;
 
-    private EnemyStat enemyStat;
+    private Enemy enemy;
 
     private void Awake()
     {
-        enemyStat = GetComponent<EnemyStat>();
+        enemy = GetComponent<Enemy>();
     }
 
     private void Start()
@@ -37,16 +37,16 @@ public class EnemyInfoUI : MonoBehaviour
         iceIcon.transform.rotation = Camera.main.transform.rotation;
         fireIcon.transform.rotation = Camera.main.transform.rotation;
 
-        health.fillAmount = (float)enemyStat.curHP / (float)enemyStat.maxHP;
+        health.fillAmount = (float)enemy.curHP / (float)enemy.maxHP;
     }
     public void Set()
     {
-        nameAndLevel.text = "LV  "+ enemyStat.statData.level.ToString() + " " + enemyStat.statData.name.ToString();
+        nameAndLevel.text = "LV  "+ enemy.data.level.ToString() + " " + enemy.data.name.ToString();
     }
 
     public void UpdateIcon()
     {
-        switch (enemyStat.enemyState)
+        switch (enemy.elementalState)
         {
             case Elemental.None:
                 iceIcon.gameObject.SetActive(false);

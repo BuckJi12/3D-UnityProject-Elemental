@@ -113,7 +113,7 @@ public class EnemyAI : MonoBehaviour
                 return;
 
             IDamageable damageable = target.GetComponent<IDamageable>();
-            damageable?.TakeDamage(stat.damage);
+            //damageable?.TakeDamage(stat.damage);
         }   
     }
 

@@ -11,17 +11,19 @@ public class Detect : MonoBehaviour
     //public bool isDetect = false;
     public UnityEvent modeSwitch;
 
+    private Enemy enemy;
+
     private void Awake()
     {
         detectRange = GetComponent<SphereCollider>();
-        
+        enemy = GetComponentInParent<Enemy>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("Player"))
         {
-            modeSwitch?.Invoke();
+            enemy.findTarget = true;
         }
     }
 
@@ -36,6 +38,6 @@ public class Detect : MonoBehaviour
     private IEnumerator DetectCancel()
     {
         yield return new WaitForSeconds(3);
-        modeSwitch?.Invoke();
+        enemy.findTarget = false;
     }
 }

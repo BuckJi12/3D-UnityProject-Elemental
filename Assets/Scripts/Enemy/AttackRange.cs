@@ -9,17 +9,19 @@ public class AttackRange : MonoBehaviour
 
     public bool canAttack = false;
 
+    private Enemy enemy;
+
     private void Awake()
     {
         attackRange = GetComponent<CapsuleCollider>();
+        enemy = GetComponentInParent<Enemy>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("Player"))
         {
-            canAttack = true;
-
+            enemy.canAttack = true;
         }
     }
 
@@ -27,7 +29,7 @@ public class AttackRange : MonoBehaviour
     {
         if (other.tag.Equals("Player"))
         {
-            canAttack = false;
+            enemy.canAttack = false;
         }    
     }
 }

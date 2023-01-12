@@ -37,4 +37,9 @@ public class StateMachine<T> where T : class
         curState = newState;
         curState.Enter(owner);
     }
+
+    public void ChangeBefore()
+    {
+        ChangeState(beforeState);
+    }
 }
