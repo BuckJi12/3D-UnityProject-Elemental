@@ -13,6 +13,6 @@ public class PlantaQueen : Enemy
     {
         EnergyBall energyBall = PoolManager.Instance.Get(this.energyBall).GetComponent<EnergyBall>();
         energyBall.transform.position = attackStartPos.position;
-        energyBall.Set(this.damage, this.target);
+        energyBall.Set(this.damage, this.gameObject);
     }
 }

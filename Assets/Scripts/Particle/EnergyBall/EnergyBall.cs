@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Rigidbody))]
 public class EnergyBall : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    private Rigidbody rigid;
     private int damage;
+
+    public float moveSpeed;
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        rigid = GetComponent<Rigidbody>();
     }
-
-    public void Set(int damage, GameObject target)
+    private void Update()
+    {
+        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+    }
+    public void Set(int damage, GameObject myself)
     {
         this.damage = damage;
-        agent.SetDestination(target.transform.position);
+        transform.rotation = myself.transform.rotation;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -42,6 +42,11 @@ namespace EnemyStates
             {
                 entity.ChangeState(entity.state[EnemyState2.Attack]);
             }
+
+            if (entity.findTarget == false)
+            {
+                entity.ChangeState(entity.state[EnemyState2.Idle]);
+            }
         }
 
         public override void Exit(Enemy entity)
@@ -55,11 +60,12 @@ namespace EnemyStates
         float attackDelay;
         public override void Enter(Enemy entity)
         {
-            
         }
 
         public override void Update(Enemy entity)
         {
+            entity.transform.LookAt(entity.target.transform);
+
             if (Time.time > attackDelay)
             {
                 attackDelay = Time.time + entity.attackSpeed;
