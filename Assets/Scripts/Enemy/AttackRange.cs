@@ -7,14 +7,16 @@ public class AttackRange : MonoBehaviour
     [HideInInspector]
     public CapsuleCollider attackRange;
 
-    public bool canAttack = false;
-
     private Enemy enemy;
 
     private void Awake()
     {
         attackRange = GetComponent<CapsuleCollider>();
         enemy = GetComponentInParent<Enemy>();
+    }
+    private void Start()
+    {
+        attackRange.radius = enemy.attackRange;
     }
 
     private void OnTriggerEnter(Collider other)

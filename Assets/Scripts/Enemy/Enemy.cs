@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     public int maxHP;
     public int damage;
     public int defence;
+    public float attackSpeed;
+    public float attackRange;
 
     
     public bool isAlive = true;

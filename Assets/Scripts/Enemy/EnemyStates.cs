@@ -52,7 +52,6 @@ namespace EnemyStates
 
     public class EnemyAttack : State<Enemy>
     {
-        float attackSpeed = 2.0f;
         float attackDelay;
         public override void Enter(Enemy entity)
         {
@@ -63,7 +62,7 @@ namespace EnemyStates
         {
             if (Time.time > attackDelay)
             {
-                attackDelay = Time.time + attackSpeed;
+                attackDelay = Time.time + entity.attackSpeed;
                 entity.anim.SetTrigger("Attack");
             }
 
