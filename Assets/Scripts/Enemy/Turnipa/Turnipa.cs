@@ -20,7 +20,6 @@ public class Turnipa : Enemy
                 return;
 
             IDamageable damageable = target.GetComponent<IDamageable>();
-            Debug.Log("¸Â¾Ò´Ù");
             damageable?.TakeDamage(this.damage);
         }
     }
