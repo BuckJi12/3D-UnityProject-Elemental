@@ -9,13 +9,14 @@ namespace EnemyStates
         public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Idle");
+            Debug.Log("가만히 있는다");
             entity.agent.isStopped = true;
         }
         public override void Update(Enemy entity)
         {
             if (entity.findTarget == true)
             {
-                entity.stateMachine.machine.ChangeState(entity.stateMachine.state[(int)EnemyState2.Move]);
+                entity.ChangeState(entity.state[EnemyState2.Move]);
             }
         }
 
@@ -30,11 +31,17 @@ namespace EnemyStates
         public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Move");
+            Debug.Log("적 발견");
             entity.agent.isStopped = false;
         }
         public override void Update(Enemy entity)
         {
             entity.agent.SetDestination(entity.target.transform.position);
+
+            if (entity.canAttack == true)
+            {
+                entity.ChangeState(entity.state[EnemyState2.Attack]);
+            }
         }
 
         public override void Exit(Enemy entity)
@@ -45,20 +52,29 @@ namespace EnemyStates
 
     public class EnemyAttack : State<Enemy>
     {
+        float attackSpeed = 2.0f;
+        float attackDelay;
         public override void Enter(Enemy entity)
         {
-            entity.anim.SetTrigger("Attack");
-            entity.stateMachine.ChangeBeforeState();
+            
         }
 
         public override void Update(Enemy entity)
         {
-            throw new System.NotImplementedException();
-        }
+            if (Time.time > attackDelay)
+            {
+                attackDelay = Time.time + attackSpeed;
+                entity.anim.SetTrigger("Attack");
+            }
 
+            if (entity.canAttack == false)
+            {
+                entity.ChangeState(entity.state[EnemyState2.Move]);
+            }
+        }
         public override void Exit(Enemy entity)
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 
@@ -67,7 +83,7 @@ namespace EnemyStates
         public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Hit");
-            entity.stateMachine.ChangeBeforeState();
+            entity.ChangeState(entity.state[EnemyState2.Idle]);
         }
 
         public override void Update(Enemy entity)
@@ -78,6 +94,12 @@ namespace EnemyStates
         public override void Exit(Enemy entity)
         {
 
+        }
+        
+        public IEnumerator Delay(Enemy entity)
+        {
+            yield return new WaitForSeconds(0.5f);
+            entity.ChangeBeforeState();
         }
     }
 

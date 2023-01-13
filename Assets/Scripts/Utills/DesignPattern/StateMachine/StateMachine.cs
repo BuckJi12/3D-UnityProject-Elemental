@@ -13,6 +13,8 @@ public class StateMachine<T> where T : class
         this.owner = owner;
         curState = null;
         beforeState = null;
+
+        ChangeState(startState);
     }
 
     public void Update()
@@ -30,8 +32,8 @@ public class StateMachine<T> where T : class
 
         if (curState != null)
         {
-            curState.Exit(owner);
             beforeState = curState;   
+            curState.Exit(owner);
         }
 
         curState = newState;
@@ -40,6 +42,9 @@ public class StateMachine<T> where T : class
 
     public void ChangeBefore()
     {
+        if (beforeState == null)
+            return;
+
         ChangeState(beforeState);
     }
 }

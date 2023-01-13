@@ -6,10 +6,8 @@ using UnityEngine.Events;
 
 public class Detect : MonoBehaviour
 {
+    [HideInInspector]
     public SphereCollider detectRange;
-
-    //public bool isDetect = false;
-    public UnityEvent modeSwitch;
 
     private Enemy enemy;
 

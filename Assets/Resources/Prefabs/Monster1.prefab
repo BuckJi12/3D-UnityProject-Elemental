@@ -662,11 +662,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8019938590411950536}
   - component: {fileID: 8019938590411950542}
-  - component: {fileID: 8019938590411950543}
   - component: {fileID: 8019938590411950541}
   - component: {fileID: 8019938590411950515}
   - component: {fileID: 8019938590411950540}
   - component: {fileID: 219668252537832980}
+  - component: {fileID: 891011319}
   m_Layer: 8
   m_Name: TurnipaA
   m_TagString: Monster
@@ -716,24 +716,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8019938590411950543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8019938590411950537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4384cfad64c7c5541b31da51dfa2cae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 128
-  attackSpeed: 5
-  isAlive: 1
 --- !u!136 &8019938590411950541
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -781,12 +763,6 @@ MonoBehaviour:
   canvas: {fileID: 386259939}
   damagePos: {fileID: 8304670553774203494}
   coin: {fileID: 5249905586712016947, guid: bb391a89e74fd0440ad6226ca52137d4, type: 3}
-  enemyState: 0
-  statData: {fileID: 11400000, guid: d0c52be316515014e961278d86a94873, type: 2}
-  curHP: 10000
-  maxHP: 10000
-  damage: 10
-  defence: 5
 --- !u!114 &219668252537832980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,6 +780,31 @@ MonoBehaviour:
   healthBar: {fileID: 447671836}
   iceIcon: {fileID: 1599687006}
   fireIcon: {fileID: 833463671}
+--- !u!114 &891011319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8019938590411950537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e5c5e26b3bbdb4e85e7fe5f71b6bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  anim: {fileID: 0}
+  myCollider: {fileID: 0}
+  target: {fileID: 0}
+  data: {fileID: 11400000, guid: d0c52be316515014e961278d86a94873, type: 2}
+  curHP: 30
+  maxHP: 30
+  damage: 20
+  defence: 10
+  isAlive: 1
+  findTarget: 0
+  canAttack: 0
+  elementalState: 0
 --- !u!1 &8019938590567256877
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,21 +944,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectRange: {fileID: 0}
-  modeSwitch:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8019938590411950543}
-        m_TargetAssemblyTypeName: EnemyAI, Assembly-CSharp
-        m_MethodName: SwitchMode
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!135 &8019938590856166745
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1379,41 +1365,9 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 93feac75475022841a4752bc0de28e7b, type: 2}
+      objectReference: {fileID: 9100000, guid: e035431433473774896a0ac0d1eacef4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
---- !u!1 &8019938591969398880 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100024, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}
-  m_PrefabInstance: {fileID: 8019938591969498840}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8019938590588635107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8019938591969398880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5e07964a573c7344912b8133906fa39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAttack:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8019938590411950543}
-        m_TargetAssemblyTypeName: EnemyAI, Assembly-CSharp
-        m_MethodName: OnAttackCollider
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &8019938591969889344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400024, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}

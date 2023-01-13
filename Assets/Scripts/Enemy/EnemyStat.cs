@@ -48,7 +48,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     {
         if (enemy.isAlive)
         {
-            anim.SetTrigger("Hit");
+            enemy.ChangeState(enemy.state[EnemyState2.Hit]);
             hitEffect.Play();
             gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
             if (PlayerStatManager.Instance.CalculateCritical())
@@ -64,9 +64,9 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
 
             if (enemy.curHP <= 0)
             {
-                //enemyAI.Die();
+                enemy.Die();
                 DropMoney();
-                anim.SetTrigger("Die");
+                enemy.ChangeState(enemy.state[EnemyState2.Die]);
                 StartCoroutine(DisappearObject());
             }
         }
@@ -111,7 +111,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     {
         if (enemy.isAlive)
         {
-            anim.SetTrigger("Hit");
+            enemy.ChangeState(enemy.state[EnemyState2.Hit]);
             hitEffect.Play();
             gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
             if (PlayerStatManager.Instance.CalculateCritical())
@@ -129,9 +129,9 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
 
             if (enemy.curHP <= 0)
             {
-                //enemyAI.Die();
+                enemy.Die();
                 DropMoney();
-                anim.SetTrigger("Die");
+                enemy.ChangeState(enemy.state[EnemyState2.Die]);
                 StartCoroutine(DisappearObject());
             }
         }
@@ -198,14 +198,14 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     {
         int originalDefence = enemy.defence;
         enemy.defence = (int)(enemy.defence * 0.7f);
-        //enemyAI.agent.speed = 1;
+        enemy.agent.speed = 1;
 
 
         yield return new WaitForSeconds(10);
         enemy.elementalState = Elemental.None;
         infoUI.UpdateIcon();
         enemy.defence = originalDefence;
-        //enemyAI.agent.speed = 2;
+        enemy.agent.speed = 2;
     }
 
     public void Expansion()
