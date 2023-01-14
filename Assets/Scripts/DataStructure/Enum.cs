@@ -29,17 +29,21 @@ public enum ItemState
 
 public enum EnemyState
 {
-    Normal,
-    Combat
-}
-
-public enum EnemyState2
-{
     Idle,
     Move,
     Attack,
     Hit,
     Die
+}
+
+public enum BossState
+{
+    Idle,
+    Move,
+    Attack,
+    Hit,
+    Die,
+    SkillA
 }
 
 

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Rigidbody))]
-public class Enemy : MonoBehaviour
+public class EnemyBoss : MonoBehaviour
 {
     private Rigidbody rigid;
     [HideInInspector]
@@ -15,8 +15,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public CapsuleCollider myCollider;
 
-    public Dictionary<EnemyState, State<Enemy>> state;
-    public StateMachine<Enemy> machine;
+    public Dictionary<BossState, State<EnemyBoss>> state;
+    public StateMachine<EnemyBoss> machine;
 
     public GameObject target;
 
@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     public float attackSpeed;
     public float attackRange;
 
-    
+
     public bool isAlive = true;
     public bool findTarget = false;
     public bool canAttack = false;
@@ -42,15 +42,15 @@ public class Enemy : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         myCollider = GetComponent<CapsuleCollider>();
 
-        state = new Dictionary<EnemyState, State<Enemy>>();
-        state.Add(EnemyState.Idle, new EnemyStates.EnemyIdle());
-        state.Add(EnemyState.Move, new EnemyStates.EnemyMove());
-        state.Add(EnemyState.Attack, new EnemyStates.EnemyAttack());
-        state.Add(EnemyState.Hit, new EnemyStates.EnemyHit());
-        state.Add(EnemyState.Die, new EnemyStates.EnemyDie());
+        state = new Dictionary<BossState, State<EnemyBoss>>();
+        //state.Add(BossState.Idle, new EnemyStates.EnemyIdle());
+        //state.Add(BossState.Move, new EnemyStates.EnemyMove());
+        //state.Add(BossState.Attack, new EnemyStates.EnemyAttack());
+        //state.Add(BossState.Hit, new EnemyStates.EnemyHit());
+        //state.Add(BossState.Die, new EnemyStates.EnemyDie());
 
-        machine = new StateMachine<Enemy>();
-        machine.Init(this, state[EnemyState.Idle]);
+        machine = new StateMachine<EnemyBoss>();
+        machine.Init(this, state[BossState.Idle]);
     }
 
     private void Update()
@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
         machine.Update();
     }
 
-    public void ChangeState(State<Enemy> newState)
+    public void ChangeState(State<EnemyBoss> newState)
     {
         machine.ChangeState(newState);
     }
@@ -75,3 +75,4 @@ public class Enemy : MonoBehaviour
         myCollider.enabled = false;
     }
 }
+

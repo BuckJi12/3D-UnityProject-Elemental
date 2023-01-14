@@ -48,7 +48,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     {
         if (enemy.isAlive)
         {
-            enemy.ChangeState(enemy.state[EnemyState2.Hit]);
+            enemy.ChangeState(enemy.state[EnemyState.Hit]);
             hitEffect.Play();
             gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
             if (PlayerStatManager.Instance.CalculateCritical())
@@ -66,7 +66,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
             {
                 enemy.Die();
                 DropMoney();
-                enemy.ChangeState(enemy.state[EnemyState2.Die]);
+                enemy.ChangeState(enemy.state[EnemyState.Die]);
                 StartCoroutine(DisappearObject());
             }
         }
@@ -111,7 +111,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     {
         if (enemy.isAlive)
         {
-            enemy.ChangeState(enemy.state[EnemyState2.Hit]);
+            enemy.ChangeState(enemy.state[EnemyState.Hit]);
             hitEffect.Play();
             gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
             if (PlayerStatManager.Instance.CalculateCritical())
@@ -131,7 +131,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
             {
                 enemy.Die();
                 DropMoney();
-                enemy.ChangeState(enemy.state[EnemyState2.Die]);
+                enemy.ChangeState(enemy.state[EnemyState.Die]);
                 StartCoroutine(DisappearObject());
             }
         }

@@ -16,7 +16,7 @@ namespace EnemyStates
         {
             if (entity.findTarget == true)
             {
-                entity.ChangeState(entity.state[EnemyState2.Move]);
+                entity.ChangeState(entity.state[EnemyState.Move]);
             }
         }
 
@@ -40,12 +40,12 @@ namespace EnemyStates
 
             if (entity.canAttack == true)
             {
-                entity.ChangeState(entity.state[EnemyState2.Attack]);
+                entity.ChangeState(entity.state[EnemyState.Attack]);
             }
 
             if (entity.findTarget == false)
             {
-                entity.ChangeState(entity.state[EnemyState2.Idle]);
+                entity.ChangeState(entity.state[EnemyState.Idle]);
             }
         }
 
@@ -74,7 +74,7 @@ namespace EnemyStates
 
             if (entity.canAttack == false)
             {
-                entity.ChangeState(entity.state[EnemyState2.Move]);
+                entity.ChangeState(entity.state[EnemyState.Move]);
             }
         }
         public override void Exit(Enemy entity)
@@ -88,7 +88,7 @@ namespace EnemyStates
         public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Hit");
-            entity.ChangeState(entity.state[EnemyState2.Idle]);
+            entity.ChangeState(entity.state[EnemyState.Idle]);
         }
 
         public override void Update(Enemy entity)
