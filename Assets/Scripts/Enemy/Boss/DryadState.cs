@@ -5,64 +5,65 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 namespace DryadStates
 {
-    public class EnemyIdle : State<Dryad>
+    public class EnemyIdle : State<Enemy>
     {
-        public override void Enter(Dryad entity)
+        public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Idle");
             entity.agent.isStopped = true;
         }
-        public override void Update(Dryad entity)
+        public override void Update(Enemy entity)
         {
             if (entity.findTarget == true)
             {
-                entity.ChangeState(entity.state[BossState.Move]);
+                entity.ChangeState(entity.state[EnemyState.Move]);
             }
         }
 
-        public override void Exit(Dryad entity)
+        public override void Exit(Enemy entity)
         {
 
         }
     }
 
-    public class EnemyMove : State<Dryad>
+    public class EnemyMove : State<Enemy>
     {
-        public override void Enter(Dryad entity)
+        public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Move");
             entity.agent.isStopped = false;
         }
-        public override void Update(Dryad entity)
+        public override void Update(Enemy entity)
         {
             entity.agent.SetDestination(entity.target.transform.position);
 
             if (entity.canAttack == true)
             {
-                entity.ChangeState(entity.state[BossState.Attack]);
+                entity.ChangeState(entity.state[EnemyState.Attack]);
             }
 
             if (entity.findTarget == false)
             {
-                entity.ChangeState(entity.state[BossState.Idle]);
+                entity.ChangeState(entity.state[EnemyState.Idle]);
             }
         }
 
-        public override void Exit(Dryad entity)
+        public override void Exit(Enemy entity)
         {
             entity.agent.isStopped = true;
         }
     }
 
-    public class EnemyAttack : State<Dryad>
+    public class EnemyAttack : State<Enemy>
     {
-        float attackDelay;
-        public override void Enter(Dryad entity)
+        public float attackDelay;
+        public int pattern;
+        public override void Enter(Enemy entity)
         {
 
         }
 
-        public override void Update(Dryad entity)
+        public override void Update(Enemy entity)
         {
             entity.transform.LookAt(entity.target.transform);
 
@@ -75,88 +76,88 @@ namespace DryadStates
 
             if (entity.canAttack == false)
             {
-                entity.ChangeState(entity.state[BossState.Move]);
+                entity.ChangeState(entity.state[EnemyState.Move]);
             }
 
-            if (entity.pattern <= 10)
+            if (pattern <= 10)
             {
-                entity.ChangeState(entity.state[BossState.SkillA]);
+                entity.ChangeState(entity.state[EnemyState.SkillA]);
             }
         }
-        public override void Exit(Dryad entity)
+        public override void Exit(Enemy entity)
         {
 
         }
 
-        public void RandomPattern(Dryad entity)
+        public void RandomPattern(Enemy entity)
         {
-            entity.pattern = Random.Range(1, 100);
+            pattern = Random.Range(1, 100);
         }
     }
 
-    public class EnemySkillA : State<Dryad>
+    public class EnemySkillA : State<Enemy>
     {
         float attackDelay;
-        public override void Enter(Dryad entity)
+        public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("SkillA");
             entity.StartCoroutine(ReturnState(entity));
         }
 
-        public override void Update(Dryad entity)
+        public override void Update(Enemy entity)
         {
 
         }
-        public override void Exit(Dryad entity)
+        public override void Exit(Enemy entity)
         {
 
         }
         
-        public IEnumerator ReturnState(Dryad entity)
+        public IEnumerator ReturnState(Enemy entity)
         {
             yield return new WaitForSeconds(10);
-            entity.ChangeState(entity.state[BossState.Idle]);
+            entity.ChangeState(entity.state[EnemyState.Idle]);
         }
     }
 
-    public class EnemyHit : State<Dryad>
+    public class EnemyHit : State<Enemy>
     {
-        public override void Enter(Dryad entity)
+        public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Hit");
-            entity.ChangeState(entity.state[BossState.Idle]);
+            entity.ChangeState(entity.state[EnemyState.Idle]);
         }
 
-        public override void Update(Dryad entity)
+        public override void Update(Enemy entity)
         {
 
         }
 
-        public override void Exit(Dryad entity)
+        public override void Exit(Enemy entity)
         {
 
         }
 
-        public IEnumerator Delay(Dryad entity)
+        public IEnumerator Delay(Enemy entity)
         {
             yield return new WaitForSeconds(0.5f);
             entity.ChangeBeforeState();
         }
     }
 
-    public class EnemyDie : State<Dryad>
+    public class EnemyDie : State<Enemy>
     {
-        public override void Enter(Dryad entity)
+        public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Die");
         }
 
-        public override void Update(Dryad entity)
+        public override void Update(Enemy entity)
         {
 
         }
 
-        public override void Exit(Dryad entity)
+        public override void Exit(Enemy entity)
         {
 
         }

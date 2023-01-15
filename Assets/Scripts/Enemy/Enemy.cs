@@ -29,7 +29,6 @@ public abstract class Enemy : MonoBehaviour
     public float attackSpeed;
     public float attackRange;
 
-    
     public bool isAlive = true;
     public bool findTarget = false;
     public bool canAttack = false;

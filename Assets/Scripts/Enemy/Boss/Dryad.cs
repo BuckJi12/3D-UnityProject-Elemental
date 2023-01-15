@@ -5,10 +5,9 @@ using UnityEngine.AI;
 
 public class Dryad : Enemy
 {
-    public int pattern;
+    [SerializeField]
+    private GameObject specialAttack;
 
-    public new Dictionary<BossState, State<Dryad>> state;
-    public new StateMachine<Dryad> machine;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -16,42 +15,27 @@ public class Dryad : Enemy
         anim = GetComponentInChildren<Animator>();
         myCollider = GetComponent<CapsuleCollider>();
 
-        state = new Dictionary<BossState, State<Dryad>>();
-        state.Add(BossState.Idle, new DryadStates.EnemyIdle());
-        state.Add(BossState.Move, new DryadStates.EnemyMove());
-        state.Add(BossState.Attack, new DryadStates.EnemyAttack());
-        state.Add(BossState.SkillA, new DryadStates.EnemySkillA());
-        state.Add(BossState.Hit, new DryadStates.EnemyHit());
-        state.Add(BossState.Die, new DryadStates.EnemyDie());
+        state = new Dictionary<EnemyState, State<Enemy>>();
+        state.Add(EnemyState.Idle, new DryadStates.EnemyIdle());
+        state.Add(EnemyState.Move, new DryadStates.EnemyMove());
+        state.Add(EnemyState.Attack, new DryadStates.EnemyAttack());
+        state.Add(EnemyState.SkillA, new DryadStates.EnemySkillA());
+        state.Add(EnemyState.Hit, new DryadStates.EnemyHit());
+        state.Add(EnemyState.Die, new DryadStates.EnemyDie());
 
-        machine = new StateMachine<Dryad>();
-        machine.Init(this, state[BossState.Idle]);
-    }
-
-    private void Update()
-    {
-        machine.Update();
+        machine = new StateMachine<Enemy>();
+        machine.Init(this, state[EnemyState.Idle]);
     }
 
     public void Attack()
     {
 
     }
-
-    public void ChangeState(State<Dryad> newState)
+    
+    public void SkillAttack()
     {
-        machine.ChangeState(newState);
-    }
-
-    public new void ChangeBeforeState()
-    {
-        machine.ChangeBefore();
-    }
-
-    public new void Die()
-    {
-        isAlive = false;
-        agent.isStopped = true;
-        myCollider.enabled = false;
+        DryadMeteor meteor = PoolManager.Instance.Get(specialAttack).GetComponent<DryadMeteor>();
+        meteor.transform.position = this.gameObject.transform.position;      
+        meteor.Set(this.damage);
     }
 }

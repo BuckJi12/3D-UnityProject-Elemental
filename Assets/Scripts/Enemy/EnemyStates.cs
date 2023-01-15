@@ -9,7 +9,6 @@ namespace EnemyStates
         public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Idle");
-            Debug.Log("가만히 있는다");
             entity.agent.isStopped = true;
         }
         public override void Update(Enemy entity)
@@ -31,7 +30,6 @@ namespace EnemyStates
         public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Move");
-            Debug.Log("적 발견");
             entity.agent.isStopped = false;
         }
         public override void Update(Enemy entity)
