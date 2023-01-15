@@ -42,12 +42,13 @@ public class EnemyBoss : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         myCollider = GetComponent<CapsuleCollider>();
 
-        state = new Dictionary<BossState, State<EnemyBoss>>();
-        //state.Add(BossState.Idle, new EnemyStates.EnemyIdle());
-        //state.Add(BossState.Move, new EnemyStates.EnemyMove());
-        //state.Add(BossState.Attack, new EnemyStates.EnemyAttack());
-        //state.Add(BossState.Hit, new EnemyStates.EnemyHit());
-        //state.Add(BossState.Die, new EnemyStates.EnemyDie());
+        //state = new Dictionary<BossState, State<EnemyBoss>>();
+        //state.Add(BossState.Idle, new DryadStates.EnemyIdle());
+        //state.Add(BossState.Move, new DryadStates.EnemyMove());
+        //state.Add(BossState.Attack, new DryadStates.EnemyAttack());
+        //state.Add(BossState.SkillA, new DryadStates.EnemySkillA());
+        //state.Add(BossState.Hit, new DryadStates.EnemyHit());
+        //state.Add(BossState.Die, new DryadStates.EnemyDie());
 
         machine = new StateMachine<EnemyBoss>();
         machine.Init(this, state[BossState.Idle]);

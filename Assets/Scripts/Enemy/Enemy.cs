@@ -5,9 +5,10 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Rigidbody))]
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
-    private Rigidbody rigid;
+    [HideInInspector]
+    public Rigidbody rigid;
     [HideInInspector]
     public NavMeshAgent agent;
     [HideInInspector]

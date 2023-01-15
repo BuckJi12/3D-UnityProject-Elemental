@@ -41,9 +41,9 @@ public enum BossState
     Idle,
     Move,
     Attack,
+    SkillA,
     Hit,
-    Die,
-    SkillA
+    Die
 }
 
 
