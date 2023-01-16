@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerStatManager : SingleTon<PlayerStatManager>
@@ -45,7 +46,19 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
             stat.curEXP = 0;
             stat.curEXP += remnant;
             stat.maxEXP = stat.maxEXP * 1.2f;
+            LevelUp();
         }
+    }
+    
+    public void LevelUp()
+    {
+        stat.curHP += 50;
+        stat.maxHP += 50;
+        stat.curStamina += 10;
+        stat.maxStamina += 10;
+        stat.damage += 10;
+        stat.elementalPower += 10;
+        stat.defence += 2;
     }
 
     public bool CalculateCritical()
