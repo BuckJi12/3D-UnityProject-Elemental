@@ -66,6 +66,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
             {
                 enemy.Die();
                 DropMoney();
+                PlayerStatManager.Instance.CalculateEXP(enemy.data.exp);
                 enemy.ChangeState(enemy.state[EnemyState.Die]);
                 StartCoroutine(DisappearObject());
             }
@@ -131,6 +132,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
             {
                 enemy.Die();
                 DropMoney();
+                PlayerStatManager.Instance.CalculateEXP(enemy.data.exp);
                 enemy.ChangeState(enemy.state[EnemyState.Die]);
                 StartCoroutine(DisappearObject());
             }
