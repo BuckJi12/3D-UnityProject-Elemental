@@ -20,6 +20,8 @@ public abstract class Quest : ScriptableObject
         public int count;
     }
 
+    public virtual void PickUp() { }
+
     public virtual void Progress(Enemy enemy) { }
 
     public abstract void Check();
