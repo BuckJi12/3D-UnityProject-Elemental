@@ -46,3 +46,9 @@ public enum Elemental
     Lightning   = 0000_0000_0000_0100   // 1 << 2
 }
 
+public enum QuestType
+{
+    Kill,
+    Collected
+}
+

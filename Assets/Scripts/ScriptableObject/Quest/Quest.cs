@@ -8,6 +8,7 @@ public abstract class Quest : ScriptableObject
     public string questName;
     public string questDescription;
     public string questcore;
+    public QuestType type;
 
     public int questMoney;
     public List<QuestReward> rewards;
