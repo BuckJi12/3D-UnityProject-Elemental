@@ -87,5 +87,30 @@ public class InventoryManager : SingleTon<InventoryManager>
             materialUI.UpdateUI(UIState.Material);
         }
     }
+
+    public int FindItem(ItemData item)
+    {
+        if (item.kind == ItemKind.Equipment)
+        {
+            if (equiments.Find(x => x.data.name == item.name) == null)
+                return 0;
+
+            return equiments.Find(x => x.data.name == item.name).data.count;
+        }
+        else if (item.kind == ItemKind.UsableItem)
+        {
+            if (usables.Find(x => x.data.name == item.name) == null)
+                return 0;
+
+            return usables.Find(x => x.data.name == item.name).data.count;
+        }
+        else
+        {
+            if (materials.Find(x => x.data.name == item.name) == null)
+                return 0;
+
+            return materials.Find(x => x.data.name == item.name).data.count;
+        }
+    }
 }
 

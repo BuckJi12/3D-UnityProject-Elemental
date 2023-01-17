@@ -12,7 +12,7 @@ public abstract class Quest : ScriptableObject
     public int questMoney;
     public List<QuestReward> rewards;
 
-    public bool canComplete;
+    public bool canComplete = false;
 
     public struct QuestReward
     {

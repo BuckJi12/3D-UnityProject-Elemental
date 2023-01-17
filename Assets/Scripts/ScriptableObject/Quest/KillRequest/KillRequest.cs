@@ -15,8 +15,11 @@ public class KillRequest : Quest
         if (target.name != enemy.data.name)
             return;
 
+        if (canComplete)
+            return;
 
         catches++;
+        Check();
     }
 
     public override void Check()
