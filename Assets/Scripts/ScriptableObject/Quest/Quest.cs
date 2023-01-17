@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Quest : MonoBehaviour
+public abstract class Quest : ScriptableObject
 {
     public int questID;
     public string questName;
@@ -20,7 +20,7 @@ public abstract class Quest : MonoBehaviour
         public int count;
     }
 
-    public virtual void Progress() { }
+    public virtual void Progress(Enemy enemy) { }
 
     public abstract void Check();
 }
