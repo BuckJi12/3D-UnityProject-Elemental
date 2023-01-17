@@ -10,7 +10,7 @@ public class KillRequest : Quest
     private int catches;
 
 
-    public override void Progress(Enemy enemy)
+    public override void Kill(Enemy enemy)
     {
         if (target.name != enemy.data.name)
             return;

@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemRequest : Quest
+[CreateAssetMenu(menuName = "Quest/CollectedRequest")]
+public class CollectedRequest : Quest
 {
     public List<GoalItem> goalItems = new List<GoalItem>();
 

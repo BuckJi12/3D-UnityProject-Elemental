@@ -25,7 +25,7 @@ public class QuestManager : SingleTon<QuestManager>
         for (int i = 0; i < quests.Count; i++)
         {
             if (quests[i].type == QuestType.Kill)
-                quests[i].Progress(enemy);
+                quests[i].Kill(enemy);
             else
                 continue;
         }
