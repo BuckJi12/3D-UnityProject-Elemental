@@ -5,7 +5,7 @@ using System.Security;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
 {
@@ -26,6 +26,8 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     private Animator anim;
     private DamageText damageText;
     private EnemyInfoUI infoUI;
+
+    public UnityEvent<Enemy> killEvent;
 
     private void Awake()
     {
@@ -66,6 +68,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
             {
                 enemy.Die();
                 DropMoney();
+                killEvent?.Invoke(enemy);
                 PlayerStatManager.Instance.CalculateEXP(enemy.data.exp);
                 enemy.ChangeState(enemy.state[EnemyState.Die]);
                 StartCoroutine(DisappearObject());
@@ -132,6 +135,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
             {
                 enemy.Die();
                 DropMoney();
+                killEvent?.Invoke(enemy);
                 PlayerStatManager.Instance.CalculateEXP(enemy.data.exp);
                 enemy.ChangeState(enemy.state[EnemyState.Die]);
                 StartCoroutine(DisappearObject());

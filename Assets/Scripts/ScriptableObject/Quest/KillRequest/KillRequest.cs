@@ -7,7 +7,7 @@ public class KillRequest : Quest
 {
     public MonsterData target;
     public int goalCatches;
-    private int catches;
+    public int catches;
 
 
     public override void Kill(Enemy enemy)
@@ -27,6 +27,7 @@ public class KillRequest : Quest
         if (catches >= goalCatches)
         {
             this.canComplete = true;
+            Debug.Log("퀘스트완료");
         }
         else
         {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public enum UIState
 {
     Equipment,
@@ -24,6 +25,8 @@ public class UIManager : SingleTon<UIManager>
     private InventoryUI usableInvenUI;
     [SerializeField]
     private InventoryUI materialInvenUI;
+    [SerializeField]
+    private GameObject requestWindow;
 
     private UIState curUI;
 
@@ -35,6 +38,7 @@ public class UIManager : SingleTon<UIManager>
         SkillUI();
         EquipmentUI();
         InventoryUI();
+        OpenRequest();
     }
 
     private void CurSorCheck()
@@ -123,6 +127,25 @@ public class UIManager : SingleTon<UIManager>
                 break;
         }
     }
+
+    public void OpenRequest()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            if (requestWindow.activeSelf)
+            { 
+                requestWindow.SetActive(false);
+                cursorStack--;
+            }
+
+            else
+            {
+                requestWindow.SetActive(true);
+                cursorStack++;
+            }
+        }
+    }
+
     public void ShowEquipment()
     {
         curUI = UIState.Equipment;
