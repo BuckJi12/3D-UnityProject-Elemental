@@ -294,6 +294,21 @@ MonoBehaviour:
   canvas: {fileID: 8311026627797421353}
   damagePos: {fileID: 6385351064286380}
   coin: {fileID: 5249905586712016947, guid: bb391a89e74fd0440ad6226ca52137d4, type: 3}
+  killEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
+        m_MethodName: KillRequestUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8096022645580665054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e5c5e26b3bbdb4e85e7fe5f71b6bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigid: {fileID: 0}
   agent: {fileID: 0}
   anim: {fileID: 0}
   myCollider: {fileID: 0}

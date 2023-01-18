@@ -946,6 +946,9 @@ MonoBehaviour:
   canvas: {fileID: 505076472711254477}
   damagePos: {fileID: 8377392115776415816}
   coin: {fileID: 5249905586712016947, guid: bb391a89e74fd0440ad6226ca52137d4, type: 3}
+  killEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &292188053419297850
 MonoBehaviour:
   m_ObjectHideFlags: 0
