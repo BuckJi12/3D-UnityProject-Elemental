@@ -28,7 +28,7 @@ public class InventoryManager : SingleTon<InventoryManager>
         materials = new List<InventoryItem>();
     }
 
-    public void AddItem(InventoryItem inventoryItem)
+    public void AddItem(InventoryItem inventoryItem, int count = 1)
     {
         if (inventoryItem.data.kind == ItemKind.Equipment)
         {

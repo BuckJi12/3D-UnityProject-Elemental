@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5112db71dc1ea1f48a0dffc69967c2d9, type: 3}
   m_Name: Quest1
   m_EditorClassIdentifier: 
-  questID: 0
-  questName: 
-  questDescription: 
-  questcore: 
+  questID: 1000
+  questName: "\uB9CC\uB4DC\uB77C\uACE0\uB77C \uCC98\uCE58"
+  questDescription: "\uB9CC\uB4DC\uB77C\uACE0\uB77C 5\uB9C8\uB9AC \uCC98\uCE58\uD574\uC92D"
+  questcore: "\uB9CC\uB4DC\uB77C\uACE0\uB77C 5\uB9C8\uB9AC \uCC98\uCE58"
   type: 0
-  questMoney: 0
-  canComplete: 0
-  target: {fileID: 0}
-  goalCatches: 0
+  goalCount: 5
+  questMoney: 1000
+  canComplete: 1
+  target: {fileID: 11400000, guid: d0c52be316515014e961278d86a94873, type: 2}

@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Quest : ScriptableObject
+public class Quest : ScriptableObject
 {
     public int questID;
     public string questName;
     public string questDescription;
     public string questcore;
     public QuestType type;
+    public int goalCount;
 
     public int questMoney;
     public List<QuestReward> rewards;
@@ -21,9 +22,6 @@ public abstract class Quest : ScriptableObject
         public int count;
     }
 
-    public virtual void PickUp() { }
-
-    public virtual void Kill(Enemy enemy) { }
-
-    public abstract void Check();
+    public virtual MonsterData GetTargetData() { return null; }
+    public virtual ItemData GetItemData() { return null; }
 }
