@@ -27,6 +27,14 @@ public enum ItemState
     Wearing
 }
 
+public enum ItemRank
+{
+    Normal,
+    Rare,
+    Unique,
+    Legendary
+}
+
 public enum EnemyState
 {
     Idle,

@@ -8,6 +8,7 @@ public class ItemData : ScriptableObject
     public new string name;
     public string description;
     public ItemKind kind;
+    public ItemRank rank;
     public EquipmentKind equipKind;
     public int count;
     public int cost;
