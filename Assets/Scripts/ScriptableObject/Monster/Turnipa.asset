@@ -16,3 +16,4 @@ MonoBehaviour:
   level: 3
   exp: 100
   money: 300
+  dropItems: []

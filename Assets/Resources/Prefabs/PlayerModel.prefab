@@ -2399,6 +2399,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnStartTrail:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEndTrail:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCanMove:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInvincibility:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5207438542682189095
 GameObject:
   m_ObjectHideFlags: 0

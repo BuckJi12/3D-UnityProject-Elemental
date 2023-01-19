@@ -13,8 +13,6 @@ public class PlayerWeapon : MonoBehaviour
         
         if (curWeapon == null)
             return;
-
-        curWeapon.SwitchMode();
     }
 
     public void StartAttack()
