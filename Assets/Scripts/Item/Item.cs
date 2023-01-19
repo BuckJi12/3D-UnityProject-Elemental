@@ -5,7 +5,6 @@ using static UnityEditor.Progress;
 
 public class Item : MonoBehaviour
 {
-    [HideInInspector]
     public ItemData data;
 
     public void Pick(PlayerColliders collider)

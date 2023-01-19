@@ -6,6 +6,8 @@ public class Poolable : MonoBehaviour
 {
     [SerializeField]
     private float returnTime;
+    [SerializeField]
+    private bool canReturn;
 
 
     private void OnEnable()
@@ -15,7 +17,10 @@ public class Poolable : MonoBehaviour
 
     private IEnumerator DelayToReturn()
     {
-        yield return new WaitForSeconds(returnTime);
-        PoolManager.Instance.Release(gameObject);
+        if(canReturn)
+        {
+            yield return new WaitForSeconds(returnTime);
+            PoolManager.Instance.Release(gameObject);
+        }
     }
 }
