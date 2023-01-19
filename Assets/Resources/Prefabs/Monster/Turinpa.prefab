@@ -294,6 +294,9 @@ MonoBehaviour:
   canvas: {fileID: 8311026627797421353}
   damagePos: {fileID: 6385351064286380}
   coin: {fileID: 5249905586712016947, guid: bb391a89e74fd0440ad6226ca52137d4, type: 3}
+  weapon: {fileID: 7821342895640800651, guid: 6ee418eadb465d147ba808009a0e2b19, type: 3}
+  armor: {fileID: 7908226194544605263, guid: 84022a91fdbb61847ba6a0649a84d5d4, type: 3}
+  material: {fileID: 8082225121512686066, guid: 660755a0eb453fa4cac6ce61978ce13a, type: 3}
   killEvent:
     m_PersistentCalls:
       m_Calls:

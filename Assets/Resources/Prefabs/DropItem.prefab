@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 8082978986825554630}
   - component: {fileID: 1084041415}
   - component: {fileID: 3159495046272539850}
+  - component: {fileID: 4617024368149285796}
+  - component: {fileID: 5633453126678528569}
   m_Layer: 6
   m_Name: DropItem
   m_TagString: Untagged
@@ -163,6 +165,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
+--- !u!114 &4617024368149285796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8082225121512686066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64545f973d499ac4cb25daa1f2074b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  returnTime: 60
+--- !u!114 &5633453126678528569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8082225121512686066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23066f7ddfe00344b8200851aa8d3018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInterAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3159495046272539850}
+        m_TargetAssemblyTypeName: Item, Assembly-CSharp
+        m_MethodName: Pick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8082978988270240389
 GameObject:
   m_ObjectHideFlags: 0

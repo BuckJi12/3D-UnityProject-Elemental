@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,11 +12,13 @@ public class MonsterData : ScriptableObject
     public int exp;
     public int money;
 
+    [SerializeField]
     public List<DropItem> dropItems;
 
+    [Serializable]
     public struct DropItem
     {
-        public GameObject itemPrefab;
+        public ItemData itemData;
         public int dropRate;
     }
 }

@@ -24,13 +24,15 @@ public class ItemProp : MonoBehaviour
                 particle.startColor = new Color(255, 255, 255);
                 break;
             case ItemRank.Rare:
-                particle.startColor = new Color(160, 255, 255);
+                Debug.Log("레어");
+                particle.startColor = new Color(160/255f, 255/255f, 255/255f);
                 break;
             case ItemRank.Unique:
-                particle.startColor = new Color(255, 54, 188);
+                Debug.Log("유니크");
+                particle.startColor = new Color(255 / 255f, 54 / 255f, 188 / 255f);
                 break;
             case ItemRank.Legendary:
-                particle.startColor = new Color(255, 215, 0);
+                particle.startColor = new Color(255 / 255f, 215 / 255f, 0 / 255f);
                 break;
         }
     }

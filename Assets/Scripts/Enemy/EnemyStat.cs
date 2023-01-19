@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Security;
 using TMPro;
@@ -19,6 +20,12 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     private Transform damagePos;
     [SerializeField]
     private GameObject coin;
+    [SerializeField]
+    private GameObject weapon;
+    [SerializeField]
+    private GameObject armor;
+    [SerializeField]
+    private GameObject material;
 
     private Enemy enemy;
 
@@ -68,6 +75,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
             {
                 enemy.Die();
                 DropMoney();
+                DropItem();
                 killEvent?.Invoke(enemy);
                 PlayerStatManager.Instance.CalculateEXP(enemy.data.exp);
                 enemy.ChangeState(enemy.state[EnemyState.Die]);
@@ -111,6 +119,46 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         instance.transform.position = damagePos.transform.position;
     }
 
+    public void DropItem()
+    {
+        if (enemy.data.dropItems != null)
+        {
+            for (int i = 0; i < enemy.data.dropItems.Count; i++)
+            {
+                int random = Random.Range(1, 100);
+                if (enemy.data.dropItems[i].dropRate < random)
+                {
+                    ItemProp prop = CreateItem(enemy.data.dropItems[i].itemData).GetComponent<ItemProp>();
+                    prop.Set(enemy.data.dropItems[i].itemData);
+                    prop.transform.position = transform.position;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+    }
+
+    public GameObject CreateItem(ItemData data)
+    {
+        if (data.kind == ItemKind.Equipment)
+        {
+            if (data.equipKind == EquipmentKind.Weapon)
+            {
+                return PoolManager.Instance.Get(weapon);
+            }
+            else
+            {
+                return PoolManager.Instance.Get(armor);
+            }
+        }
+        else
+        {
+            return PoolManager.Instance.Get(material);
+        }
+    }
+
     public void HitSkill(Skill skill)
     {
         if (enemy.isAlive)
@@ -135,6 +183,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
             {
                 enemy.Die();
                 DropMoney();
+                DropItem();
                 killEvent?.Invoke(enemy);
                 PlayerStatManager.Instance.CalculateEXP(enemy.data.exp);
                 enemy.ChangeState(enemy.state[EnemyState.Die]);
