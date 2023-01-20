@@ -17,7 +17,6 @@ public class InventoryManager : SingleTon<InventoryManager>
     private InventoryUI usableUI;
     [SerializeField]
     private InventoryUI materialUI;
-
     
     public List<InventoryItem> equipments = new List<InventoryItem>(25);
     public List<InventoryItem> usables = new List<InventoryItem>(25);
@@ -25,9 +24,8 @@ public class InventoryManager : SingleTon<InventoryManager>
 
 
     private void Awake()
-    {
+    { 
         Init();
-        Debug.Log(equipments.Count);
     }
 
     public void Init()
@@ -119,26 +117,6 @@ public class InventoryManager : SingleTon<InventoryManager>
                 return;
             }
         }
-
-
-
-
-
-        //if (inventoryItem.data.kind == ItemKind.Equipment)
-        //{
-        //    equipments.Add(inventoryItem);
-        //    equipmentUI.UpdateUI(UIState.Equipment);
-        //}
-        //else if (inventoryItem.data.kind == ItemKind.UsableItem)
-        //{
-        //    usables.Add(inventoryItem);
-        //    usableUI.UpdateUI(UIState.Usable);
-        //}
-        //else 
-        //{
-        //    materials.Add(inventoryItem);
-        //    materialUI.UpdateUI(UIState.Material);
-        //}
     }
 
     public void AddItem(Item item, int count = 1)
@@ -169,22 +147,6 @@ public class InventoryManager : SingleTon<InventoryManager>
                 return;
             }
         }
-
-        //if (inventoryItem.data.kind == ItemKind.Equipment)
-        //{
-        //    equipments.Add(inventoryItem);
-        //    equipmentUI.UpdateUI(UIState.Equipment);
-        //}
-        //else if (inventoryItem.data.kind == ItemKind.UsableItem)
-        //{
-        //    usables.Add(inventoryItem);
-        //    usableUI.UpdateUI(UIState.Usable);
-        //}
-        //else
-        //{
-        //    materials.Add(inventoryItem);
-        //    materialUI.UpdateUI(UIState.Material);
-        //}
     }
 
     public void InsertItem(InventoryItem inventoryItem, int index)
@@ -205,30 +167,9 @@ public class InventoryManager : SingleTon<InventoryManager>
 
     public void RemoveItem(InventoryItem inventoryItem)
     {
-        Debug.Log(ListType(inventoryItem));
-        Debug.Log(ListType(inventoryItem).Contains(inventoryItem));
-        Debug.Log(ListType(inventoryItem).FindIndex(x => x.data.name == inventoryItem.data.name));
-        int index = ListType(inventoryItem).FindIndex(x => x.data.name == inventoryItem.data.name);
-        Debug.Log(index);
+        int index = ListType(inventoryItem).FindIndex(x => x == inventoryItem);
         ListType(inventoryItem)[index] = null;
         UIType(inventoryItem).UpdateUI(GetUIState(inventoryItem));
-
-
-        //if (inventoryItem.data.kind == ItemKind.Equipment)
-        //{
-        //    equipments.Remove(inventoryItem);
-        //    equipmentUI.UpdateUI(UIState.Equipment);
-        //}
-        //else if (inventoryItem.data.kind == ItemKind.UsableItem)
-        //{
-        //    usables.Remove(inventoryItem);
-        //    usableUI.UpdateUI(UIState.Usable);
-        //}
-        //else
-        //{
-        //    materials.Remove(inventoryItem);
-        //    materialUI.UpdateUI(UIState.Material);
-        //}
     }
 
     public int FindItem(ItemData item)
@@ -261,25 +202,6 @@ public class InventoryManager : SingleTon<InventoryManager>
         InventoryItem temp = ListType(inventoryItem)[index1];
         ListType(inventoryItem)[index1] = ListType(inventoryItem)[index2];
         ListType(inventoryItem)[index2] = temp;
-
-        //if (inventoryItem.data.kind == ItemKind.Equipment)
-        //{
-        //    InventoryItem temp = equipments[index1];
-        //    equipments[index1] = equipments[index2];
-        //    equipments[index2] = temp;
-        //}
-        //else if (inventoryItem.data.kind == ItemKind.UsableItem)
-        //{
-        //    InventoryItem temp = usables[index1];
-        //    usables[index1] = usables[index2];
-        //    usables[index2] = temp;
-        //}
-        //else
-        //{
-        //    InventoryItem temp = materials[index1];
-        //    materials[index1] = materials[index2];
-        //    materials[index2] = temp;
-        //}
     }
 }
 

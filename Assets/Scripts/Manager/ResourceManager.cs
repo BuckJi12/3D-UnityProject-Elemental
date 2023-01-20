@@ -19,7 +19,6 @@ public class ResourceManager : SingleTon<ResourceManager>
 
     public void RemoveResource(InventoryItem item)
     {
-        Debug.Log("¹«±â »©±â´Ù »Ð");
         PoolManager.Instance.Release(curWeapon);
     }
 
