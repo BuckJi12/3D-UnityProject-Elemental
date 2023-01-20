@@ -71,7 +71,14 @@ public abstract class Enemy : MonoBehaviour
     public void Die()
     {
         isAlive = false;
-        agent.isStopped = true;
+        //agent.isStopped = true;
         myCollider.enabled = false;
+    }
+
+    public void Respawn()
+    {
+        isAlive = true;
+        //agent.isStopped = false;
+        myCollider.enabled = true;
     }
 }

@@ -43,14 +43,40 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         infoUI = GetComponent<EnemyInfoUI>();
         enemy = GetComponent<Enemy>();
     }
+
+    private void Start()
+    {
+        Init();
+    }
+
     private void Update()
     {
         Expansion();
     }
+
+    public void Init()
+    {
+        enemy.curHP = enemy.data.HP;
+        enemy.maxHP = enemy.data.HP;
+        enemy.damage = enemy.data.damage;
+        enemy.defence = enemy.data.defence;
+        enemy.attackSpeed = enemy.data.attackSpeed;
+        enemy.attackRange = enemy.data.attackRange;
+    }
+
     public IEnumerator DisappearObject()
     {
         yield return new WaitForSeconds(3);
         this.gameObject.SetActive(false);
+        Invoke("Respawn", 20f);
+    }
+
+    public void Respawn()
+    {
+        enemy.Respawn();
+        this.gameObject.SetActive(true);
+        enemy.ChangeState(enemy.state[EnemyState.Idle]);
+        Init();
     }
 
     public void TakeDamage(int damage)

@@ -14,5 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\uD50C\uB79C\uD2B8 \uACF5\uC8FC"
   level: 8
+  HP: 1500
+  damage: 40
+  defence: 10
+  attackSpeed: 5
+  attackRange: 8
   exp: 30
   money: 1000
+  dropItems: []

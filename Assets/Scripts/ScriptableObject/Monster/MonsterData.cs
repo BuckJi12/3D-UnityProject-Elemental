@@ -9,6 +9,12 @@ public class MonsterData : ScriptableObject
     public new string name;
     public int level;
 
+    public int HP;
+    public int damage;
+    public int defence;
+    public float attackSpeed;
+    public float attackRange;
+
     public int exp;
     public int money;
 
