@@ -31,7 +31,7 @@ public class EquipmentSlot : MonoBehaviour, IDropHandler, IPointerClickHandler
         {
             GameObject dropItem = eventData.pointerDrag;
             DraggableItem draggableItem = dropItem.GetComponent<DraggableItem>();
-            draggableItem.afterDraw = transform;
+            //draggableItem.afterDraw = transform;
         }
     }
 

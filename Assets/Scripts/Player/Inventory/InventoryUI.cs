@@ -18,9 +18,9 @@ public class InventoryUI : MonoBehaviour
         {
             for (int i = 0; i < inventorySlots.Length; i++)
             {
-                if (i < InventoryManager.Instance.equiments.Count)
+                if (InventoryManager.Instance.equipments[i] != null)
                 {
-                    inventorySlots[i].OnItem(InventoryManager.Instance.equiments[i]);
+                    inventorySlots[i].OnItem(InventoryManager.Instance.equipments[i]);
                 }
                 else
                 {
@@ -33,7 +33,7 @@ public class InventoryUI : MonoBehaviour
         {
             for (int i = 0; i < inventorySlots.Length; i++)
             {
-                if (i < InventoryManager.Instance.usables.Count)
+                if (InventoryManager.Instance.usables[i] != null)
                 {
                     inventorySlots[i].OnItem(InventoryManager.Instance.usables[i]);
                 }
@@ -48,7 +48,7 @@ public class InventoryUI : MonoBehaviour
         {
             for (int i = 0; i < inventorySlots.Length; i++)
             {
-                if (i < InventoryManager.Instance.materials.Count)
+                if (InventoryManager.Instance.materials[i] != null)
                 {
                     inventorySlots[i].OnItem(InventoryManager.Instance.materials[i]);
                 }
