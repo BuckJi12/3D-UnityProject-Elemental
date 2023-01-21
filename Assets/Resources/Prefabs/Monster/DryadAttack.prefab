@@ -5087,6 +5087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnTime: 5
+  autoReturn: 1
 --- !u!1 &6369717976583711657
 GameObject:
   m_ObjectHideFlags: 0

@@ -183,3 +183,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnTime: 3
+  autoReturn: 1

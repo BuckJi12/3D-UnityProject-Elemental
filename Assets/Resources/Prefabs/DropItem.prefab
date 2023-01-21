@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnTime: 60
+  autoReturn: 1
 --- !u!114 &5633453126678528569
 MonoBehaviour:
   m_ObjectHideFlags: 0
