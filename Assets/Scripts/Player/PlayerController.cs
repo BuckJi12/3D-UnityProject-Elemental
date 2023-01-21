@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            anim.ResetTrigger("Hit");
             anim.SetTrigger("Attack");
         }
     }
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
             if (SkillManager.Instance.equipSkill[0] == null)
                 return;
 
+            anim.ResetTrigger("Hit");
             anim.SetTrigger(SkillManager.Instance.equipSkill[0].data.animName);
         }
 
@@ -85,6 +87,7 @@ public class PlayerController : MonoBehaviour
             if (SkillManager.Instance.equipSkill[1] == null)
                 return;
 
+            anim.ResetTrigger("Hit");
             anim.SetTrigger(SkillManager.Instance.equipSkill[1].data.animName);
         }
 
@@ -93,6 +96,7 @@ public class PlayerController : MonoBehaviour
             if (SkillManager.Instance.equipSkill[2] == null)
                 return;
 
+            anim.ResetTrigger("Hit");
             anim.SetTrigger(SkillManager.Instance.equipSkill[2].data.animName);
         }
     }
@@ -103,6 +107,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire2") && controller.isGrounded)
             {
+                anim.ResetTrigger("Hit");
                 anim.SetTrigger("Roll");
                 canRoll = false;
                 PlayerStatManager.Instance.stat.curStamina -= 50;

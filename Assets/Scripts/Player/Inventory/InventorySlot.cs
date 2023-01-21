@@ -31,18 +31,13 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler
     public void OnDrop(PointerEventData eventData)
     {
         DraggableItem dragItem = eventData.pointerDrag.GetComponent<DraggableItem>();
-        InventorySlot dropItem = dragItem.parent.GetComponent<InventorySlot>();
-        //InventorySlot dropItem = eventData.pointerDrag.GetComponentInParent<InventorySlot>();
-        if (dropItem == null)
+        if (dragItem == null)
             return;
 
-        //if (inventoryItem == null)
-        //{
-        //    InventoryManager.Instance.InsertItem(dropItem.inventoryItem, transform.GetSiblingIndex());
-        //    InventoryManager.Instance.ListType(dropItem.inventoryItem)[dropItem.transform.GetSiblingIndex()] = null;
-        //    InventoryManager.Instance.UIType(dropItem.inventoryItem).UpdateUI(InventoryManager.Instance.GetUIState(dropItem.inventoryItem));
-        //    return;
-        //}
+        InventorySlot dropItem = dragItem.parent.GetComponent<InventorySlot>();
+
+        if (dropItem == null)
+            return;
 
         InventoryManager.Instance.Swap(dropItem.inventoryItem, transform.GetSiblingIndex(), dropItem.transform.GetSiblingIndex());
         InventoryManager.Instance.UIType(dropItem.inventoryItem).UpdateUI(InventoryManager.Instance.GetUIState(dropItem.inventoryItem));
