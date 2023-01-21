@@ -228,14 +228,14 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
                 {
                     StartCoroutine(FrostBite());
                     enemy.elementalState = Elemental.Ice;
-                    ReactionText("동상", 133, 245, 242, 0.5f);
+                    ReactionText("동상", 133, 245, 242, 0.2f);
                     infoUI.UpdateIcon();
                 }
                 if (skill.data.type == Elemental.Fire)
                 {
                     StartCoroutine(FireDotDamage());
                     enemy.elementalState = Elemental.Fire;
-                    ReactionText("화상", 255, 85, 32, 0.5f);
+                    ReactionText("화상", 255, 85, 32, 0.2f);
                     infoUI.UpdateIcon();
                 }
                 break;
@@ -297,7 +297,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
             enemy.curHP -= (PlayerStatManager.Instance.stat.elementalPower * 10);
             SkillDamageText(PlayerStatManager.Instance.stat.elementalPower * 10, false, Elemental.Fire);
             enemy.elementalState = Elemental.None;
-            ReactionText("팽창", 225, 125, 85, 0.7f);
+            ReactionText("팽창", 225, 125, 85, 0.3f);
             infoUI.UpdateIcon();
         }
     }
