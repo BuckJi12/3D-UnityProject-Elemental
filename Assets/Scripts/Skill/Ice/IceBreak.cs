@@ -34,4 +34,6 @@ public class IceBreak : Skill
         float radian = angle * Mathf.Deg2Rad;
         return new Vector3(Mathf.Sin(radian), 0, Mathf.Cos(radian));
     }
+
+
 }

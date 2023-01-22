@@ -73,16 +73,17 @@ public class PlayerController : MonoBehaviour
 
     public void Skill()
     {
-        if (Input.GetButtonDown("Skill1"))
+        if (Input.GetButtonDown("Skill1") && SkillManager.Instance.equipSkill[0].canUse)
         {
             if (SkillManager.Instance.equipSkill[0] == null)
                 return;
 
+
             anim.ResetTrigger("Hit");
             anim.SetTrigger(SkillManager.Instance.equipSkill[0].data.animName);
         }
-
-        if (Input.GetButtonDown("Skill2"))
+        
+        if (Input.GetButtonDown("Skill2") && SkillManager.Instance.equipSkill[1].canUse)
         {
             if (SkillManager.Instance.equipSkill[1] == null)
                 return;
@@ -91,7 +92,7 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger(SkillManager.Instance.equipSkill[1].data.animName);
         }
 
-        if (Input.GetButtonDown("Skill3"))
+        if (Input.GetButtonDown("Skill3") && SkillManager.Instance.equipSkill[2].canUse)
         {
             if (SkillManager.Instance.equipSkill[2] == null)
                 return;
