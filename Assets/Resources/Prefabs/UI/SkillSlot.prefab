@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 187054867980768965}
   - component: {fileID: 4280358748096699996}
   - component: {fileID: -3879224912496542249}
+  - component: {fileID: 4280358748096699999}
   m_Layer: 5
   m_Name: SkillSlot
   m_TagString: Untagged
@@ -91,6 +92,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 187054867980768965}
+  infoUI: {fileID: 0}
+  infoIcon: {fileID: 0}
+  title: {fileID: 0}
+  description: {fileID: 0}
+  type: {fileID: 0}
+  damage: {fileID: 0}
+  level: {fileID: 0}
   skill: {fileID: 0}
 --- !u!114 &-3879224912496542249
 MonoBehaviour:
@@ -105,3 +113,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tempImage: {fileID: 0}
+--- !u!65 &4280358748096699999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399040757101515657}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 400, y: 300, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
