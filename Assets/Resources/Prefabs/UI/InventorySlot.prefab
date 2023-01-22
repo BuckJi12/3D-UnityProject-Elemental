@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10994bfaf06df3548ad7cfbdbacecbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
 --- !u!1 &7025871657038484933
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +182,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 7025871656646715573}
+  equipUI: {fileID: 0}
+  equipIcon: {fileID: 0}
+  Title: {fileID: 0}
+  description: {fileID: 0}
+  rank: {fileID: 0}
+  stat: {fileID: 0}
+  cost: {fileID: 0}
+  materialUI: {fileID: 0}
+  materialTitle: {fileID: 0}
+  materialIcon: {fileID: 0}
+  materialDescription: {fileID: 0}
 --- !u!114 &854350426
 MonoBehaviour:
   m_ObjectHideFlags: 0
