@@ -17,7 +17,6 @@ MonoBehaviour:
   kind: 0
   rank: 0
   equipKind: 1
-  count: 0
   cost: 500
   usable: 1
   prefab: {fileID: 63881371986470003, guid: 3f454fbd6af7ef04387f207096d69cc3, type: 3}

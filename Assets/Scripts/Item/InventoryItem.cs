@@ -6,6 +6,7 @@ using UnityEngine;
 public class InventoryItem
 {
     public ItemData data;
+    public int count;
 
     public void Use()
     {

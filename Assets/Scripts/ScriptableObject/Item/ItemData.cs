@@ -11,7 +11,6 @@ public class ItemData : ScriptableObject
     public ItemKind kind;
     public ItemRank rank;
     public EquipmentKind equipKind;
-    public int count;
     public int cost;
     public bool usable;
 

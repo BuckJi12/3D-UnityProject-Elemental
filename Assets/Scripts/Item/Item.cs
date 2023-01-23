@@ -10,6 +10,6 @@ public class Item : MonoBehaviour
     public void Pick(PlayerColliders collider)
     {
         InventoryManager.Instance.AddItem(this);
-        Destroy(gameObject);
+        PoolManager.Instance.Release(this.gameObject);
     }
 }

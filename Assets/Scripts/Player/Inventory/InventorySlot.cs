@@ -11,6 +11,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler, 
 {
     [SerializeField]
     private Image itemIcon;
+    [SerializeField]
+    private TextMeshProUGUI count;
 
     [Header("EquipUI")]
     [SerializeField]
@@ -45,8 +47,10 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler, 
     {
         itemIcon.gameObject.SetActive(true);
         this.inventoryItem = inventoryItem;
+        count.text = inventoryItem.count.ToString();
         itemIcon.sprite = inventoryItem.data.itemIcon;
         itemIcon.enabled = true;
+        count.enabled = true;
     }
 
     public void NoItem()
@@ -54,6 +58,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler, 
         itemIcon.sprite = null;
         itemIcon.enabled = false;
         inventoryItem = null;
+        count.enabled = false;
     }
 
     public void OnDrop(PointerEventData eventData)

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -94,13 +95,19 @@ public class InventoryManager : SingleTon<InventoryManager>
 
     public void AddItem(InventoryItem inventoryItem, int count = 1)
     {
-        if (ListType(inventoryItem).Contains(inventoryItem))
+        if (inventoryItem.data.kind != ItemKind.Equipment)
         {
-            if (inventoryItem.data.kind != ItemKind.Equipment)
+            for (int i = 0; i < ListType(inventoryItem).Capacity; i++)
             {
-                int index = ListType(inventoryItem).FindIndex(x => x.data.name == inventoryItem.data.name);
-                ListType(inventoryItem)[index].data.count += count;
-                return;
+                if (ListType(inventoryItem)[i] != null)
+                {
+                    if (ListType(inventoryItem)[i].data.name == inventoryItem.data.name)
+                    {
+                        ListType(inventoryItem)[i].count += count;
+                        UIType(inventoryItem).UpdateUI(GetUIState(inventoryItem));
+                        return;
+                    }
+                }
             }
         }
 
@@ -113,10 +120,12 @@ public class InventoryManager : SingleTon<InventoryManager>
             else
             {
                 ListType(inventoryItem)[i] = inventoryItem;
+                ListType(inventoryItem)[i].count = 1;
                 UIType(inventoryItem).UpdateUI(GetUIState(inventoryItem));
                 return;
             }
         }
+
     }
 
     public void AddItem(Item item, int count = 1)
@@ -124,13 +133,19 @@ public class InventoryManager : SingleTon<InventoryManager>
         InventoryItem inventoryItem = new InventoryItem();
         inventoryItem.data = item.data;
 
-        if (ListType(inventoryItem).Contains(inventoryItem))
+        if (inventoryItem.data.kind != ItemKind.Equipment)
         {
-            if (inventoryItem.data.kind != ItemKind.Equipment)
+            for(int i = 0; i < ListType(inventoryItem).Capacity; i++)
             {
-                int index = ListType(inventoryItem).FindIndex(x => x.data.name == inventoryItem.data.name);
-                ListType(inventoryItem)[index].data.count += count;
-                return;
+                if (ListType(inventoryItem)[i] != null)
+                {
+                    if (ListType(inventoryItem)[i].data.name == inventoryItem.data.name)
+                    {
+                        ListType(inventoryItem)[i].count += count;
+                        UIType(inventoryItem).UpdateUI(GetUIState(inventoryItem));
+                        return;
+                    }
+                }
             }
         }
 
@@ -143,10 +158,12 @@ public class InventoryManager : SingleTon<InventoryManager>
             else
             {
                 ListType(inventoryItem)[i] = inventoryItem;
+                ListType(inventoryItem)[i].count = 1;
                 UIType(inventoryItem).UpdateUI(GetUIState(inventoryItem));
                 return;
             }
         }
+
     }
 
     public void InsertItem(InventoryItem inventoryItem, int index)
@@ -168,7 +185,14 @@ public class InventoryManager : SingleTon<InventoryManager>
     public void RemoveItem(InventoryItem inventoryItem)
     {
         int index = ListType(inventoryItem).FindIndex(x => x == inventoryItem);
-        ListType(inventoryItem)[index] = null;
+        if (ListType(inventoryItem)[index].count > 1)
+        {
+            ListType(inventoryItem)[index].count -= 1;
+        }
+        else
+        {
+            ListType(inventoryItem)[index] = null;
+        }
         UIType(inventoryItem).UpdateUI(GetUIState(inventoryItem));
     }
 
@@ -179,21 +203,21 @@ public class InventoryManager : SingleTon<InventoryManager>
             if (equipments.Find(x => x.data.name == item.name) == null)
                 return 0;
 
-            return equipments.Find(x => x.data.name == item.name).data.count;
+            return equipments.Find(x => x.data.name == item.name).count;
         }
         else if (item.kind == ItemKind.UsableItem)
         {
             if (usables.Find(x => x.data.name == item.name) == null)
                 return 0;
 
-            return usables.Find(x => x.data.name == item.name).data.count;
+            return usables.Find(x => x.data.name == item.name).count;
         }
         else
         {
             if (materials.Find(x => x.data.name == item.name) == null)
                 return 0;
 
-            return materials.Find(x => x.data.name == item.name).data.count;
+            return materials.Find(x => x.data.name == item.name).count;
         }
     }
 
