@@ -120,10 +120,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         damageText = instance.GetComponent<DamageText>();
         damageText.SetText(PlayerStatManager.Instance.CalculateDamage(enemy, critical), critical, Elemental.None);
         instance.transform.SetParent(canvas.transform);
-        Debug.Log(instance.transform.position);
         instance.transform.position = damagePos.transform.position;
-        Debug.Log(instance.transform.position);
-        Debug.Log(damagePos.transform.position);
     }
 
     public void ReactionText(string text, byte r, byte g, byte b, float size)
@@ -131,8 +128,8 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         GameObject instance = PoolManager.Instance.Get(this.text);
         damageText = instance.GetComponent<DamageText>();
         damageText.ReActionText(text, r, g, b, size);
-        instance.transform.localPosition = damagePos.transform.localPosition;
         instance.transform.SetParent(canvas.transform);
+        instance.transform.localPosition = damagePos.transform.localPosition;
     }
 
     public void SkillDamageText(int damage, bool critical, Elemental type)
@@ -140,8 +137,8 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         GameObject instance = PoolManager.Instance.Get(text);
         damageText = instance.GetComponent<DamageText>();
         damageText.SetText(damage, critical, type);
-        instance.transform.position = damagePos.transform.position;
         instance.transform.SetParent(canvas.transform);
+        instance.transform.position = damagePos.transform.position;
     }
 
     public void DropMoney()

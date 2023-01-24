@@ -29,13 +29,25 @@ public class Dryad : Enemy
 
     public void Attack()
     {
+        if (this.isAlive)
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, this.attackRange, LayerMask.GetMask("Player"));
 
+            if (colliders == null)
+                return;
+
+            if (colliders.Length < 1)
+                return;
+
+            IDamageable damageable = target.GetComponent<IDamageable>();
+            damageable?.TakeDamage(this.damage);
+        }
     }
     
     public void SkillAttack()
     {
         DryadMeteor meteor = PoolManager.Instance.Get(specialAttack).GetComponent<DryadMeteor>();
         meteor.transform.position = this.gameObject.transform.position;      
-        meteor.Set(this.damage);
+        meteor.Set((this.damage * 2));
     }
 }

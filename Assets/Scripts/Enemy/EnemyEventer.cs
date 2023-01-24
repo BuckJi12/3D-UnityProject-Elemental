@@ -6,10 +6,16 @@ using UnityEngine.Events;
 public class EnemyEventer : MonoBehaviour
 {
     public UnityEvent enemyAttack;
+    public UnityEvent enemySkill;
 
 
     public void OnAttack()
     {
         enemyAttack?.Invoke();
+    }
+
+    public void OnSkill()
+    {
+        enemySkill?.Invoke();
     }
 }
