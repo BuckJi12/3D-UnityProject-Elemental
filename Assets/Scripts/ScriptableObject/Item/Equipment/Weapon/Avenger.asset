@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a18afa98d4657468693b2d520a97f0, type: 3}
+  m_Name: Avenger
+  m_EditorClassIdentifier: 
+  name: "\uB2E4\uD06C\uB2C8\uC2A4"
+  description: "\uC635\uC2DC\uB514\uC5B8\uC73C\uB85C \uAC00\uACF5\uD55C \uAC70\uB300\uD55C
+    \uB300\uAC80... \uB108\uBB34 \uD06C"
+  kind: 0
+  rank: 3
+  equipKind: 1
+  cost: 100000
+  usable: 1
+  prefab: {fileID: 4928222887559849644, guid: 67b1442fb8ec373499a22b73b8236d3d, type: 3}
+  itemIcon: {fileID: 21300000, guid: 82f10e5d378daf74d882b04f6694b354, type: 3}
+  damage: 250
+  elementalPower: 250
+  criticalPercent: 30
+  criticalDamage: 80

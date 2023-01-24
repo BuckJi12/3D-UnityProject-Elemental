@@ -10,19 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4a18afa98d4657468693b2d520a97f0, type: 3}
-  m_Name: Test
+  m_Name: WaterMelon
   m_EditorClassIdentifier: 
-  name: test
-  description: test
+  name: "\uC218\uBC15\uBC14"
+  description: "\uC5EC\uB984\uC758 \uBCC4\uBBF8"
   kind: 0
-  rank: 2
+  rank: 1
   equipKind: 1
-  count: 1
-  cost: 10000
-  usable: 0
-  prefab: {fileID: 0}
-  itemIcon: {fileID: 21300000, guid: d4a00ea77a885f84884d42d3454d4f1f, type: 3}
-  damage: 10
-  elementalPower: 10
+  cost: 15000
+  usable: 1
+  prefab: {fileID: 4010997028604331072, guid: 19cddbe47591b9a499543f7c8acadca5, type: 3}
+  itemIcon: {fileID: 21300000, guid: 7abb7f3b75dc4d7469ca5d31b9351966, type: 3}
+  damage: 50
+  elementalPower: 50
   criticalPercent: 10
-  criticalDamage: 10
+  criticalDamage: 25

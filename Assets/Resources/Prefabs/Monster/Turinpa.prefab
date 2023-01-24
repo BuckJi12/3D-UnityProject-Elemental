@@ -1420,6 +1420,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  enemySkill:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &2024993686116866698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400024, guid: 6d872ebf8efb7be42a4c7626c28f0fa5, type: 3}

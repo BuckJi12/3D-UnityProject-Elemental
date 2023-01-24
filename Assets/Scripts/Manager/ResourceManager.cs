@@ -14,7 +14,7 @@ public class ResourceManager : SingleTon<ResourceManager>
 
         curWeapon.transform.SetParent(weaponPos);
         curWeapon.transform.localPosition = new Vector3(0, 0, 0);
-        curWeapon.transform.localRotation = new Quaternion(0, 0, 0, 0);
+        curWeapon.transform.localRotation = item.data.prefab.transform.rotation;
     }
 
     public void RemoveResource(InventoryItem item)
