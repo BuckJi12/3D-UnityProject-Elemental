@@ -18,6 +18,10 @@ public class PlayerStatUI : MonoBehaviour
     private Image exp;
     [SerializeField]
     private TextMeshProUGUI expValue;
+    [SerializeField]
+    private TextMeshProUGUI level;
+    [SerializeField]
+    private TextMeshProUGUI money;
 
     private void Update()
     {
@@ -28,5 +32,7 @@ public class PlayerStatUI : MonoBehaviour
         hpValue.text = PlayerStatManager.Instance.stat.curHP.ToString() + " / " + PlayerStatManager.Instance.stat.maxHP.ToString();
         staminaValue.text = PlayerStatManager.Instance.stat.curStamina.ToString() + " / " + PlayerStatManager.Instance.stat.maxStamina.ToString();
         expValue.text = PlayerStatManager.Instance.stat.curEXP.ToString() + " / " + PlayerStatManager.Instance.stat.maxEXP.ToString();
+        level.text = "LV " + PlayerStatManager.Instance.level.ToString();
+        money.text = GameManager.Instance.money.ToString();
     }
 }

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\uBD84\uD64D\uC0C9 \uB9CC\uB4DC\uB77C\uACE0\uB77C"
   level: 3
-  HP: 500
+  HP: 100
   damage: 10
-  defence: 5
+  defence: 3
   attackSpeed: 2
   attackRange: 2
   moveSpeed: 2

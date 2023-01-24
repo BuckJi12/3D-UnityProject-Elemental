@@ -8,6 +8,11 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
     public Stat stat;
     public int level = 1;
 
+    [SerializeField]
+    private GameObject levelUp;
+    [SerializeField]
+    private Canvas canvas;
+
     public void CalculateTakeDamage(int damage)
     {
         int random = Random.Range(1, 100);
@@ -59,6 +64,9 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
         stat.damage += 10;
         stat.elementalPower += 10;
         stat.defence += 2;
+        level++;
+        GameObject instance = PoolManager.Instance.Get(levelUp);
+        instance.transform.SetParent(canvas.transform);
     }
 
     public bool CalculateCritical()
