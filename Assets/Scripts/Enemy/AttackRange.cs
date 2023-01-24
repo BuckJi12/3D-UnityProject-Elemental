@@ -16,7 +16,7 @@ public class AttackRange : MonoBehaviour
     }
     private void Start()
     {
-        attackRange.radius = enemy.attackRange;
+        attackRange.radius = enemy.data.attackRange;
     }
 
     private void OnTriggerEnter(Collider other)

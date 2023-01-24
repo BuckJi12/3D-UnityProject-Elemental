@@ -14,9 +14,12 @@ public class MonsterData : ScriptableObject
     public int defence;
     public float attackSpeed;
     public float attackRange;
+    public float moveSpeed;
 
     public int exp;
     public int money;
+
+    public bool canKnockBack;
 
     [SerializeField]
     public List<DropItem> dropItems;

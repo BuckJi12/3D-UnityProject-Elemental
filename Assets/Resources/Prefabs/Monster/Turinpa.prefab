@@ -290,9 +290,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 8713371185648085292}
-  text: {fileID: 7220120970497219329, guid: 59faa56d739db744e9b610662e3365e5, type: 3}
+  text: {fileID: 2889212056616767873, guid: 6ce7e6db12b5edb4d926db94a5aa92ea, type: 3}
   canvas: {fileID: 8311026627797421353}
-  damagePos: {fileID: 6385351064286380}
+  damagePos: {fileID: 6819891011345949772}
   coin: {fileID: 5249905586712016947, guid: bb391a89e74fd0440ad6226ca52137d4, type: 3}
   weapon: {fileID: 7821342895640800651, guid: 6ee418eadb465d147ba808009a0e2b19, type: 3}
   armor: {fileID: 7908226194544605263, guid: 84022a91fdbb61847ba6a0649a84d5d4, type: 3}
@@ -381,7 +381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6819891011345949772}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.21, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

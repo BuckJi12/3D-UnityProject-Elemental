@@ -12,8 +12,8 @@ public class DamageText : MonoBehaviour
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
-        text = GetComponent<TextMeshProUGUI>();
+        anim = GetComponentInChildren<Animator>();
+        text = GetComponentInChildren<TextMeshProUGUI>();
     }
     private void Update()
     {

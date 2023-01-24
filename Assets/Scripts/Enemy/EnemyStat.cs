@@ -17,7 +17,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     [SerializeField]
     private Canvas canvas;
     [SerializeField]
-    private Transform damagePos;
+    private GameObject damagePos;
     [SerializeField]
     private GameObject coin;
     [SerializeField]
@@ -62,6 +62,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         enemy.defence = enemy.data.defence;
         enemy.attackSpeed = enemy.data.attackSpeed;
         enemy.attackRange = enemy.data.attackRange;
+        enemy.agent.speed = enemy.data.moveSpeed;
     }
 
     public IEnumerator DisappearObject()
@@ -83,9 +84,12 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
     {
         if (enemy.isAlive)
         {
-            enemy.ChangeState(enemy.state[EnemyState.Hit]);
+            if (enemy.data.canKnockBack)
+            {
+                enemy.ChangeState(enemy.state[EnemyState.Hit]);
+                gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
+            }
             hitEffect.Play();
-            gameObject.transform.Translate(Vector3.back * 15 * Time.deltaTime);
             if (PlayerStatManager.Instance.CalculateCritical())
             {
                 enemy.curHP -= PlayerStatManager.Instance.CalculateDamage(enemy, true);
@@ -115,8 +119,11 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         GameObject instance = PoolManager.Instance.Get(text);
         damageText = instance.GetComponent<DamageText>();
         damageText.SetText(PlayerStatManager.Instance.CalculateDamage(enemy, critical), critical, Elemental.None);
-        instance.transform.position = damagePos.transform.position;
         instance.transform.SetParent(canvas.transform);
+        Debug.Log(instance.transform.position);
+        instance.transform.position = damagePos.transform.position;
+        Debug.Log(instance.transform.position);
+        Debug.Log(damagePos.transform.position);
     }
 
     public void ReactionText(string text, byte r, byte g, byte b, float size)
@@ -124,7 +131,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         GameObject instance = PoolManager.Instance.Get(this.text);
         damageText = instance.GetComponent<DamageText>();
         damageText.ReActionText(text, r, g, b, size);
-        instance.transform.position = damagePos.transform.position;
+        instance.transform.localPosition = damagePos.transform.localPosition;
         instance.transform.SetParent(canvas.transform);
     }
 

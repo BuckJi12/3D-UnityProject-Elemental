@@ -17,8 +17,10 @@ MonoBehaviour:
   HP: 100000
   damage: 100
   defence: 100
-  attackSpeed: 5
-  attackRange: 8
+  attackSpeed: 3
+  attackRange: 3
+  moveSpeed: 4
   exp: 3000
   money: 50000
+  canKnockBack: 0
   dropItems: []

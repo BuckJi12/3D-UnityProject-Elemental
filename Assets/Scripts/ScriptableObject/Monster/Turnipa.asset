@@ -19,6 +19,8 @@ MonoBehaviour:
   defence: 5
   attackSpeed: 2
   attackRange: 2
+  moveSpeed: 2
   exp: 100
   money: 300
+  canKnockBack: 1
   dropItems: []
