@@ -77,6 +77,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         enemy.Respawn();
         this.gameObject.SetActive(true);
         enemy.ChangeState(enemy.state[EnemyState.Idle]);
+        enemy.canAttack = false;
         Init();
     }
 
@@ -156,7 +157,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
             for (int i = 0; i < enemy.data.dropItems.Count; i++)
             {
                 int random = Random.Range(1, 100);
-                if (enemy.data.dropItems[i].dropRate < random)
+                if (enemy.data.dropItems[i].dropRate >= random)
                 {
                     ItemProp prop = CreateItem(enemy.data.dropItems[i].itemData).GetComponent<ItemProp>();
                     prop.Set(enemy.data.dropItems[i].itemData);

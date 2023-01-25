@@ -2678,7 +2678,7 @@ MonoBehaviour:
     maxHP: 300
     curStamina: 100
     maxStamina: 100
-    damage: 10
+    damage: 10000
     elementalPower: 100
     defence: 0
     curEXP: 0
@@ -21356,7 +21356,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060002178}
-  m_LocalRotation: {x: 0.26693356, y: 0.000000028720944, z: -0.00000000795524, w: 0.96371496}
+  m_LocalRotation: {x: 0.2669336, y: -3.4238033e-15, z: 1.836517e-15, w: 0.96371496}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -22177,6 +22177,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 848756092276691277, guid: befa08f6937febd4ea173e2e87d287c9, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 180527425}
     - target: {fileID: 848756093245311436, guid: befa08f6937febd4ea173e2e87d287c9, type: 3}
       propertyPath: m_Name
       value: DevilRadish
@@ -22984,6 +22988,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4714532756036058520, guid: 25a6c17df5ebad64f897aa006d302395, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 180527425}
     - target: {fileID: 4714532756190979352, guid: 25a6c17df5ebad64f897aa006d302395, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -23031,26 +23039,6 @@ PrefabInstance:
     - target: {fileID: 4714532756190979353, guid: 25a6c17df5ebad64f897aa006d302395, type: 3}
       propertyPath: m_Name
       value: DarkDevilTree
-      objectReference: {fileID: 0}
-    - target: {fileID: 6732593355458602705, guid: 25a6c17df5ebad64f897aa006d302395, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -1.8538997e-10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6732593355458602707, guid: 25a6c17df5ebad64f897aa006d302395, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.0000000010659668
-      objectReference: {fileID: 0}
-    - target: {fileID: 6732593355458602707, guid: 25a6c17df5ebad64f897aa006d302395, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6732593355458602707, guid: 25a6c17df5ebad64f897aa006d302395, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6732593355458602719, guid: 25a6c17df5ebad64f897aa006d302395, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -1.5728341e-10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a6c17df5ebad64f897aa006d302395, type: 3}
@@ -23108,6 +23096,34 @@ PrefabInstance:
     - target: {fileID: 7516208470423952227, guid: 871687080f1b9dc41ac7625f58d1e28c, type: 3}
       propertyPath: m_Name
       value: Dryad[Boss]
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516208471384703970, guid: 871687080f1b9dc41ac7625f58d1e28c, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516208471384703970, guid: 871687080f1b9dc41ac7625f58d1e28c, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516208471384703970, guid: 871687080f1b9dc41ac7625f58d1e28c, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 180527425}
+    - target: {fileID: 7516208471384703970, guid: 871687080f1b9dc41ac7625f58d1e28c, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516208471384703970, guid: 871687080f1b9dc41ac7625f58d1e28c, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516208471384703970, guid: 871687080f1b9dc41ac7625f58d1e28c, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516208471384703970, guid: 871687080f1b9dc41ac7625f58d1e28c, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7612567713351527989, guid: 871687080f1b9dc41ac7625f58d1e28c, type: 3}
       propertyPath: target
@@ -23432,5 +23448,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: DevilTree
       objectReference: {fileID: 0}
+    - target: {fileID: 9012131297539829402, guid: 705fb03944f809b47860cf137f4df645, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 180527425}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 705fb03944f809b47860cf137f4df645, type: 3}

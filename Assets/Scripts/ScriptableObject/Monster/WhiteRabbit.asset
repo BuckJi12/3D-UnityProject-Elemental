@@ -23,4 +23,10 @@ MonoBehaviour:
   exp: 80
   money: 2000
   canKnockBack: 1
-  dropItems: []
+  dropItems:
+  - itemData: {fileID: 11400000, guid: c15d282667c4af9498a1436feff53754, type: 2}
+    dropRate: 50
+  - itemData: {fileID: 11400000, guid: 45d974d1a3b0fe54389088c91d46647b, type: 2}
+    dropRate: 1
+  - itemData: {fileID: 11400000, guid: e8eda3da8e72195408fc75802f55f1bb, type: 2}
+    dropRate: 3
