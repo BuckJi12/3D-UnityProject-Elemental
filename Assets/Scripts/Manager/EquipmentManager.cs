@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -72,11 +73,17 @@ public class EquipmentManager : SingleTon<EquipmentManager>
         }
         else if (item.data.equipKind == EquipmentKind.Accessory)
         {
-
+            AccessoryData accessory = item.data as AccessoryData;
+            PlayerStatManager.Instance.stat.criticalPercent += accessory.criticalPercent;
+            PlayerStatManager.Instance.stat.criticalDamage += accessory.criticalDamage;
+            PlayerStatManager.Instance.stat.dodgeRate += accessory.dodgeRate;
         }
         else
         {
-            
+            Clothes clothes = item.data as Clothes;
+            PlayerStatManager.Instance.stat.maxHP += clothes.hp;
+            PlayerStatManager.Instance.stat.curHP += clothes.hp;
+            PlayerStatManager.Instance.stat.defence += clothes.defence;
         }
     }
     
@@ -93,11 +100,17 @@ public class EquipmentManager : SingleTon<EquipmentManager>
         }
         else if (item.data.equipKind == EquipmentKind.Accessory)
         {
-
+            AccessoryData accessory = item.data as AccessoryData;
+            PlayerStatManager.Instance.stat.criticalPercent -= accessory.criticalPercent;
+            PlayerStatManager.Instance.stat.criticalDamage -= accessory.criticalDamage;
+            PlayerStatManager.Instance.stat.dodgeRate -= accessory.dodgeRate;
         }
         else
         {
-
+            Clothes clothes = item.data as Clothes;
+            PlayerStatManager.Instance.stat.maxHP -= clothes.hp;
+            PlayerStatManager.Instance.stat.curHP -= clothes.hp;
+            PlayerStatManager.Instance.stat.defence -= clothes.defence;
         }
     }
 }

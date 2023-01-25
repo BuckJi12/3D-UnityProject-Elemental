@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e2a7d875e8dc246badd244342426d4, type: 3}
+  m_Name: VeryNiceNecklace
+  m_EditorClassIdentifier: 
+  name: "\uC5C4\uCCAD \uBE44\uC2F8\uACE0 \uC88B\uC740 \uBAA9\uAC78\uC774"
+  description: "\uC9C4\uC9DC \uC5C4\uCCAD \uBE44\uC2F8\uACE0 \uC88B\uC74C"
+  kind: 0
+  rank: 3
+  equipKind: 0
+  cost: 125000
+  usable: 1
+  prefab: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 388936bc4177a3b41a25646e53c9dd16, type: 3}
+  criticalPercent: 20
+  criticalDamage: 40
+  dodgeRate: 15
