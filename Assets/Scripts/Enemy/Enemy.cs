@@ -19,18 +19,28 @@ public abstract class Enemy : MonoBehaviour
     public Dictionary<EnemyState, State<Enemy>> state;
     public StateMachine<Enemy> machine;
 
+    [HideInInspector]
     public GameObject target;
 
     public MonsterData data;
+    [HideInInspector]
     public int curHP;
+    [HideInInspector]
     public int maxHP;
+    [HideInInspector]
     public int damage;
+    [HideInInspector]
     public int defence;
+    [HideInInspector]
     public float attackSpeed;
+    [HideInInspector]
     public float attackRange;
 
+    [HideInInspector]
     public bool isAlive = true;
+    [HideInInspector]
     public bool findTarget = false;
+    [HideInInspector]
     public bool canAttack = false;
 
     public Elemental elementalState;
@@ -41,6 +51,7 @@ public abstract class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
         myCollider = GetComponent<CapsuleCollider>();
+        target = GameObject.FindWithTag("Player");
 
         state = new Dictionary<EnemyState, State<Enemy>>();
         state.Add(EnemyState.Idle, new EnemyStates.EnemyIdle());

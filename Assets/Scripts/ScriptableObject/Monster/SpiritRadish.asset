@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5795eaf319613f4b9f69a442c2c7936, type: 3}
-  m_Name: Dryad
+  m_Name: SpiritRadish
   m_EditorClassIdentifier: 
-  name: "[\uC232\uC758 \uC8FC\uC778] \uB4DC\uB77C\uC774\uC5B4\uB4DC"
-  level: 35
-  HP: 50000
-  damage: 1000
-  defence: 100
-  attackSpeed: 3
-  attackRange: 3
-  moveSpeed: 4
-  exp: 1500
-  money: 50000
-  canKnockBack: 0
+  name: "\uBB34\uC758 \uC815\uB839"
+  level: 16
+  HP: 1500
+  damage: 150
+  defence: 20
+  attackSpeed: 4
+  attackRange: 8
+  moveSpeed: 2
+  exp: 80
+  money: 2000
+  canKnockBack: 1
   dropItems: []
