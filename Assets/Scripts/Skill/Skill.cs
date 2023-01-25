@@ -5,7 +5,9 @@ using UnityEngine;
 public class Skill : MonoBehaviour
 {
     public SkillData data;
+    [HideInInspector]
     public float coolTime;
+    [HideInInspector]
     public bool canUse;
 
     public void Start()

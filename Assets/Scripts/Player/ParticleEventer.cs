@@ -7,6 +7,7 @@ public class ParticleEventer : MonoBehaviour
 {
     public UnityEvent iceBreak;
     public UnityEvent fireDischarge;
+    public UnityEvent iceAge;
 
     public void OnIceBreakParticle()
     {
@@ -15,5 +16,10 @@ public class ParticleEventer : MonoBehaviour
     public void OnFireDischargeParticle()
     {
         fireDischarge?.Invoke();
+    }
+
+    public void OnIceAge()
+    {
+        iceAge?.Invoke();
     }
 }
