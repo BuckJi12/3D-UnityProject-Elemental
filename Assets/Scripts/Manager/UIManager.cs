@@ -38,7 +38,7 @@ public class UIManager : SingleTon<UIManager>
         SkillUI();
         EquipmentUI();
         InventoryUI();
-        OpenRequest();
+        //OpenRequest();
     }
 
     private void CurSorCheck()
@@ -130,19 +130,15 @@ public class UIManager : SingleTon<UIManager>
 
     public void OpenRequest()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (requestWindow.activeSelf)
+        { 
+            requestWindow.SetActive(false);
+            cursorStack--;
+        }
+        else
         {
-            if (requestWindow.activeSelf)
-            { 
-                requestWindow.SetActive(false);
-                cursorStack--;
-            }
-
-            else
-            {
-                requestWindow.SetActive(true);
-                cursorStack++;
-            }
+            requestWindow.SetActive(true);
+            cursorStack++;
         }
     }
 

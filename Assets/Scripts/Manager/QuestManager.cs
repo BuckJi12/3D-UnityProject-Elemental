@@ -3,38 +3,57 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class QuestManager : SingleTon<QuestManager>
 {
     public Dictionary<int, Quest> quests;
-    public ProgressQuest[] progressQuests;
+    public List<ProgressQuest> progressQuests;
+
+    [SerializeField]
+    private List<Quest> listQuests;
+    [SerializeField]
+    private ProgressQuestUI[] questUIs;
 
     private void Awake()
     {
         quests = new Dictionary<int, Quest>();
-        progressQuests = new ProgressQuest[5];
+        progressQuests = new List<ProgressQuest>(5);
+        questUIs = new ProgressQuestUI[5];
+        Init();
+    }
+
+    public void Init()
+    {
+        for (int i = 0; i < listQuests.Count; i++)
+        {
+            quests.Add(listQuests[i].questID, listQuests[i]);
+        }
     }
 
     public void AddQuest(Quest quest)
     {
-        for(int i = 0; i < progressQuests.Length; i++)
+        if (progressQuests.Count > 4)
+            return;
+
+        ProgressQuest temp;
+        temp.questData = quest;
+        temp.curCount = 0;
+        temp.canComplete = false;
+        progressQuests.Add(temp);
+        for (int i = 0; i < progressQuests.Capacity; i++)
         {
-            if (progressQuests[i].questData != null)
+            if (progressQuests[i].questData == null)
                 continue;
-            else
-            {
-                progressQuests[i].questData = quest;
-                progressQuests[i].curCount = 0;
-                progressQuests[i].canComplete = false;
-                return;
-            }
+
+            questUIs[i].UpdateUI(progressQuests[i].questData, progressQuests[i].curCount);
         }
     }
 
     public void KillRequestUpdate(Enemy enemy)
     {
-        for (int i = 0; i < progressQuests.Length; i++)
+        for (int i = 0; i < progressQuests.Capacity; i++)
         {
             if (progressQuests[i].questData == null)
                 continue;
@@ -43,11 +62,14 @@ public class QuestManager : SingleTon<QuestManager>
             {
                 if (progressQuests[i].questData.GetTargetData().name == enemy.data.name)
                 {
-                    progressQuests[i].curCount += 1;
+                    ProgressQuest temp = progressQuests[i];
+                    temp.curCount += 1;
                     if (progressQuests[i].curCount >= progressQuests[i].questData.goalCount)
                     {
-                        progressQuests[i].canComplete = true;
+                        temp.canComplete = true;
                     }
+                    progressQuests[i] = temp;
+                    questUIs[i].UpdateUI(progressQuests[i].questData, progressQuests[i].curCount);
                 }
             }
         }
@@ -55,30 +77,36 @@ public class QuestManager : SingleTon<QuestManager>
 
     public void CollectRequestUpdate(Enemy enemy)
     {
-        for (int i = 0; i < progressQuests.Length; i++)
+        for (int i = 0; i < progressQuests.Capacity; i++)
         {
             if (progressQuests[i].questData == null)
                 continue;
 
             if (progressQuests[i].questData.type == QuestType.Collected)
             {
-                progressQuests[i].curCount = InventoryManager.Instance.FindItem(progressQuests[i].questData.GetItemData());
+                ProgressQuest temp = progressQuests[i];
+                temp.curCount = InventoryManager.Instance.FindItem(progressQuests[i].questData.GetItemData());
                 if (progressQuests[i].curCount >= progressQuests[i].questData.goalCount)
                 {
-                    progressQuests[i].canComplete = true;
+                    temp.canComplete = true;
                 }
                 else
                 {
-                    progressQuests[i].canComplete = false;
+                    temp.canComplete = false;
                 }
+                progressQuests[i] = temp;
+                questUIs[i].UpdateUI(progressQuests[i].questData, progressQuests[i].curCount);
             }
         }
     }
 
     public void ReceiveReward()
     {
-        for (int i = 0; i < progressQuests.Length; i++)
+        for (int i = 0; i < progressQuests.Capacity; i++)
         {
+            if (progressQuests[i].questData == null)
+                continue;
+
             if (progressQuests[i].canComplete == true)
             {
                 GameManager.Instance.money += progressQuests[i].questData.questMoney;
@@ -89,14 +117,16 @@ public class QuestManager : SingleTon<QuestManager>
                         InventoryManager.Instance.AddItem(progressQuests[i].questData.rewards[j].prefab.GetComponent<Item>());
                     }
                 }
-                progressQuests[i].questData = null;
-                progressQuests[i].curCount = 0;
-                progressQuests[i].canComplete = false;
+                ProgressQuest temp = progressQuests[i];
+                temp.questData = null;
+                temp.curCount = 0;
+                temp.canComplete = false;
+                progressQuests[i] = temp;
+                questUIs[i].UpdateUI(progressQuests[i].questData, progressQuests[i].curCount);
             }
             
         }
     }
-
     [Serializable]
     public struct ProgressQuest
     {

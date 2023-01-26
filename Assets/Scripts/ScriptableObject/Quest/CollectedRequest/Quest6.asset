@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179d86cfc08ca5643bc7c9885b751f9d, type: 3}
+  m_Name: Quest6
+  m_EditorClassIdentifier: 
+  questID: 1005
+  questName: "\uD1A0\uB07C \uD138 \uC218\uC9D1"
+  questDescription: "\uC62C \uACA8\uC6B8 \uD55C\uD30C\uB97C \uB300\uBE44\uD574 \uC637\uC744
+    \uB9CC\uB4E4\uAC8C \uD1A0\uB07C \uD138 10\uAC1C\uB9CC \uC218\uC9D1\uD574\uC918"
+  questcore: "\uD1A0\uB07C \uD138 10\uAC1C \uC218\uC9D1"
+  type: 1
+  goalCount: 10
+  questMoney: 15000
+  item: {fileID: 11400000, guid: c15d282667c4af9498a1436feff53754, type: 2}

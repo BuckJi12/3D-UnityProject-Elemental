@@ -6,10 +6,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class RequestPaper : MonoBehaviour, IPointerClickHandler
+public class RequestPaper : MonoBehaviour
 {
     private Image paper;
-    [SerializeField]
+
     private Quest quest;
 
     private TextMeshProUGUI[] texts;
@@ -19,8 +19,11 @@ public class RequestPaper : MonoBehaviour, IPointerClickHandler
     {
         texts = GetComponentsInChildren<TextMeshProUGUI>();
     }
-    private void Start()
+
+    public void Set(Quest quest)
     {
+        this.gameObject.SetActive(true);
+        this.quest = quest;
         texts[0].text = quest.questName;
         texts[1].text = quest.questDescription;
         texts[2].text = quest.questcore;
@@ -29,14 +32,13 @@ public class RequestPaper : MonoBehaviour, IPointerClickHandler
 
     public void AcceptQuest()
     {
-        QuestManager.Instance.AddQuest(quest);
-    }
+        if (quest == null)
+            return;
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData.button == PointerEventData.InputButton.Left)
-        {
-            AcceptQuest();
-        }
+        if (QuestManager.Instance.progressQuests.Count > 4)
+            return;
+
+        QuestManager.Instance.AddQuest(quest);
+        this.gameObject.SetActive(false);
     }
 }

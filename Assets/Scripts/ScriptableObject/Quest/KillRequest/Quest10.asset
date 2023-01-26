@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5112db71dc1ea1f48a0dffc69967c2d9, type: 3}
+  m_Name: Quest10
+  m_EditorClassIdentifier: 
+  questID: 1009
+  questName: "\uC545\uB9C8\uC758 \uB098\uBB34 \uCC98\uCE58"
+  questDescription: "\uC545\uB9C8\uC758 \uB098\uBB34\uB97C 10\uB9C8\uB9AC\uB97C \uCC98\uCE58\uD574\uC918"
+  questcore: "\uC545\uB9C8\uC758 \uB098\uBB34 10\uB9C8\uB9AC \uCC98\uCE58"
+  type: 0
+  goalCount: 10
+  questMoney: 40000
+  target: {fileID: 11400000, guid: 39cb1026deda02843aa403993259af8f, type: 2}

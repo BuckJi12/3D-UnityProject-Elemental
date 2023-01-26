@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Quest : ScriptableObject
@@ -13,8 +14,6 @@ public class Quest : ScriptableObject
 
     public int questMoney;
     public List<QuestReward> rewards;
-
-    public bool canComplete = false;
 
     public struct QuestReward
     {
