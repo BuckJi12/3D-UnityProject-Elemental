@@ -2,32 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProgressQuestUI : MonoBehaviour
-{ 
+{
+    private Image image;
     private TextMeshProUGUI[] texts;
 
     private void Awake()
     {
         texts = GetComponentsInChildren<TextMeshProUGUI>();
+        image = GetComponent<Image>();
     }
 
     private void Start()
     {
-        this.gameObject.SetActive(false);
+        UnSet();
     }
 
-    public void UpdateUI(Quest questData, int count)
+    public void Set()
     {
         if (QuestManager.Instance.progressQuests[transform.GetSiblingIndex()].questData != null)
         {
-            this.gameObject.SetActive(true);
-            texts[0].text = questData.questcore;
-            texts[1].text = count.ToString() + " / " + questData.goalCount;
+            image.enabled = true;
+            texts[0].enabled = true;
+            texts[1].enabled = true;
+            texts[0].text = QuestManager.Instance.progressQuests[transform.GetSiblingIndex()].questData.questcore;
+            texts[1].text = QuestManager.Instance.progressQuests[transform.GetSiblingIndex()].curCount.ToString() + " / " +
+                QuestManager.Instance.progressQuests[transform.GetSiblingIndex()].questData.goalCount;
         }
-        else
-        {
-            this.gameObject.SetActive(false);
-        }
+    }
+    public void UnSet()
+    {
+        image.enabled = false;
+        texts[0].enabled = false;
+        texts[1].enabled = false;
     }
 }

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuildManager : NPC
+public class GuildBoard : NPC
 {
     public override void InterAction()
     {
-        UIManager.Instance.CompleteWindow();
+        UIManager.Instance.RequestWindow();
     }
 }

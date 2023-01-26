@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -200,24 +201,25 @@ public class InventoryManager : SingleTon<InventoryManager>
     {
         if (item.kind == ItemKind.Equipment)
         {
-            if (equipments.Find(x => x.data.name == item.name) == null)
+            if (equipments.Find(x => x.data == item) != null)
                 return 0;
 
-            return equipments.Find(x => x.data.name == item.name).count;
+            return equipments.Find(x => x.data == item).count;
         }
         else if (item.kind == ItemKind.UsableItem)
         {
-            if (usables.Find(x => x.data.name == item.name) == null)
+            if (usables.Find(x => x.data == item) != null)
                 return 0;
 
-            return usables.Find(x => x.data.name == item.name).count;
+            return usables.Find(x => x.data == item).count;
         }
         else
         {
-            if (materials.Find(x => x.data.name == item.name) == null)
+            var itemData = materials.FindIndex(x => x.data == item);
+            if (itemData == -1)
                 return 0;
 
-            return materials.Find(x => x.data.name == item.name).count;
+            return materials.Find(x => x.data == item).count;
         }
     }
 

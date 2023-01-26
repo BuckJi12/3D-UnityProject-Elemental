@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QuestManager : SingleTon<QuestManager>
 {
@@ -13,14 +14,14 @@ public class QuestManager : SingleTon<QuestManager>
 
     [SerializeField]
     private List<Quest> listQuests;
-    [SerializeField]
-    private ProgressQuestUI[] questUIs;
+
+    public UnityEvent completeUI;
+    public UnityEvent progressUI;
 
     private void Awake()
     {
         quests = new Dictionary<int, Quest>();
         progressQuests = new List<ProgressQuest>(5);
-        questUIs = new ProgressQuestUI[5];
         Init();
     }
 
@@ -42,18 +43,14 @@ public class QuestManager : SingleTon<QuestManager>
         temp.curCount = 0;
         temp.canComplete = false;
         progressQuests.Add(temp);
-        for (int i = 0; i < progressQuests.Capacity; i++)
-        {
-            if (progressQuests[i].questData == null)
-                continue;
-
-            questUIs[i].UpdateUI(progressQuests[i].questData, progressQuests[i].curCount);
-        }
+        progressUI?.Invoke();
+        //if (quest.type == QuestType.Collected)
+        //    CollectRequestUpdate();
     }
 
     public void KillRequestUpdate(Enemy enemy)
     {
-        for (int i = 0; i < progressQuests.Capacity; i++)
+        for (int i = 0; i < progressQuests.Count; i++)
         {
             if (progressQuests[i].questData == null)
                 continue;
@@ -64,20 +61,21 @@ public class QuestManager : SingleTon<QuestManager>
                 {
                     ProgressQuest temp = progressQuests[i];
                     temp.curCount += 1;
-                    if (progressQuests[i].curCount >= progressQuests[i].questData.goalCount)
+                    if (temp.curCount >= progressQuests[i].questData.goalCount)
                     {
                         temp.canComplete = true;
+                        completeUI?.Invoke();
                     }
                     progressQuests[i] = temp;
-                    questUIs[i].UpdateUI(progressQuests[i].questData, progressQuests[i].curCount);
+                    progressUI?.Invoke();
                 }
             }
         }
     }
 
-    public void CollectRequestUpdate(Enemy enemy)
+    public void CollectRequestUpdate()
     {
-        for (int i = 0; i < progressQuests.Capacity; i++)
+        for (int i = 0; i < progressQuests.Count; i++)
         {
             if (progressQuests[i].questData == null)
                 continue;
@@ -86,7 +84,7 @@ public class QuestManager : SingleTon<QuestManager>
             {
                 ProgressQuest temp = progressQuests[i];
                 temp.curCount = InventoryManager.Instance.FindItem(progressQuests[i].questData.GetItemData());
-                if (progressQuests[i].curCount >= progressQuests[i].questData.goalCount)
+                if (temp.curCount >= progressQuests[i].questData.goalCount)
                 {
                     temp.canComplete = true;
                 }
@@ -95,14 +93,14 @@ public class QuestManager : SingleTon<QuestManager>
                     temp.canComplete = false;
                 }
                 progressQuests[i] = temp;
-                questUIs[i].UpdateUI(progressQuests[i].questData, progressQuests[i].curCount);
+                progressUI?.Invoke();
             }
         }
     }
 
     public void ReceiveReward()
     {
-        for (int i = 0; i < progressQuests.Capacity; i++)
+        for (int i = 0; i < progressQuests.Count; i++)
         {
             if (progressQuests[i].questData == null)
                 continue;
@@ -117,12 +115,9 @@ public class QuestManager : SingleTon<QuestManager>
                         InventoryManager.Instance.AddItem(progressQuests[i].questData.rewards[j].prefab.GetComponent<Item>());
                     }
                 }
-                ProgressQuest temp = progressQuests[i];
-                temp.questData = null;
-                temp.curCount = 0;
-                temp.canComplete = false;
-                progressQuests[i] = temp;
-                questUIs[i].UpdateUI(progressQuests[i].questData, progressQuests[i].curCount);
+                progressQuests.Remove(progressQuests[i]);
+                progressUI?.Invoke();
+                completeUI?.Invoke();
             }
             
         }

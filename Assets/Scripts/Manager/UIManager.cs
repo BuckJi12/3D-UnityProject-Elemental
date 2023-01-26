@@ -15,6 +15,8 @@ public class UIManager : SingleTon<UIManager>
 {
     [SerializeField]
     private SkillWindowUI skillUI;
+
+    [Header("Inventory")]
     [SerializeField]
     private EquipmentUI equipmentUI;
     [SerializeField]
@@ -25,8 +27,12 @@ public class UIManager : SingleTon<UIManager>
     private InventoryUI usableInvenUI;
     [SerializeField]
     private InventoryUI materialInvenUI;
+
+    [Header("Quest")]
     [SerializeField]
     private GameObject requestWindow;
+    [SerializeField]
+    private GameObject completeWindow;
 
     private UIState curUI;
 
@@ -128,7 +134,7 @@ public class UIManager : SingleTon<UIManager>
         }
     }
 
-    public void OpenRequest()
+    public void RequestWindow()
     {
         if (requestWindow.activeSelf)
         { 
@@ -138,6 +144,20 @@ public class UIManager : SingleTon<UIManager>
         else
         {
             requestWindow.SetActive(true);
+            cursorStack++;
+        }
+    }
+
+    public void CompleteWindow()
+    {
+        if (completeWindow.activeSelf)
+        {
+            completeWindow.SetActive(false);
+            cursorStack--;
+        }
+        else
+        {
+            completeWindow.SetActive(true);
             cursorStack++;
         }
     }

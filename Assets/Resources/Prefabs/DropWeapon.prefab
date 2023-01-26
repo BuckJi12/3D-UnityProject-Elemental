@@ -144,6 +144,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
+  OnCollectUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8825296358485411627, guid: ef40537c195a85045b049ea12c686c00, type: 3}
+        m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
+        m_MethodName: CollectRequestUpdate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9055884521845005450
 MonoBehaviour:
   m_ObjectHideFlags: 0
