@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3673978700474418889}
   - component: {fileID: 6664032935219472341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 7653415674876670485}
   - component: {fileID: 6946941274547581193}
   - component: {fileID: 4156556893732171202}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: JusticeSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}

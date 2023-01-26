@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8228474553565839177}
   - component: {fileID: 386517812858643095}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 1996101381811860254}
   - component: {fileID: 8383679931270076896}
   - component: {fileID: 7037165920742278935}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnergySource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 5566015820177944757}
   - component: {fileID: 4452150889758633660}
   - component: {fileID: 8119827212631638508}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DemonicSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 8843642379720104116}
   - component: {fileID: 1757318818211684902}
   - component: {fileID: 7990367120792362130}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}

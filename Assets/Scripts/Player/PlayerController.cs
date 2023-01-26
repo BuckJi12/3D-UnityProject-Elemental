@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
+using UnityEngine.Events;
 
 enum PlayerState { Normal, Combat }
 [RequireComponent(typeof(CharacterController))]
@@ -24,6 +25,11 @@ public class PlayerController : MonoBehaviour
     private bool canRoll = true;
 
     private PlayerState state;
+
+    public UnityEvent OnSkillUse1;
+    public UnityEvent OnSkillUse2;
+    public UnityEvent OnSkillUse3;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -78,16 +84,17 @@ public class PlayerController : MonoBehaviour
             if (SkillManager.Instance.equipSkill[0] == null)
                 return;
 
-
             anim.ResetTrigger("Hit");
             anim.SetTrigger(SkillManager.Instance.equipSkill[0].data.animName);
+            OnSkillUse1?.Invoke();
         }
-        
+
         if (Input.GetButtonDown("Skill2") && SkillManager.Instance.equipSkill[1].canUse)
         {
             if (SkillManager.Instance.equipSkill[1] == null)
                 return;
 
+            OnSkillUse2?.Invoke();
             anim.ResetTrigger("Hit");
             anim.SetTrigger(SkillManager.Instance.equipSkill[1].data.animName);
         }
@@ -97,6 +104,7 @@ public class PlayerController : MonoBehaviour
             if (SkillManager.Instance.equipSkill[2] == null)
                 return;
 
+            OnSkillUse3?.Invoke();
             anim.ResetTrigger("Hit");
             anim.SetTrigger(SkillManager.Instance.equipSkill[2].data.animName);
         }

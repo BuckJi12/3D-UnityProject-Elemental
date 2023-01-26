@@ -74,11 +74,6 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler, 
 
         InventoryManager.Instance.Swap(dropItem.inventoryItem, transform.GetSiblingIndex(), dropItem.transform.GetSiblingIndex());
         InventoryManager.Instance.UIType(dropItem.inventoryItem).UpdateUI(InventoryManager.Instance.GetUIState(dropItem.inventoryItem));
-
-        Debug.Log(transform.GetSiblingIndex());
-        Debug.Log(InventoryManager.Instance.equipments[transform.GetSiblingIndex()]);
-        Debug.Log(dropItem.transform.GetSiblingIndex());
-        Debug.Log(InventoryManager.Instance.equipments[dropItem.transform.GetSiblingIndex()]);
     }
 
     public void OnPointerClick(PointerEventData eventData)

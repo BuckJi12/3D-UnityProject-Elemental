@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 925420701503635518}
   - component: {fileID: 1015915412744727370}
   - component: {fileID: 1017368197672848302}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4838,7 +4838,7 @@ GameObject:
   - component: {fileID: 2616664870064837490}
   - component: {fileID: 8578684697446869999}
   - component: {fileID: 7604009370932674237}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: VioletGrace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4964,7 +4964,7 @@ GameObject:
   - component: {fileID: 925443394576327954}
   - component: {fileID: 1016251066742761102}
   - component: {fileID: 1017190498664378694}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9797,7 +9797,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1709059834499040128}
   - component: {fileID: 3353701460214263108}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

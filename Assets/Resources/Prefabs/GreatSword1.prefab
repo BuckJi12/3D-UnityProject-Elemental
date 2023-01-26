@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -705573016514624452}
   - component: {fileID: -7159362894278720320}
   - component: {fileID: -4855201222774271634}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GreatSword1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6333540819460359467}
   - component: {fileID: 2295727909662842258}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 888302354029165281}
   - component: {fileID: 2332481157067100286}
   - component: {fileID: 6134822179253304552}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Prop_03_greatsword
   m_TagString: Untagged
   m_Icon: {fileID: 0}

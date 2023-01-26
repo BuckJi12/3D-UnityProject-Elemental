@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1428965073003664512}
   - component: {fileID: 7552271347953309160}
   - component: {fileID: 5250497869316171953}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Darkness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5798937572232564961}
   - component: {fileID: 925855764193958994}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

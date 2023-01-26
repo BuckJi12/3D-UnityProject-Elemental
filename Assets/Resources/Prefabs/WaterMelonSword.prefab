@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4285769991925488873}
   - component: {fileID: 7542148810710371209}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 7165369181897977843}
   - component: {fileID: 8134522583289818554}
   - component: {fileID: 395325322818776546}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WaterMelonSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}

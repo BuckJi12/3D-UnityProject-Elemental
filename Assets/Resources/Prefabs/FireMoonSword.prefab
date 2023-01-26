@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6896570923909895069}
   - component: {fileID: 6257325087364376338}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 2545802704471590243}
   - component: {fileID: 3712301063542518330}
   - component: {fileID: 577276327203668156}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FireMoonSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}

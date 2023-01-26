@@ -18,7 +18,6 @@ public class IceAge : Skill
     {
         for (int i = 0; i < 5; i++)
         {
-            yield return new WaitForSeconds(3);
             Collider[] colliders = Physics.OverlapSphere(player.transform.position, 6, LayerMask.GetMask("Monster"));
 
             if (colliders == null)
@@ -32,6 +31,7 @@ public class IceAge : Skill
                 ISkillHitAble skillHitAble = colliders[j].GetComponent<ISkillHitAble>();
                 skillHitAble?.HitSkill(this);
             }
+            yield return new WaitForSeconds(3);
         }
     }
 }

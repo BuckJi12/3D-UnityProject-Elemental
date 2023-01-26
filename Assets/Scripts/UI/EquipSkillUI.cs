@@ -25,17 +25,11 @@ public class EquipSkillUI : MonoBehaviour, IDropHandler, IPointerClickHandler
         coolTimeUI.gameObject.SetActive(false);
     }
 
-    private void Update()
+    public void UseSkill()
     {
-        if (skill == null)
-            return;
-
-        if (Input.GetButtonDown("Skill" + (transform.GetSiblingIndex() + 1)) && skill.canUse)
-        {
-            coolTimeUI.gameObject.SetActive(true);
-            SkillManager.Instance.equipSkill[transform.GetSiblingIndex()].StartCoolTime();
-            StartCoroutine(CoolTimeUI(skill.data.coolTime));
-        }
+        coolTimeUI.gameObject.SetActive(true);
+        SkillManager.Instance.equipSkill[transform.GetSiblingIndex()].StartCoolTime();
+        StartCoroutine(CoolTimeUI(skill.data.coolTime));
     }
 
     public IEnumerator CoolTimeUI(float coolTime)
