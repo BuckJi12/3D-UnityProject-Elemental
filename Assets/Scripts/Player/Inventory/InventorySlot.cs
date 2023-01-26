@@ -40,7 +40,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerClickHandler, 
     [SerializeField]
     private TextMeshProUGUI materialDescription;
 
-    private InventoryItem inventoryItem;
+    public InventoryItem inventoryItem;
 
 
     public void OnItem(InventoryItem inventoryItem)

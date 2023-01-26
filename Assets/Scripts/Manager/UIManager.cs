@@ -34,6 +34,10 @@ public class UIManager : SingleTon<UIManager>
     [SerializeField]
     private GameObject completeWindow;
 
+    [Header("Shop")]
+    [SerializeField]
+    private GameObject shopWindow;
+
     private UIState curUI;
 
     public int cursorStack = 0;
@@ -158,6 +162,20 @@ public class UIManager : SingleTon<UIManager>
         else
         {
             completeWindow.SetActive(true);
+            cursorStack++;
+        }
+    }
+
+    public void ShopWindow()
+    {
+        if (shopWindow.activeSelf)
+        {
+            shopWindow.SetActive(false);
+            cursorStack--;
+        }
+        else
+        {
+            shopWindow.SetActive(true);
             cursorStack++;
         }
     }
