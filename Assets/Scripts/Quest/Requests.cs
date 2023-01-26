@@ -7,6 +7,10 @@ public class Requests : MonoBehaviour
 {
     private RequestPaper[] papers;
 
+    private void Start()
+    {
+        SettingQuest();
+    }
 
     public void SettingQuest()
     {

@@ -23831,6 +23831,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turinpa
       objectReference: {fileID: 0}
+    - target: {fileID: 8893670021086459358, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 180527425}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
 --- !u!1 &1624721577

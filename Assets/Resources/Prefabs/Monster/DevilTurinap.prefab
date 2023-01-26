@@ -906,7 +906,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   myCollider: {fileID: 0}
   target: {fileID: 0}
-  data: {fileID: 11400000, guid: d0c52be316515014e961278d86a94873, type: 2}
+  data: {fileID: 11400000, guid: ed3bd8fd4a334cf4787b437f68be1ca7, type: 2}
   curHP: 30
   maxHP: 30
   damage: 20
