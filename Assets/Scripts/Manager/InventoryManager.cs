@@ -200,26 +200,45 @@ public class InventoryManager : SingleTon<InventoryManager>
     {
         if (item.kind == ItemKind.Equipment)
         {
-            if (equipments.Find(x => x.data == item) != null)
-                return 0;
+            for (int i = 0; i < equipments.Capacity; i++)
+            {
+                if (equipments[i] == null)
+                    continue;
 
-            return equipments.Find(x => x.data == item).count;
+                if (equipments[i].data.name == item.name)
+                    return equipments[i].count;
+                else
+                    continue;
+            }
         }
         else if (item.kind == ItemKind.UsableItem)
         {
-            if (usables.Find(x => x.data == item) != null)
-                return 0;
+            for (int i = 0; i < usables.Capacity; i++)
+            {
+                if (usables[i] == null)
+                    continue;
 
-            return usables.Find(x => x.data == item).count;
+                if (usables[i].data.name == item.name)
+                    return usables[i].count;
+                else
+                    continue;
+            }
         }
         else
         {
-            var itemData = materials.FindIndex(x => x.data == item);
-            if (itemData == -1)
-                return 0;
+            for (int i = 0; i < materials.Capacity; i++)
+            {
+                if (materials[i] == null)
+                    continue;
 
-            return materials.Find(x => x.data == item).count;
+                if (materials[i].data.name == item.name)              
+                    return materials[i].count;
+                
+                else
+                    continue;
+            }         
         }
+            return 0;
     }
 
     public void Swap(InventoryItem inventoryItem, int index1, int index2)

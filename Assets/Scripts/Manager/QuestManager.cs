@@ -43,8 +43,8 @@ public class QuestManager : SingleTon<QuestManager>
         temp.canComplete = false;
         progressQuests.Add(temp);
         progressUI?.Invoke();
-        //if (quest.type == QuestType.Collected)
-        //    CollectRequestUpdate();
+        if (quest.type == QuestType.Collected)
+            CollectRequestUpdate();
     }
 
     public void KillRequestUpdate(Enemy enemy)

@@ -6,13 +6,25 @@ using UnityEngine;
 public class CompleteUI : MonoBehaviour
 {
     private CompleteQuest[] quests;
-    
+    private GameObject parent;
+
+    private void Awake()
+    {
+        quests = GetComponentsInChildren<CompleteQuest>();
+        parent = GetComponentInParent<GameObject>();
+    }
+
+    private void Start()
+    {
+        parent.SetActive(false);
+    }
+
     public void UpdateUI()
     {
         quests = GetComponentsInChildren<CompleteQuest>();
-        for (int i = 0; i < QuestManager.Instance.progressQuests.Capacity; i++)
+        for (int i = 0; i < QuestManager.Instance.progressQuests.Count; i++)
         {
-            if (i < QuestManager.Instance.progressQuests.Count)
+            if (QuestManager.Instance.progressQuests[i].canComplete)
             {
                 quests[i].Set();
             }
