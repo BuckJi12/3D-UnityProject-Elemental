@@ -44,26 +44,21 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        switch (state)
+        if (state == PlayerState.Combat)
         {
-            case PlayerState.Normal:
-                Move();
-                Rotate();
-                Animation();
-                Jump();
-                break;
-            case PlayerState.Combat:
-                Move();
-                Rotate();
-                Jump();
-                Skill();
-                if (UIManager.Instance.uisList.Count < 1 || UIManager.Instance.isUsingMouse)
-                {
-                    Roll();
-                    Attack();
-                }
-                Animation();
-                break;
+            Skill();
+            if (UIManager.Instance.uisList.Count < 1 && !UIManager.Instance.isUsingMouse)
+            {
+                Roll();
+                Attack();
+            }
+        }
+        Jump();
+        if (UIManager.Instance.uisList.Count < 1 && !UIManager.Instance.isUsingMouse)
+        {
+            Animation();
+            Move();
+            Rotate();
         }
         GroundCheck();
     }

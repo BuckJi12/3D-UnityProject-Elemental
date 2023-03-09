@@ -75,12 +75,12 @@ public class UIManager : SingleTon<UIManager>
         if (uis[name].gameObject.activeSelf)
         {
             uis[name].gameObject.SetActive(false);
-            uisList.Add(uis[name]);
+            uisList.Remove(uis[name]);
         }
         else
         {
             uis[name].gameObject.SetActive(true);
-            uisList.Remove(uis[name]);
+            uisList.Add(uis[name]);
         }
     }
 
