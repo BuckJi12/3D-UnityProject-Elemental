@@ -13,14 +13,7 @@ public enum UIState
 
 public class UIManager : SingleTon<UIManager>
 {
-    [SerializeField]
-    private SkillWindowUI skillUI;
-
     [Header("Inventory")]
-    [SerializeField]
-    private EquipmentUI equipmentUI;
-    [SerializeField]
-    private Image inventoryUI;
     [SerializeField]
     private InventoryUI equipmentInvenUi;
     [SerializeField]
@@ -28,96 +21,71 @@ public class UIManager : SingleTon<UIManager>
     [SerializeField]
     private InventoryUI materialInvenUI;
 
-    [Header("Quest")]
-    [SerializeField]
-    private GameObject requestWindow;
-    [SerializeField]
-    private GameObject completeWindow;
-
-    [Header("Shop")]
-    [SerializeField]
-    private GameObject shopWindow;
-
     private UIState curUI;
 
     public int cursorStack = 0;
 
+    public Dictionary<string, UIUnit> uis;
+    public List<UIUnit> uisList;
+
+    public bool isUsingMouse;
+
+    private void Awake()
+    {
+        uis = new Dictionary<string, UIUnit>();
+        uisList = new List<UIUnit>();
+        isUsingMouse = false;
+    }
+
     private void Update()
     {
-        CurSorCheck();
-        SkillUI();
-        EquipmentUI();
+        OnPressAlt();
+        UIRenewal();
         InventoryUI();
-        //OpenRequest();
     }
 
-    private void CurSorCheck()
-    {
-        if (cursorStack <= 0)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-
-        if (cursorStack > 0)
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-    }
-
-    public void SkillUI()
+    private void UIRenewal()
     {
         if (Input.GetKeyDown(KeyCode.K))
+            SwitchUI("Skill");
+
+        if (Input.GetKeyDown(KeyCode.I))
+            SwitchUI("Inventory");
+
+        if (Input.GetKeyDown(KeyCode.O))
+            SwitchUI("Equipment");
+    }
+
+    private void OnPressAlt()
+    {
+        if (Input.GetKey(KeyCode.LeftAlt))
         {
-            skillUI.UpdateUI();
-            if (skillUI.gameObject.activeSelf == true)
-            {
-                skillUI.gameObject.SetActive(false);
-                cursorStack--;
-            }
-            else
-            {
-                skillUI.gameObject.SetActive(true);
-                cursorStack++;
-            }
+            Cursor.lockState = CursorLockMode.None;
+            isUsingMouse = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            isUsingMouse = false;
         }
     }
 
-    public void EquipmentUI()
+    public void SwitchUI(string name)
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        if (uis[name].gameObject.activeSelf)
         {
-            if (equipmentUI.gameObject.activeSelf)
-            {
-                equipmentUI.gameObject.SetActive(false);
-                cursorStack--;
-            }
-            else
-            {
-                equipmentUI.gameObject.SetActive(true);
-                cursorStack++;
-            }
+            uis[name].gameObject.SetActive(false);
+            uisList.Add(uis[name]);
+        }
+        else
+        {
+            uis[name].gameObject.SetActive(true);
+            uisList.Remove(uis[name]);
         }
     }
 
     public void InventoryUI()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            if (inventoryUI.gameObject.activeSelf)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                inventoryUI.gameObject.SetActive(false);
-                cursorStack--;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.None;
-                inventoryUI.gameObject.SetActive(true);
-                cursorStack++;
-            }
-        }
-
-
         switch (curUI)
         {
             case UIState.Equipment:
@@ -135,48 +103,6 @@ public class UIManager : SingleTon<UIManager>
                 usableInvenUI.gameObject.SetActive(false);
                 materialInvenUI.gameObject.SetActive(true);
                 break;
-        }
-    }
-
-    public void RequestWindow()
-    {
-        if (requestWindow.activeSelf)
-        { 
-            requestWindow.SetActive(false);
-            cursorStack--;
-        }
-        else
-        {
-            requestWindow.SetActive(true);
-            cursorStack++;
-        }
-    }
-
-    public void CompleteWindow()
-    {
-        if (completeWindow.activeSelf)
-        {
-            completeWindow.SetActive(false);
-            cursorStack--;
-        }
-        else
-        {
-            completeWindow.SetActive(true);
-            cursorStack++;
-        }
-    }
-
-    public void ShopWindow()
-    {
-        if (shopWindow.activeSelf)
-        {
-            shopWindow.SetActive(false);
-            cursorStack--;
-        }
-        else
-        {
-            shopWindow.SetActive(true);
-            cursorStack++;
         }
     }
 

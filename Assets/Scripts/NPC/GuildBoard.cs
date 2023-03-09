@@ -6,6 +6,6 @@ public class GuildBoard : NPC
 {
     public override void InterAction()
     {
-        UIManager.Instance.RequestWindow();
+        UIManager.Instance.SwitchUI("Quest");
     }
 }

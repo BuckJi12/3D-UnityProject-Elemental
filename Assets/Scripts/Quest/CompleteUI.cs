@@ -6,17 +6,10 @@ using UnityEngine;
 public class CompleteUI : MonoBehaviour
 {
     private CompleteQuest[] quests;
-    private GameObject parent;
 
     private void Awake()
     {
         quests = GetComponentsInChildren<CompleteQuest>();
-        parent = GetComponentInParent<GameObject>();
-    }
-
-    private void Start()
-    {
-        parent.SetActive(false);
     }
 
     public void UpdateUI()

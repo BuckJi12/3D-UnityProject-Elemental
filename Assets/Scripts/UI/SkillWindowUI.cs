@@ -11,10 +11,12 @@ public class SkillWindowUI : MonoBehaviour
     {
         skillSlots = GetComponentsInChildren<SkillSlot>();
     }
+
     private void Start()
     {
         UpdateUI();
     }
+
     public void UpdateUI()
     {
         skillSlots = GetComponentsInChildren<SkillSlot>();

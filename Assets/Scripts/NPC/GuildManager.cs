@@ -6,6 +6,6 @@ public class GuildManager : NPC
 {
     public override void InterAction()
     {
-        UIManager.Instance.CompleteWindow();
+        UIManager.Instance.SwitchUI("CompleteQuest");
     }
 }

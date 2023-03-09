@@ -24,6 +24,6 @@ public class BlackSmith : NPC
     public override void InterAction()
     {
         MakeShop();
-        UIManager.Instance.ShopWindow();
+        UIManager.Instance.SwitchUI("Shop");
     }
 }

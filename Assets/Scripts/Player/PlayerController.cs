@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
                 Rotate();
                 Jump();
                 Skill();
-                if (UIManager.Instance.cursorStack < 1)
+                if (UIManager.Instance.uisList.Count < 1 || UIManager.Instance.isUsingMouse)
                 {
                     Roll();
                     Attack();
