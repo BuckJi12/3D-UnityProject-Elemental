@@ -77,6 +77,7 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
         this.gameObject.SetActive(true);
         enemy.ChangeState(enemy.state[EnemyState.Idle]);
         enemy.canAttack = false;
+        enemy.findTarget = false;
         Init();
     }
 
