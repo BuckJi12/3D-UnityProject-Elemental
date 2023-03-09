@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,17 @@ public class CameraController : MonoBehaviour
     private Camera mainCamera;
     [SerializeField]
     private Camera skillCamera;
+    [SerializeField]
+    private CinemachineFreeLook cinCam;
 
+
+    private void Update()
+    {
+        if (UIManager.Instance.isUsingMouse)
+            cinCam.enabled = false;
+        else
+            cinCam.enabled = true;
+    }
 
     public void SwapCamera()
     {
