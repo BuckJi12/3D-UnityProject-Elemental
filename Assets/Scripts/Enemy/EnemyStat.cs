@@ -295,7 +295,8 @@ public class EnemyStat : MonoBehaviour, IDamageable, ISkillHitAble
 
     public void Expansion()
     {
-        if (enemy.elementalState == (Elemental.Ice | Elemental.Fire))
+        if ((enemy.elementalState & (Elemental.Ice | Elemental.Fire)) 
+            == (Elemental.Ice | Elemental.Fire))
         {
             StopAllCoroutines();
             enemy.curHP -= (PlayerStatManager.Instance.stat.elementalPower * 10);
