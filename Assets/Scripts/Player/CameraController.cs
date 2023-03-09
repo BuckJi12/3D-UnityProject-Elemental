@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if (UIManager.Instance.isUsingMouse)
+        if (UIManager.Instance.uisList.Count > 0 || UIManager.Instance.isUsingMouse)
             cinCam.enabled = false;
         else
             cinCam.enabled = true;
