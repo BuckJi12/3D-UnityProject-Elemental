@@ -7,5 +7,5 @@ public class NPC : MonoBehaviour
     public NPCData data;
     
 
-    public virtual void InterAction() { }
+    public virtual void Talk() { }
 }

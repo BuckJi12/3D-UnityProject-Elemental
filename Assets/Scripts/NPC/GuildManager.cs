@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GuildManager : NPC
 {
-    public override void InterAction()
+    public override void Talk()
     {
         UIManager.Instance.SwitchUI("CompleteQuest");
     }

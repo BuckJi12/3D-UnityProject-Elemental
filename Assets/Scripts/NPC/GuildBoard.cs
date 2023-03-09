@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GuildBoard : NPC
 {
-    public override void InterAction()
+    public override void Talk()
     {
         UIManager.Instance.SwitchUI("Quest");
     }

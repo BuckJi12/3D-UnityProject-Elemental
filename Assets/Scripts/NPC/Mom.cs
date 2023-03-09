@@ -9,7 +9,7 @@ public class Mom : NPC
 
     public bool oneChange = false;
 
-    public override void InterAction()
+    public override void Talk()
     {
         if (!oneChange)
         {
