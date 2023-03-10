@@ -45,23 +45,9 @@ public abstract class Enemy : MonoBehaviour
 
     public Elemental elementalState;
 
-    private void Awake()
+    public virtual void Attack()
     {
-        rigid = GetComponent<Rigidbody>();
-        agent = GetComponent<NavMeshAgent>();
-        anim = GetComponentInChildren<Animator>();
-        myCollider = GetComponent<CapsuleCollider>();
-        target = GameObject.FindWithTag("Player");
 
-        state = new Dictionary<EnemyState, State<Enemy>>();
-        state.Add(EnemyState.Idle, new EnemyStates.EnemyIdle());
-        state.Add(EnemyState.Move, new EnemyStates.EnemyMove());
-        state.Add(EnemyState.Attack, new EnemyStates.EnemyAttack());
-        state.Add(EnemyState.Hit, new EnemyStates.EnemyHit());
-        state.Add(EnemyState.Die, new EnemyStates.EnemyDie());
-
-        machine = new StateMachine<Enemy>();
-        machine.Init(this, state[EnemyState.Idle]);
     }
 
     private void Update()
@@ -82,14 +68,12 @@ public abstract class Enemy : MonoBehaviour
     public void Die()
     {
         isAlive = false;
-        //agent.isStopped = true;
         myCollider.enabled = false;
     }
 
     public void Respawn()
     {
         isAlive = true;
-        //agent.isStopped = false;
         myCollider.enabled = true;
     }
 }

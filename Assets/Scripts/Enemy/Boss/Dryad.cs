@@ -27,7 +27,7 @@ public class Dryad : Enemy
         machine.Init(this, state[EnemyState.Idle]);
     }
 
-    public void Attack()
+    public override void Attack()
     {
         if (this.isAlive)
         {
