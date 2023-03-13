@@ -21,7 +21,7 @@ public class Detect : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Player"))
         {
-            enemy.findTarget = true;
+            enemy.data.findTarget = true;
         }
     }
 
@@ -36,6 +36,6 @@ public class Detect : MonoBehaviour
     private IEnumerator DetectCancel()
     {
         yield return new WaitForSeconds(3);
-        enemy.findTarget = false;
+        enemy.data.findTarget = false;
     }
 }

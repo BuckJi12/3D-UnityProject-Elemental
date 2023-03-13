@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Rigidbody))]
@@ -22,28 +23,21 @@ public abstract class Enemy : MonoBehaviour
     [HideInInspector]
     public GameObject target;
 
-    public MonsterData data;
     [HideInInspector]
-    public int curHP;
+    public EnemyData data;
     [HideInInspector]
-    public int maxHP;
-    [HideInInspector]
-    public int damage;
-    [HideInInspector]
-    public int defence;
-    [HideInInspector]
-    public float attackSpeed;
-    [HideInInspector]
-    public float attackRange;
+    public ElementalReation ele;
 
-    [HideInInspector]
-    public bool isAlive = true;
-    [HideInInspector]
-    public bool findTarget = false;
-    [HideInInspector]
-    public bool canAttack = false;
+    [SerializeField]
+    private GameObject coin;
+    [SerializeField]
+    private GameObject weapon;
+    [SerializeField]
+    private GameObject armor;
+    [SerializeField]
+    private GameObject material;
 
-    public Elemental elementalState;
+    protected UnityEvent<Enemy> killEvent;
 
     public virtual void Attack()
     {
@@ -67,13 +61,63 @@ public abstract class Enemy : MonoBehaviour
 
     public void Die()
     {
-        isAlive = false;
+        data.isAlive = false;
         myCollider.enabled = false;
     }
 
     public void Respawn()
     {
-        isAlive = true;
+        this.gameObject.SetActive(true);
         myCollider.enabled = true;
+        ChangeState(state[EnemyState.Idle]);
+        data.Init();
+    }
+
+    public void DropMoney()
+    {
+        GameObject instance = PoolManager.Instance.Get(coin);
+        Money money = instance.GetComponent<Money>();
+        money.SetMoney(data.monster.money);
+        instance.transform.position = data.damagePos.transform.position;
+    }
+
+    public void DropItem()
+    {
+        if (data.monster.dropItems != null)
+        {
+            for (int i = 0; i < data.monster.dropItems.Count; i++)
+            {
+                int random = Random.Range(1, 100);
+                if (data.monster.dropItems[i].dropRate >= random)
+                {
+                    ItemProp prop = CreateItem(data.monster.dropItems[i].itemData).GetComponent<ItemProp>();
+                    prop.Set(data.monster.dropItems[i].itemData);
+                    prop.transform.position = transform.position;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+    }
+
+    public GameObject CreateItem(ItemData data)
+    {
+        if (data.kind == ItemKind.Equipment)
+        {
+            if (data.equipKind == EquipmentKind.Weapon)
+            {
+                return PoolManager.Instance.Get(weapon);
+            }
+            else
+            {
+                return PoolManager.Instance.Get(armor);
+            }
+        }
+        else
+        {
+            return PoolManager.Instance.Get(material);
+        }
     }
 }

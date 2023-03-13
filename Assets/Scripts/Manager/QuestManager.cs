@@ -56,7 +56,7 @@ public class QuestManager : SingleTon<QuestManager>
 
             if (progressQuests[i].questData.type == QuestType.Kill)
             {
-                if (progressQuests[i].questData.GetTargetData().name == enemy.data.name)
+                if (progressQuests[i].questData.GetTargetData().name == enemy.data.monster.name)
                 {
                     ProgressQuest temp = progressQuests[i];
                     temp.curCount += 1;

@@ -37,16 +37,16 @@ public class EnemyInfoUI : MonoBehaviour
         iceIcon.transform.rotation = Camera.main.transform.rotation;
         fireIcon.transform.rotation = Camera.main.transform.rotation;
 
-        health.fillAmount = (float)enemy.curHP / (float)enemy.maxHP;
+        health.fillAmount = (float)enemy.data.curHP / (float)enemy.data.maxHP;
     }
     public void Set()
     {
-        nameAndLevel.text = "LV  "+ enemy.data.level.ToString() + " " + enemy.data.name.ToString();
+        nameAndLevel.text = "LV  "+ enemy.data.monster.level.ToString() + " " + enemy.data.monster.name.ToString();
     }
 
     public void UpdateIcon()
     {
-        switch (enemy.elementalState)
+        switch (enemy.ele.elementalState)
         {
             case Elemental.None:
                 iceIcon.gameObject.SetActive(false);

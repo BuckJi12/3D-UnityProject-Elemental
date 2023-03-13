@@ -23,7 +23,7 @@ public class AttackRange : MonoBehaviour
     {
         if (other.tag.Equals("Player"))
         {
-            enemy.canAttack = true;
+            enemy.data.canAttack = true;
         }
     }
 
@@ -31,7 +31,7 @@ public class AttackRange : MonoBehaviour
     {
         if (other.tag.Equals("Player"))
         {
-            enemy.canAttack = false;
+            enemy.data.canAttack = false;
         }    
     }
 }

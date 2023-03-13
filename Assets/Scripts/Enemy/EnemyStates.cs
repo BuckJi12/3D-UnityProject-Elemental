@@ -13,7 +13,7 @@ namespace EnemyStates
         }
         public override void Update(Enemy entity)
         {
-            if (entity.findTarget == true)
+            if (entity.data.findTarget == true)
             {
                 entity.ChangeState(entity.state[EnemyState.Move]);
             }
@@ -36,12 +36,12 @@ namespace EnemyStates
         {
             entity.agent.SetDestination(entity.target.transform.position);
 
-            if (entity.canAttack == true)
+            if (entity.data.canAttack == true)
             {
                 entity.ChangeState(entity.state[EnemyState.Attack]);
             }
 
-            if (entity.findTarget == false)
+            if (entity.data.findTarget == false)
             {
                 entity.ChangeState(entity.state[EnemyState.Idle]);
             }
@@ -66,11 +66,11 @@ namespace EnemyStates
 
             if (Time.time > attackDelay)
             {
-                attackDelay = Time.time + entity.attackSpeed;
+                attackDelay = Time.time + entity.data.attackSpeed;
                 entity.anim.SetTrigger("Attack");
             }
 
-            if (entity.canAttack == false)
+            if (entity.data.canAttack == false)
             {
                 entity.ChangeState(entity.state[EnemyState.Move]);
             }

@@ -11502,11 +11502,17 @@ MonoBehaviour:
   hitEffect: {fileID: 929380143026351902}
   text: {fileID: 2889212056616767873, guid: 6ce7e6db12b5edb4d926db94a5aa92ea, type: 3}
   canvas: {fileID: 3855361197721443063}
-  damagePos: {fileID: 1761842622521471890}
-  coin: {fileID: 5249905586712016947, guid: bb391a89e74fd0440ad6226ca52137d4, type: 3}
-  weapon: {fileID: 6016050725477435598, guid: 0c02d597cc41f784bbc3b705b808d452, type: 3}
-  armor: {fileID: 7908226194544605263, guid: 84022a91fdbb61847ba6a0649a84d5d4, type: 3}
-  material: {fileID: 8082225121512686066, guid: 660755a0eb453fa4cac6ce61978ce13a, type: 3}
+  monster: {fileID: 11400000, guid: 1982d7da832605f4f9da425bf2bfba89, type: 2}
+  curHP: 0
+  maxHP: 0
+  damage: 0
+  defence: 0
+  attackSpeed: 0
+  attackRange: 0
+  isAlive: 1
+  findTarget: 0
+  canAttack: 0
+  agent: {fileID: 0}
   killEvent:
     m_PersistentCalls:
       m_Calls:
@@ -11522,6 +11528,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damagePos: {fileID: 1761842622521471890}
 --- !u!114 &3930680992996902656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11556,17 +11563,12 @@ MonoBehaviour:
   anim: {fileID: 0}
   myCollider: {fileID: 0}
   target: {fileID: 0}
-  data: {fileID: 11400000, guid: 1982d7da832605f4f9da425bf2bfba89, type: 2}
-  curHP: 1000
-  maxHP: 1000
-  damage: 100
-  defence: 20
-  attackSpeed: 5
-  attackRange: 8
-  isAlive: 1
-  findTarget: 0
-  canAttack: 0
-  elementalState: 0
+  data: {fileID: 0}
+  ele: {fileID: 0}
+  coin: {fileID: 5249905586712016947, guid: bb391a89e74fd0440ad6226ca52137d4, type: 3}
+  weapon: {fileID: 7821342895640800651, guid: 6ee418eadb465d147ba808009a0e2b19, type: 3}
+  armor: {fileID: 7908226194544605263, guid: 84022a91fdbb61847ba6a0649a84d5d4, type: 3}
+  material: {fileID: 8082225121512686066, guid: 660755a0eb453fa4cac6ce61978ce13a, type: 3}
   energyBall: {fileID: 1381051000491614596, guid: 60287df8e3d72ee4da79f8078f9fcc4c, type: 3}
   attackStartPos: {fileID: 716123709747203507}
 --- !u!1 &7244442124509130628
