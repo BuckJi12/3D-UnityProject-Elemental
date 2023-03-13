@@ -10,7 +10,6 @@ public class Rabbit : Enemy, IDamageable, ISkillHitAble
         data = GetComponent<EnemyData>();
         ele = GetComponent<ElementalReation>();
         rigid = GetComponent<Rigidbody>();
-        agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
         myCollider = GetComponent<CapsuleCollider>();
         target = GameObject.FindWithTag("Player");

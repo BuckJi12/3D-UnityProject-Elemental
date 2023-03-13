@@ -9,7 +9,7 @@ namespace EnemyStates
         public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Idle");
-            entity.agent.isStopped = true;
+            entity.data.agent.isStopped = true;
         }
         public override void Update(Enemy entity)
         {
@@ -30,11 +30,11 @@ namespace EnemyStates
         public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Move");
-            entity.agent.isStopped = false;
+            entity.data.agent.isStopped = false;
         }
         public override void Update(Enemy entity)
         {
-            entity.agent.SetDestination(entity.target.transform.position);
+            entity.data.agent.SetDestination(entity.target.transform.position);
 
             if (entity.data.canAttack == true)
             {
@@ -49,7 +49,7 @@ namespace EnemyStates
 
         public override void Exit(Enemy entity)
         {
-            entity.agent.isStopped = true;
+            entity.data.agent.isStopped = true;
         }
     }
 
@@ -111,6 +111,7 @@ namespace EnemyStates
         public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Die");
+            entity.StartCoroutine(Delay(entity));
         }
 
         public override void Update(Enemy entity)
@@ -121,6 +122,11 @@ namespace EnemyStates
         public override void Exit(Enemy entity)
         {
 
+        }
+        public IEnumerator Delay(Enemy enemy)
+        {
+            yield return new WaitForSeconds(3f);
+            PoolManager.Instance.EnemyRespawn(enemy, 20f);
         }
     }
 }

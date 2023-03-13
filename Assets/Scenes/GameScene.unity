@@ -20820,6 +20820,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0fef57aa8c0772448a3a57390d3c153, type: 3}
+--- !u!195 &777945116 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 2024993685394677508, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+  m_PrefabInstance: {fileID: 2018875097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &780363757 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4483587913382847095, guid: 234a458d2bc9de040834a24c42610268, type: 3}
@@ -60640,6 +60645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkyTurnipa
       objectReference: {fileID: 0}
+    - target: {fileID: 2024993685394677510, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 777945116}
     - target: {fileID: 2024993685394677510, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
       propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

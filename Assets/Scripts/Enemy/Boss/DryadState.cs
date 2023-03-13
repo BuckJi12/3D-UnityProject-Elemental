@@ -10,7 +10,7 @@ namespace DryadStates
         public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Idle");
-            entity.agent.isStopped = true;
+            entity.data.agent.isStopped = true;
         }
         public override void Update(Enemy entity)
         {
@@ -31,11 +31,11 @@ namespace DryadStates
         public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Move");
-            entity.agent.isStopped = false;
+            entity.data.agent.isStopped = false;
         }
         public override void Update(Enemy entity)
         {
-            entity.agent.SetDestination(entity.target.transform.position);
+            entity.data.agent.SetDestination(entity.target.transform.position);
 
             if (entity.data.canAttack == true)
             {
@@ -50,7 +50,7 @@ namespace DryadStates
 
         public override void Exit(Enemy entity)
         {
-            entity.agent.isStopped = true;
+            entity.data.agent.isStopped = true;
         }
     }
 

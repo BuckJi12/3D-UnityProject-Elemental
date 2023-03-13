@@ -13,7 +13,6 @@ public class Dryad : Enemy, IDamageable, ISkillHitAble
         data = GetComponent<EnemyData>();
         ele = GetComponent<ElementalReation>();
         rigid = GetComponent<Rigidbody>();
-        agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
         myCollider = GetComponent<CapsuleCollider>();
 

@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyData : MonoBehaviour
 {
     public ParticleSystem hitEffect;
@@ -17,6 +18,7 @@ public class EnemyData : MonoBehaviour
     private Canvas canvas;
 
     public MonsterData monster;
+
     [HideInInspector]
     public int curHP;
     [HideInInspector]
@@ -37,7 +39,6 @@ public class EnemyData : MonoBehaviour
     [HideInInspector]
     public bool canAttack = false;
 
-    [HideInInspector]
     public NavMeshAgent agent;
 
     private DamageText damageText;

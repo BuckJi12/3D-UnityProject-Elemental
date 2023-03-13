@@ -70,6 +70,18 @@ public class PoolManager : SingleTon<PoolManager>
         stack.Push(instance);
     }
 
+    public void EnemyRespawn(Enemy enemy, float delayTime)
+    {
+        enemy.gameObject.SetActive(false);
+        StartCoroutine(DelayTime(delayTime));
+        enemy.gameObject.SetActive(true);
+    }
+
+    private IEnumerator DelayTime(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+    }
+
     [Serializable]
     public struct Poolable
     {

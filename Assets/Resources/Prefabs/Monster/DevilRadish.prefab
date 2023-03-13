@@ -110,6 +110,7 @@ MonoBehaviour:
   hitEffect: {fileID: 6768563097235781259}
   text: {fileID: 2889212056616767873, guid: 6ce7e6db12b5edb4d926db94a5aa92ea, type: 3}
   canvas: {fileID: 7245140076033704802}
+  model: {fileID: 848756093245311436}
   monster: {fileID: 11400000, guid: f7cb32a75f357a047abb29f2cf82ee93, type: 2}
   curHP: 0
   maxHP: 0
@@ -120,7 +121,7 @@ MonoBehaviour:
   isAlive: 1
   findTarget: 0
   canAttack: 0
-  agent: {fileID: 0}
+  agent: {fileID: 848756092276691279}
   killEvent:
     m_PersistentCalls:
       m_Calls:
@@ -167,7 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigid: {fileID: 0}
-  agent: {fileID: 0}
   anim: {fileID: 0}
   myCollider: {fileID: 0}
   target: {fileID: 0}

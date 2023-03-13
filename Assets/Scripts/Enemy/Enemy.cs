@@ -11,8 +11,6 @@ public abstract class Enemy : MonoBehaviour
     [HideInInspector]
     public Rigidbody rigid;
     [HideInInspector]
-    public NavMeshAgent agent;
-    [HideInInspector]
     public Animator anim;
     [HideInInspector]
     public CapsuleCollider myCollider;
@@ -42,6 +40,11 @@ public abstract class Enemy : MonoBehaviour
     public virtual void Attack()
     {
 
+    }
+
+    private void OnEnable()
+    {
+        Respawn();
     }
 
     private void Update()
