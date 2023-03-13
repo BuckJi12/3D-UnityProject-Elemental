@@ -70,7 +70,6 @@ public abstract class Enemy : MonoBehaviour
 
     public void Respawn()
     {
-        this.gameObject.SetActive(true);
         myCollider.enabled = true;
         ChangeState(state[EnemyState.Idle]);
         data.Init();

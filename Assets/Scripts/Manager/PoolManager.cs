@@ -73,13 +73,13 @@ public class PoolManager : SingleTon<PoolManager>
     public void EnemyRespawn(Enemy enemy, float delayTime)
     {
         enemy.gameObject.SetActive(false);
-        StartCoroutine(DelayTime(delayTime));
-        enemy.gameObject.SetActive(true);
+        StartCoroutine(DelayTime(enemy, delayTime));
     }
 
-    private IEnumerator DelayTime(float delayTime)
+    private IEnumerator DelayTime(Enemy enemy, float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
+        enemy.gameObject.SetActive(true);
     }
 
     [Serializable]
