@@ -43,7 +43,6 @@ public class EnemyData : MonoBehaviour
 
     private DamageText damageText;
 
-    public UnityEvent<Enemy> killEvent;
     public GameObject damagePos;
 
     private void Awake()

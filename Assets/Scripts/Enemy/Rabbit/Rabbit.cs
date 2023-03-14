@@ -67,7 +67,7 @@ public class Rabbit : Enemy, IDamageable, ISkillHitAble
                 Die();
                 DropMoney();
                 DropItem();
-                killEvent?.Invoke(this);
+                QuestManager.Instance.KillRequestUpdate(this);
                 PlayerStatManager.Instance.CalculateEXP(data.monster.exp);
                 ChangeState(state[EnemyState.Die]);
             }
@@ -99,7 +99,7 @@ public class Rabbit : Enemy, IDamageable, ISkillHitAble
                 Die();
                 DropMoney();
                 DropItem();
-                killEvent?.Invoke(this);
+                QuestManager.Instance.KillRequestUpdate(this);
                 PlayerStatManager.Instance.CalculateEXP(data.monster.exp);
                 ChangeState(state[EnemyState.Die]);
             }

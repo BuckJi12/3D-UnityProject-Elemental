@@ -35,8 +35,6 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject material;
 
-    protected UnityEvent<Enemy> killEvent;
-
     public virtual void Attack()
     {
 

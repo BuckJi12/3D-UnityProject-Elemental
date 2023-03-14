@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3594626, g: 0.75101817, b: 0.806595, a: 1}
+  m_IndirectSpecularColor: {r: 0.3592844, g: 0.7508059, b: 0.80634266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -656,6 +656,30 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1561644977}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5430726391980046220, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1200,6 +1224,30 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1561644977}
+    - target: {fileID: 5242859799939610341, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242859799939610341, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 5242859799939610341, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242859799939610341, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242859799939610341, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242859799939610341, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6542733263821639768, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -1896,6 +1944,30 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1561644977}
+    - target: {fileID: 5242859799939610341, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242859799939610341, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 5242859799939610341, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242859799939610341, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242859799939610341, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242859799939610341, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6542733263821639768, guid: 86a8e3c15bfd1d74e8b5c9a71acfd172, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -2244,6 +2316,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1456270468}
     m_Modifications:
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5352544145611716344, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
       propertyPath: m_Name
       value: WhiteRabbit
@@ -8765,6 +8861,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1456270468}
     m_Modifications:
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5352544145611716344, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
       propertyPath: m_Name
       value: WhiteRabbit
@@ -9203,6 +9323,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1456270468}
     m_Modifications:
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7828805642991608313, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
       propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14869,6 +15013,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1456270468}
     m_Modifications:
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5352544145611716344, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
       propertyPath: m_Name
       value: WhiteRabbit
@@ -17936,6 +18104,30 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1561644977}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5430726391980046220, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -21745,7 +21937,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802458476}
-  m_LocalRotation: {x: 0.118918, y: 0.70881563, z: -0.12317838, w: 0.68429965}
+  m_LocalRotation: {x: 0.11891799, y: 0.70881575, z: -0.12317839, w: 0.6842995}
   m_LocalPosition: {x: 403.00308, y: 4, z: 60.175926}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24107,6 +24299,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1456270468}
     m_Modifications:
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 90504270236037941, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5352544145611716344, guid: 7a6194d3c0b67cb46af9b39e494e2c9d, type: 3}
       propertyPath: m_Name
       value: WhiteRabbit
@@ -24492,6 +24708,30 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1561644977}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5430726391980046220, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -28454,7 +28694,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068899130}
-  m_LocalRotation: {x: 0.11891797, y: 0.70881563, z: -0.123178385, w: 0.68429965}
+  m_LocalRotation: {x: 0.11891797, y: 0.7088157, z: -0.12317838, w: 0.68429965}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -31907,6 +32147,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1456270468}
     m_Modifications:
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7828805642991608313, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
       propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -35200,6 +35464,30 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1561644977}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
 --- !u!224 &1295509338 stripped
@@ -38360,6 +38648,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1456270468}
     m_Modifications:
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7828805642991608313, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
       propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
@@ -38507,6 +38819,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1456270468}
     m_Modifications:
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450196924321660133, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7828805642991608313, guid: 2ebb219b3a5e595408b54700d9f058bb, type: 3}
       propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -41599,7 +41935,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428909725}
-  m_LocalRotation: {x: 0.18539979, y: 0.69333434, z: -0.19204204, w: 0.66935366}
+  m_LocalRotation: {x: 0.18539982, y: 0.6933343, z: -0.19204201, w: 0.6693537}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -43020,6 +43356,30 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1561644977}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
 --- !u!1001 &1497813092
@@ -57014,6 +57374,30 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1561644977}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
 --- !u!224 &1913414030 stripped
@@ -59824,6 +60208,30 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1561644977}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598958830224893495, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5430726391980046220, guid: 8fc165c4f699d6c49a2ba88c4b056243, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -60657,6 +61065,30 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1561644977}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 684684575}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillRequestUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311026627294500413, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
+      propertyPath: killEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c75a78ddb83dfc64fa1e745cfca05992, type: 3}
 --- !u!114 &2019462074 stripped
