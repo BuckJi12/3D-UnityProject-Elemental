@@ -126,7 +126,7 @@ namespace EnemyStates
         public IEnumerator Delay(Enemy enemy)
         {
             yield return new WaitForSeconds(3f);
-            PoolManager.Instance.EnemyRespawn(enemy, 20f);
+            PoolManager.Instance.EnemyRespawn(enemy, 100f);
         }
     }
 }

@@ -39,7 +39,7 @@ public class InventoryManager : SingleTon<InventoryManager>
         {
             usables.Add(null);
         }
-        for (int i = 0; i < usables.Capacity; i++)
+        for (int i = 0; i < materials.Capacity; i++)
         {
             materials.Add(null);
         }
@@ -182,18 +182,39 @@ public class InventoryManager : SingleTon<InventoryManager>
         }
     }
 
-    public void RemoveItem(InventoryItem inventoryItem)
+    public void RemoveItem(InventoryItem inventoryItem, int count = 1)
     {
-        int index = ListType(inventoryItem).FindIndex(x => x == inventoryItem);
-        if (ListType(inventoryItem)[index].count > 1)
+        if (inventoryItem.data.kind == ItemKind.Equipment)
         {
-            ListType(inventoryItem)[index].count -= 1;
+            int index = ListType(inventoryItem).FindIndex(x => x == inventoryItem);
+            if (ListType(inventoryItem)[index].count > 1)
+            {
+                ListType(inventoryItem)[index].count -= count;
+            }
+            else
+            {
+                ListType(inventoryItem)[index] = null;
+            }
+            UIType(inventoryItem).UpdateUI(GetUIState(inventoryItem));
         }
         else
         {
-            ListType(inventoryItem)[index] = null;
+            for (int i = 0; i < ListType(inventoryItem).Capacity; i++)
+            {
+                if (ListType(inventoryItem)[i] != null)
+                {
+                    if (ListType(inventoryItem)[i].data.name == inventoryItem.data.name)
+                    {
+                        ListType(inventoryItem)[i].count -= count;
+                        if (ListType(inventoryItem)[i].count < 1)
+                            ListType(inventoryItem)[i] = null;
+
+                        UIType(inventoryItem).UpdateUI(GetUIState(inventoryItem));
+                        return;
+                    }
+                }
+            }
         }
-        UIType(inventoryItem).UpdateUI(GetUIState(inventoryItem));
     }
 
     public int FindItem(ItemData item)

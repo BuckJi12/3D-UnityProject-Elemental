@@ -150,6 +150,7 @@ namespace DryadStates
         public override void Enter(Enemy entity)
         {
             entity.anim.SetTrigger("Die");
+            entity.StartCoroutine(Delay(entity));
         }
 
         public override void Update(Enemy entity)
@@ -160,6 +161,11 @@ namespace DryadStates
         public override void Exit(Enemy entity)
         {
 
+        }
+        public IEnumerator Delay(Enemy enemy)
+        {
+            yield return new WaitForSeconds(3f);
+            PoolManager.Instance.EnemyRespawn(enemy, 20f);
         }
     }
 }

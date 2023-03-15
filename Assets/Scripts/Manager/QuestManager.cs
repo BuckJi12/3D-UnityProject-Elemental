@@ -109,6 +109,13 @@ public class QuestManager : SingleTon<QuestManager>
 
             if (progressQuests[i].canComplete == true)
             {
+                if (progressQuests[i].questData.type == QuestType.Collected)
+                {
+                    InventoryItem item = new InventoryItem();
+                    item.data = progressQuests[i].questData.GetItemData();
+                    InventoryManager.Instance.RemoveItem(item, progressQuests[i].questData.goalCount);
+                }
+
                 GameManager.Instance.money += progressQuests[i].questData.questMoney;
                 if (progressQuests[i].questData.rewards != null)
                 {
