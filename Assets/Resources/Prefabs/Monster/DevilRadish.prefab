@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 848756092276691277}
   - component: {fileID: 7460076030780808853}
   - component: {fileID: 1858147316200779632}
+  - component: {fileID: 6908745908484417110}
   m_Layer: 8
   m_Name: DevilRadish
   m_TagString: Monster
@@ -110,7 +111,6 @@ MonoBehaviour:
   hitEffect: {fileID: 6768563097235781259}
   text: {fileID: 2889212056616767873, guid: 6ce7e6db12b5edb4d926db94a5aa92ea, type: 3}
   canvas: {fileID: 7245140076033704802}
-  model: {fileID: 848756093245311436}
   monster: {fileID: 11400000, guid: f7cb32a75f357a047abb29f2cf82ee93, type: 2}
   curHP: 0
   maxHP: 0
@@ -122,21 +122,6 @@ MonoBehaviour:
   findTarget: 0
   canAttack: 0
   agent: {fileID: 848756092276691279}
-  killEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
-        m_MethodName: KillRequestUpdate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   damagePos: {fileID: 5294056754712521223}
 --- !u!114 &7460076030780808853
 MonoBehaviour:
@@ -179,6 +164,20 @@ MonoBehaviour:
   material: {fileID: 8082225121512686066, guid: 660755a0eb453fa4cac6ce61978ce13a, type: 3}
   energyBall: {fileID: 1381051000491614596, guid: 60287df8e3d72ee4da79f8078f9fcc4c, type: 3}
   attackStartPos: {fileID: 6411780815178093606}
+--- !u!114 &6908745908484417110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848756092276691272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47edf0c1787f54c40a9562db0c0a5596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  elementalState: 0
 --- !u!1 &848756092457388972
 GameObject:
   m_ObjectHideFlags: 0

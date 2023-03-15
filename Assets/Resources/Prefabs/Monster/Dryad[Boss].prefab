@@ -692,6 +692,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7516208470423952226}
+  - component: {fileID: 4434192643612624886}
   m_Layer: 0
   m_Name: Dryad[Boss]
   m_TagString: Untagged
@@ -715,6 +716,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4434192643612624886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7516208470423952227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47edf0c1787f54c40a9562db0c0a5596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  elementalState: 0
 --- !u!1 &7516208470521345909
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +960,6 @@ MonoBehaviour:
   hitEffect: {fileID: 7917582285988671843, guid: 4171e4ab4c836f84eb7a12ea76b22a83, type: 3}
   text: {fileID: 2889212056616767873, guid: 6ce7e6db12b5edb4d926db94a5aa92ea, type: 3}
   canvas: {fileID: 505076472711254477}
-  model: {fileID: 7516208470423952227}
   monster: {fileID: 11400000, guid: 48b8d94c76614724ea600eae790b9909, type: 2}
   curHP: 0
   maxHP: 0
@@ -957,21 +971,6 @@ MonoBehaviour:
   findTarget: 0
   canAttack: 0
   agent: {fileID: 7516208471384703968}
-  killEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
-        m_MethodName: KillRequestUpdate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   damagePos: {fileID: 3094474814200920232}
 --- !u!114 &292188053419297850
 MonoBehaviour:

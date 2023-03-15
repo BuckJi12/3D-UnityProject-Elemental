@@ -758,6 +758,7 @@ GameObject:
   - component: {fileID: 5430726392100892428}
   - component: {fileID: 2818462086932357332}
   - component: {fileID: 2598958830224893495}
+  - component: {fileID: 4478553673239820097}
   m_Layer: 8
   m_Name: DevilTurinap
   m_TagString: Monster
@@ -852,7 +853,6 @@ MonoBehaviour:
   hitEffect: {fileID: 3435108571739937062}
   text: {fileID: 2889212056616767873, guid: 6ce7e6db12b5edb4d926db94a5aa92ea, type: 3}
   canvas: {fileID: 2598958830795980067}
-  model: {fileID: 5430726391980046221}
   monster: {fileID: 11400000, guid: ed3bd8fd4a334cf4787b437f68be1ca7, type: 2}
   curHP: 0
   maxHP: 0
@@ -864,21 +864,6 @@ MonoBehaviour:
   findTarget: 0
   canAttack: 0
   agent: {fileID: 5430726392100892430}
-  killEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
-        m_MethodName: KillRequestUpdate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   damagePos: {fileID: 712403663875691590}
 --- !u!114 &2818462086932357332
 MonoBehaviour:
@@ -919,6 +904,20 @@ MonoBehaviour:
   weapon: {fileID: 7821342895640800651, guid: 6ee418eadb465d147ba808009a0e2b19, type: 3}
   armor: {fileID: 7908226194544605263, guid: 84022a91fdbb61847ba6a0649a84d5d4, type: 3}
   material: {fileID: 8082225121512686066, guid: 660755a0eb453fa4cac6ce61978ce13a, type: 3}
+--- !u!114 &4478553673239820097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430726392100892425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47edf0c1787f54c40a9562db0c0a5596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  elementalState: 0
 --- !u!1 &5430726392264652269
 GameObject:
   m_ObjectHideFlags: 0

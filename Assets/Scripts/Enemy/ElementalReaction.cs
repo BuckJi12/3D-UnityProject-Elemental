@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElementalReation : MonoBehaviour
+public class ElementalReaction : MonoBehaviour
 {
+    [HideInInspector]
     public EnemyData data;
+    [HideInInspector]
     public Elemental elementalState;
 
     private EnemyInfoUI infoUI;
@@ -12,6 +14,7 @@ public class ElementalReation : MonoBehaviour
     private void Awake()
     {
         data = GetComponent<EnemyData>();
+        infoUI = GetComponent<EnemyInfoUI>();
     }
 
     private void Update()
@@ -19,7 +22,7 @@ public class ElementalReation : MonoBehaviour
         Expansion();
     }
 
-    public void ElementalReaction(Skill skill)
+    public void Reaction(Skill skill)
     {
         switch (elementalState)
         {

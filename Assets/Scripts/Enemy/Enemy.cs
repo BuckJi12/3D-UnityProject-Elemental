@@ -24,7 +24,7 @@ public abstract class Enemy : MonoBehaviour
     [HideInInspector]
     public EnemyData data;
     [HideInInspector]
-    public ElementalReation ele;
+    public ElementalReaction ele;
 
     [SerializeField]
     private GameObject coin;

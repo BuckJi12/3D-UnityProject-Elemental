@@ -790,6 +790,7 @@ GameObject:
   - component: {fileID: 1669790340609440262}
   - component: {fileID: 1450196924321660133}
   - component: {fileID: 7828805642991608313}
+  - component: {fileID: 1973366224}
   m_Layer: 8
   m_Name: Turnipa
   m_TagString: Monster
@@ -923,7 +924,6 @@ MonoBehaviour:
   hitEffect: {fileID: 2277286672843424756}
   text: {fileID: 2889212056616767873, guid: 6ce7e6db12b5edb4d926db94a5aa92ea, type: 3}
   canvas: {fileID: 1450196924892211185}
-  model: {fileID: 8893670020470156639}
   monster: {fileID: 11400000, guid: d0c52be316515014e961278d86a94873, type: 2}
   curHP: 0
   maxHP: 0
@@ -935,22 +935,21 @@ MonoBehaviour:
   findTarget: 0
   canAttack: 0
   agent: {fileID: 8893670021086459356}
-  killEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
-        m_MethodName: KillRequestUpdate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   damagePos: {fileID: 4166830732940562068}
+--- !u!114 &1973366224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8893670021086459355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47edf0c1787f54c40a9562db0c0a5596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  elementalState: 0
 --- !u!1 &8893670021258080063
 GameObject:
   m_ObjectHideFlags: 0

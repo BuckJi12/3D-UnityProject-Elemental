@@ -8,7 +8,7 @@ public class Rabbit : Enemy, IDamageable, ISkillHitAble
     private void Awake()
     {
         data = GetComponent<EnemyData>();
-        ele = GetComponent<ElementalReation>();
+        ele = GetComponent<ElementalReaction>();
         rigid = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         myCollider = GetComponent<CapsuleCollider>();
@@ -85,13 +85,13 @@ public class Rabbit : Enemy, IDamageable, ISkillHitAble
             {
                 data.curHP -= PlayerStatManager.Instance.CalculateSkillDamage(data.monster, skill, true);
                 data.SkillDamageText(PlayerStatManager.Instance.CalculateSkillDamage(data.monster, skill, true), true, skill.data.type);
-                ele.ElementalReaction(skill);
+                ele.Reaction(skill);
             }
             else
             {
                 data.curHP -= PlayerStatManager.Instance.CalculateSkillDamage(data.monster, skill, false);
                 data.SkillDamageText(PlayerStatManager.Instance.CalculateSkillDamage(data.monster, skill, false), false, skill.data.type);
-                ele.ElementalReaction(skill);
+                ele.Reaction(skill);
             }
 
             if (data.curHP <= 0)

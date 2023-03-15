@@ -10650,6 +10650,7 @@ GameObject:
   - component: {fileID: 9012131297539829402}
   - component: {fileID: 1247889751316095298}
   - component: {fileID: 3490629343462808379}
+  - component: {fileID: 7464876104583292658}
   m_Layer: 8
   m_Name: DevilTree
   m_TagString: Monster
@@ -10744,7 +10745,6 @@ MonoBehaviour:
   hitEffect: {fileID: 3114277382511200604}
   text: {fileID: 2889212056616767873, guid: 6ce7e6db12b5edb4d926db94a5aa92ea, type: 3}
   canvas: {fileID: 1323229270322773173}
-  model: {fileID: 9012131296830731803}
   monster: {fileID: 11400000, guid: 39cb1026deda02843aa403993259af8f, type: 2}
   curHP: 0
   maxHP: 0
@@ -10756,21 +10756,6 @@ MonoBehaviour:
   findTarget: 0
   canAttack: 0
   agent: {fileID: 9012131297539829400}
-  killEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
-        m_MethodName: KillRequestUpdate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   damagePos: {fileID: 4588783261206369744}
 --- !u!114 &1247889751316095298
 MonoBehaviour:
@@ -10811,6 +10796,20 @@ MonoBehaviour:
   weapon: {fileID: 7821342895640800651, guid: 6ee418eadb465d147ba808009a0e2b19, type: 3}
   armor: {fileID: 7908226194544605263, guid: 84022a91fdbb61847ba6a0649a84d5d4, type: 3}
   material: {fileID: 8082225121512686066, guid: 660755a0eb453fa4cac6ce61978ce13a, type: 3}
+--- !u!114 &7464876104583292658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012131297539829407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47edf0c1787f54c40a9562db0c0a5596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  elementalState: 0
 --- !u!1 &9012131297653191803
 GameObject:
   m_ObjectHideFlags: 0

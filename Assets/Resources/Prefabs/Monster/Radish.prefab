@@ -11407,6 +11407,7 @@ GameObject:
   - component: {fileID: 6542733264219834584}
   - component: {fileID: 3930680992996902656}
   - component: {fileID: 5242859799939610341}
+  - component: {fileID: 4843701129827595269}
   m_Layer: 8
   m_Name: Radish
   m_TagString: Monster
@@ -11502,7 +11503,6 @@ MonoBehaviour:
   hitEffect: {fileID: 929380143026351902}
   text: {fileID: 2889212056616767873, guid: 6ce7e6db12b5edb4d926db94a5aa92ea, type: 3}
   canvas: {fileID: 3855361197721443063}
-  model: {fileID: 6542733263821639769}
   monster: {fileID: 11400000, guid: 1982d7da832605f4f9da425bf2bfba89, type: 2}
   curHP: 0
   maxHP: 0
@@ -11514,21 +11514,6 @@ MonoBehaviour:
   findTarget: 0
   canAttack: 0
   agent: {fileID: 6542733264219834586}
-  killEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
-        m_MethodName: KillRequestUpdate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   damagePos: {fileID: 1761842622521471890}
 --- !u!114 &3930680992996902656
 MonoBehaviour:
@@ -11571,6 +11556,20 @@ MonoBehaviour:
   material: {fileID: 8082225121512686066, guid: 660755a0eb453fa4cac6ce61978ce13a, type: 3}
   energyBall: {fileID: 1381051000491614596, guid: 60287df8e3d72ee4da79f8078f9fcc4c, type: 3}
   attackStartPos: {fileID: 716123709747203507}
+--- !u!114 &4843701129827595269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6542733264219834589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47edf0c1787f54c40a9562db0c0a5596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  elementalState: 0
 --- !u!1 &7244442124509130628
 GameObject:
   m_ObjectHideFlags: 0
