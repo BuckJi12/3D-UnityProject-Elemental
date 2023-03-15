@@ -7,22 +7,24 @@ using UnityEngine.UI;
 
 public class CompleteQuest : MonoBehaviour
 {
+    [SerializeField]
     private Image image;
     private TextMeshProUGUI[] texts;
 
     private void Awake()
     {
-        image = GetComponent<Image>();
         texts = GetComponentsInChildren<TextMeshProUGUI>();
-    }
-
-    private void Start()
-    {
-        UnSet();
     }
 
     public void Set()
     {
+        if (!QuestManager.Instance.progressQuests[transform.GetSiblingIndex()].canComplete)
+        {
+            UnSet();
+            return;
+        }
+        texts = GetComponentsInChildren<TextMeshProUGUI>();
+
         image.enabled = true;
         for (int i = 0; i < texts.Length; i++)
         {
@@ -35,6 +37,7 @@ public class CompleteQuest : MonoBehaviour
 
     public void UnSet()
     {
+        texts = GetComponentsInChildren<TextMeshProUGUI>();
         image.enabled = false;
         for (int i = 0; i < texts.Length; i++)
         {

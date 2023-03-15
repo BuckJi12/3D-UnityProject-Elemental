@@ -730,6 +730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 0}
   elementalState: 0
+  infoUI: {fileID: 0}
 --- !u!1 &7516208470521345909
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +865,7 @@ GameObject:
   - component: {fileID: 7516208471384703970}
   - component: {fileID: 292188053419297850}
   - component: {fileID: 7612567713351527989}
+  - component: {fileID: 1968057751}
   m_Layer: 8
   m_Name: Dryad
   m_TagString: Monster
@@ -989,6 +991,7 @@ MonoBehaviour:
   healthBar: {fileID: 505076472536867890}
   iceIcon: {fileID: 505076473644712816}
   fireIcon: {fileID: 505076472150814553}
+  enemy: {fileID: 7612567713351527989}
 --- !u!114 &7612567713351527989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1012,6 +1015,21 @@ MonoBehaviour:
   armor: {fileID: 7908226194544605263, guid: 84022a91fdbb61847ba6a0649a84d5d4, type: 3}
   material: {fileID: 8082225121512686066, guid: 660755a0eb453fa4cac6ce61978ce13a, type: 3}
   specialAttack: {fileID: 6369717976143562737, guid: df0e70b598ab1704e8b9f8bda6efcb2b, type: 3}
+--- !u!114 &1968057751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7516208471384703975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47edf0c1787f54c40a9562db0c0a5596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  elementalState: 0
+  infoUI: {fileID: 292188053419297850}
 --- !u!1 &8577131638404983942
 GameObject:
   m_ObjectHideFlags: 0

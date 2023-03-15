@@ -140,6 +140,7 @@ MonoBehaviour:
   healthBar: {fileID: 7245140076207060637}
   iceIcon: {fileID: 7245140075090219487}
   fireIcon: {fileID: 7245140076593151478}
+  enemy: {fileID: 1858147316200779632}
 --- !u!114 &1858147316200779632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 0}
   elementalState: 0
+  infoUI: {fileID: 7460076030780808853}
 --- !u!1 &848756092457388972
 GameObject:
   m_ObjectHideFlags: 0

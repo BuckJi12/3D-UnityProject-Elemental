@@ -59,7 +59,8 @@ public class QuestManager : SingleTon<QuestManager>
                 if (progressQuests[i].questData.GetTargetData().name == enemy.data.monster.name)
                 {
                     ProgressQuest temp = progressQuests[i];
-                    temp.curCount += 1;
+                    if (!temp.canComplete)
+                        temp.curCount += 1;
                     if (temp.curCount >= progressQuests[i].questData.goalCount)
                     {
                         temp.canComplete = true;
@@ -86,10 +87,12 @@ public class QuestManager : SingleTon<QuestManager>
                 if (temp.curCount >= progressQuests[i].questData.goalCount)
                 {
                     temp.canComplete = true;
+                    completeUI?.Invoke();
                 }
                 else
                 {
                     temp.canComplete = false;
+                    completeUI?.Invoke();
                 }
                 progressQuests[i] = temp;
                 progressUI?.Invoke();

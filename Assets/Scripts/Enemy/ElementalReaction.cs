@@ -9,12 +9,11 @@ public class ElementalReaction : MonoBehaviour
     [HideInInspector]
     public Elemental elementalState;
 
-    private EnemyInfoUI infoUI;
+    public EnemyInfoUI infoUI;
 
     private void Awake()
     {
         data = GetComponent<EnemyData>();
-        infoUI = GetComponent<EnemyInfoUI>();
     }
 
     private void Update()

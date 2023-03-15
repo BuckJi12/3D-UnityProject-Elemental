@@ -12,19 +12,20 @@ public class CompleteUI : MonoBehaviour
         quests = GetComponentsInChildren<CompleteQuest>();
     }
 
+    private void OnEnable()
+    {
+        UpdateUI();
+    }
+
     public void UpdateUI()
     {
         quests = GetComponentsInChildren<CompleteQuest>();
-        for (int i = 0; i < QuestManager.Instance.progressQuests.Count; i++)
+        for (int i = 0; i < 5; i++)
         {
-            if (QuestManager.Instance.progressQuests[i].canComplete)
-            {
+            if (i < QuestManager.Instance.progressQuests.Count)
                 quests[i].Set();
-            }
             else
-            {
                 quests[i].UnSet();
-            }
         }
     }
 }

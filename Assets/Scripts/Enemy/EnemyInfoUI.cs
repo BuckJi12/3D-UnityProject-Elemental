@@ -17,12 +17,9 @@ public class EnemyInfoUI : MonoBehaviour
     [SerializeField]
     private Image fireIcon;
 
+    [SerializeField]
     private Enemy enemy;
 
-    private void Awake()
-    {
-        enemy = GetComponent<Enemy>();
-    }
 
     private void Start()
     {

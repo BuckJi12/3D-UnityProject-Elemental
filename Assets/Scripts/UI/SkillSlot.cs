@@ -27,8 +27,8 @@ public class SkillSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     [HideInInspector]
     public Skill skill;
-    
-    private void Start()
+
+    private void Awake()
     {
         skillIcon = GetComponent<Image>();
         skillIcon.enabled = false;
