@@ -70,6 +70,7 @@ public abstract class Enemy : MonoBehaviour
     {
         myCollider.enabled = true;
         ChangeState(state[EnemyState.Idle]);
+        ele.elementalState = Elemental.None;
         data.Init();
     }
 
